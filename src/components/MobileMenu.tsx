@@ -17,7 +17,7 @@ const allLinks: NavLink[] = [
   { href: "/auctions",         icon: "gavel",                    label: "Live Auctions" },
   { href: "/parts",            icon: "settings_input_component", label: "Parts Marketplace" },
   { href: "/valuation",        icon: "analytics",                label: "Value My Car" },
-  { href: "/history/VIN-DEMO", icon: "policy",                   label: "RC & History Check" },
+  { href: "/history", icon: "policy",                   label: "RC & History Check" },
   { href: "/challan",          icon: "receipt_long",             label: "Challan Check" },
   { href: "/compare",          icon: "compare",                  label: "Compare Cars" },
   { href: "/help",             icon: "help_outline",             label: "Help & Support" },

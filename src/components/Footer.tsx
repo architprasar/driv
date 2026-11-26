@@ -21,7 +21,7 @@ const cols = [
   {
     title: "Trust & Safety",
     links: [
-      { href: "/history/VIN-DEMO", label: "RC & History Check" },
+      { href: "/history", label: "RC & History Check" },
       { href: "/challan",          label: "Challan Check" },
       { href: "/help",             label: "Help Centre" },
       { href: "/help",             label: "Contact Us" },

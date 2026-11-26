@@ -21,7 +21,7 @@ const categoryLinks = [
   { href: "/auctions",         label: "Auctions" },
   { href: "/parts",            label: "Parts" },
   { href: "/valuation",        label: "Value My Car" },
-  { href: "/history/VIN-DEMO", label: "RC Check" },
+  { href: "/history", label: "RC Check" },
   { href: "/challan",          label: "Challan" },
 ];
 

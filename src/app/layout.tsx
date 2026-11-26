@@ -13,11 +13,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-// Set at build time (deployment/frontend.Dockerfile DEMO_MODE build arg).
-const demoMode = ["true", "1", "yes"].includes(
-  (process.env.NEXT_PUBLIC_DEMO_MODE || "").toLowerCase(),
-);
-
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -59,14 +54,6 @@ export default async function RootLayout({
       </head>
       {/* Shared sticky header stays in document flow on every route. */}
       <body className="bg-background text-on-surface min-h-screen">
-        {demoMode && (
-          <div
-            role="note"
-            className="border-b border-live-border bg-live-container px-4 py-2 text-center text-sm font-medium text-on-live-container"
-          >
-            Demo site: checkout is simulated and no money is charged.
-          </div>
-        )}
         <SiteChrome position="header" site={site} />
         <main>{children}</main>
         <SiteChrome position="footer" site={site} />
