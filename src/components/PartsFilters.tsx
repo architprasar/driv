@@ -75,7 +75,7 @@ export default function PartsFilters({ totalCount, categories, title, basePath =
               <option value="price_desc">Price: High to Low</option>
             </select>
           </div>
-          <button onClick={() => setIsOpen(true)} className="whitespace-nowrap px-4 py-2.5 bg-on-surface text-surface rounded-xl font-black text-sm tracking-wide flex items-center gap-2 press-effect">
+          <button onClick={() => setIsOpen(true)} className="whitespace-nowrap px-4 py-2.5 bg-primary text-on-primary rounded-xl font-bold text-sm flex items-center gap-2 press-effect hover:bg-primary-hover">
             <span className="material-symbols-outlined text-[18px]">tune</span>
             <span>Filters</span>
             {activeCount > 0 && <span className="inline-flex items-center justify-center min-w-6 h-6 px-1.5 rounded-md bg-primary text-on-primary text-[11px] font-black">{activeCount}</span>}

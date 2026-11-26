@@ -43,8 +43,10 @@ export default async function PartsPage() {
     list<Brand>("/cars/brands/"),
   ]);
   const copy = cms ?? FALLBACK;
-  const picks = (featured.items.length ? featured.items : all.items).slice(0, 8);
+  const picks = (featured.items.length ? featured.items : all.items).slice(0, 10);
   const unavailable = !all.count && !cats.items.length;
+  const stocked = cats.items.filter((c) => c.part_count > 0);
+  const heroCats = [...stocked].sort((a, b) => b.part_count - a.part_count).slice(0, 4);
 
   return (
     <>
@@ -61,7 +63,9 @@ export default async function PartsPage() {
                 aria-label="Search parts by name or SKU"
                 placeholder="Part name or SKU, e.g. brake disc, BRK-FD-3001"
               />
-              <button type="submit">Find parts</button>
+              <button type="submit">
+                Find parts <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+              </button>
             </form>
             <p className="pt-quick">
               Popular:
@@ -69,12 +73,28 @@ export default async function PartsPage() {
                 <Link key={q} href={`/parts/list?q=${encodeURIComponent(q)}`}>{q}</Link>
               ))}
             </p>
+            <ul className="pt-trust">
+              {[["check", "Fitment listed"], ["verified", "Genuine OEM marked"], ["undo", "Returns tracked"]].map(([icon, label]) => (
+                <li key={label}>
+                  <span className="material-symbols-outlined" aria-hidden="true">{icon}</span>
+                  {label}
+                </li>
+              ))}
+            </ul>
           </div>
-          <dl className="pt-stats" aria-label="Catalogue at a glance">
-            <div><dt>Parts listed</dt><dd>{all.count}</dd></div>
-            <div><dt>Categories</dt><dd>{cats.items.length}</dd></div>
-            <div><dt>Car brands covered</dt><dd>{brands.items.length}</dd></div>
-          </dl>
+          {heroCats.length > 0 && (
+            <nav className="pt-hero-cats" aria-label="Popular categories">
+              {heroCats.map((c) => (
+                <Link key={c.id} href={`/parts/list?category=${c.slug}`}>
+                  <span className="material-symbols-outlined" aria-hidden="true">{categoryIcon(c.name)}</span>
+                  <strong>{c.name}</strong>
+                  <small>
+                    Shop parts <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                  </small>
+                </Link>
+              ))}
+            </nav>
+          )}
         </div>
       </section>
 
@@ -84,35 +104,48 @@ export default async function PartsPage() {
         </div>
       )}
 
-      {cats.items.length > 0 && (
+      {stocked.length > 0 && (
         <section className="pt-wrap pt-section" id="categories">
-          <header className="pt-head">
-            <h2>Shop by system</h2>
-            <Link href="/parts/list">Browse everything →</Link>
-          </header>
-          <ol className="pt-cats">
-            {cats.items.filter((c) => c.part_count > 0).map((c, i) => (
-              <li key={c.id} style={{ "--i": i } as React.CSSProperties}>
-                <Link href={`/parts/list?category=${c.slug}`}>
-                  <span className="pt-cat-no">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="material-symbols-outlined" aria-hidden="true">{categoryIcon(c.name)}</span>
-                  <span className="pt-cat-text">
-                    <strong>{c.name}</strong>
-                    <small>{c.description}</small>
-                  </span>
-                  <span className="pt-cat-count">{c.part_count} {c.part_count === 1 ? "part" : "parts"}</span>
-                </Link>
-              </li>
-            ))}
-          </ol>
+          <div className="pt-panel">
+            <header className="pt-head">
+              <div>
+                <h2>Shop by category</h2>
+                <p>Find the right part for every system in your car.</p>
+              </div>
+              <Link href="/parts/list">
+                View all parts <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+              </Link>
+            </header>
+            <ul className="pt-cats">
+              {stocked.map((c, i) => (
+                <li key={c.id} style={{ "--i": i } as React.CSSProperties}>
+                  <Link href={`/parts/list?category=${c.slug}`}>
+                    <span className="material-symbols-outlined" aria-hidden="true">{categoryIcon(c.name)}</span>
+                    <span className="pt-cat-text">
+                      <strong>{c.name}</strong>
+                      <small>{c.description}</small>
+                    </span>
+                    <span className="pt-cat-link">
+                      Shop now <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
       )}
 
       {picks.length > 0 && (
         <section className="pt-wrap pt-section">
           <header className="pt-head">
-            <h2>{featured.items.length ? "Workshop picks" : "Latest arrivals"}</h2>
-            <Link href="/parts/list">View all {all.count} →</Link>
+            <div>
+              <h2>{featured.items.length ? "Featured parts" : "Latest arrivals"}</h2>
+              <p>Genuine, refurbished and used parts from verified sellers.</p>
+            </div>
+            <Link href="/parts/list">
+              View all <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            </Link>
           </header>
           <div className="pt-grid">
             {picks.map((p, i) => <PartCard key={p.id} part={p} index={i} />)}
@@ -122,12 +155,17 @@ export default async function PartsPage() {
 
       {brands.items.length > 0 && (
         <section className="pt-wrap pt-section">
-          <header className="pt-head"><h2>Shop by vehicle</h2></header>
+          <header className="pt-head">
+            <div>
+              <h2>Shop by vehicle</h2>
+              <p>Browse parts that fit your car&apos;s make.</p>
+            </div>
+          </header>
           <div className="pt-brands">
             {brands.items.map((b) => (
               <Link key={b.id} href={`/parts/list?make=${b.slug}`}>
                 <span>{b.name}</span>
-                <small>Parts that fit →</small>
+                <small>Parts that fit</small>
               </Link>
             ))}
           </div>
@@ -136,9 +174,8 @@ export default async function PartsPage() {
 
       <section className="pt-wrap pt-section">
         <ul className="pt-promises">
-          {copy.promises.map((p, i) => (
+          {copy.promises.map((p) => (
             <li key={p.title}>
-              <span className="pt-promise-no">{String(i + 1).padStart(2, "0")}</span>
               <span className="material-symbols-outlined" aria-hidden="true">{p.icon}</span>
               <h3>{p.title}</h3>
               <p>{p.text}</p>
@@ -153,7 +190,9 @@ export default async function PartsPage() {
             <h2>{copy.seller_cta.title}</h2>
             <p>{copy.seller_cta.text}</p>
           </div>
-          <Link href="/vendor/register">Become a seller →</Link>
+          <Link href="/vendor/register">
+            Become a seller <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </Link>
         </div>
       </section>
     </>
