@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#d2d9f4",
+              "on-primary-fixed-variant": "#0038b6",
+              "inverse-surface": "#283044",
+              "tertiary": "#6f4500",
+              "surface-container-low": "#f2f3ff",
+              "on-tertiary-fixed": "#2a1700",
+              "on-secondary-container": "#57657a",
+              "surface-container": "#eaedff",
+              "surface-tint": "#004ced",
+              "on-surface-variant": "#434656",
+              "tertiary-fixed-dim": "#ffb95f",
+              "primary": "#003ec7",
+              "primary-fixed-dim": "#b7c4ff",
+              "outline": "#737688",
+              "on-background": "#131b2e",
+              "secondary-fixed": "#d5e3fc",
+              "inverse-on-surface": "#eef0ff",
+              "secondary-fixed-dim": "#b9c7df",
+              "on-tertiary-container": "#ffdfbe",
+              "surface-bright": "#faf8ff",
+              "on-secondary-fixed": "#0d1c2e",
+              "tertiary-fixed": "#ffddb8",
+              "on-primary-container": "#dfe3ff",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              "on-surface": "#131b2e",
+              "error-container": "#ffdad6",
+              "surface-container-high": "#e2e7ff",
+              "secondary-container": "#d5e3fc",
+              "inverse-primary": "#b7c4ff",
+              "on-tertiary-fixed-variant": "#653e00",
+              "surface": "#faf8ff",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#905a00",
+              "surface-container-highest": "#dae2fd",
+              "outline-variant": "#c3c5d9",
+              "background": "#faf8ff",
+              "on-secondary": "#ffffff",
+              "surface-variant": "#dae2fd",
+              "on-secondary-fixed-variant": "#3a485b",
+              "surface-container-lowest": "#ffffff",
+              "error": "#ba1a1a",
+              "secondary": "#515f74",
+              "on-primary": "#ffffff",
+              "primary-container": "#0052ff",
+              "primary-fixed": "#dde1ff",
+              "on-primary-fixed": "#001452"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-[#faf8ff] dark:bg-slate-950 font-['Plus_Jakarta_Sans'] font-bold tracking-tight docked full-width top-0 z-50 flex items-center justify-between px-6 h-20 w-full">
+<div class="flex items-center gap-4">
+<button class="hover:bg-[#e2e7ff] dark:hover:bg-slate-800 transition-colors duration-300 p-2 rounded-full scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[#0052FF] dark:text-[#3377FF]">menu</span>
+</button>
+<span class="text-2xl font-black text-[#0052FF] dark:text-[#3377FF] tracking-tighter">DrivioCars</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#434656] dark:text-slate-400 font-medium hover:bg-[#e2e7ff] dark:hover:bg-slate-800 transition-colors duration-300 px-3 py-1 rounded-full" href="#">History</a>
+<a class="text-[#434656] dark:text-slate-400 font-medium hover:bg-[#e2e7ff] dark:hover:bg-slate-800 transition-colors duration-300 px-3 py-1 rounded-full" href="#">Finance</a>
+<a class="text-[#0052FF] dark:text-[#3377FF] font-bold hover:bg-[#e2e7ff] dark:hover:bg-slate-800 transition-colors duration-300 px-3 py-1 rounded-full" href="#">Saved</a>
+<a class="text-[#434656] dark:text-slate-400 font-medium hover:bg-[#e2e7ff] dark:hover:bg-slate-800 transition-colors duration-300 px-3 py-1 rounded-full" href="#">Auctions</a>
+</nav>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border-2 border-primary-container">
+<img alt="User profile" data-alt="professional headshot of a smiling man with clean background for user profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdaQzoJoPN7Fm9SBwDI7EBKzddQJXvDX5mF3-mU23fyKpQHyCgkIpUr9Vlr3A9Eq73TKfX1N9AOgzO0ebsKm4ou1owFFop1qheqe9BnFEvCiyBERJh9U2WWM8W_alM0xNKL-Aau7vuXz5wqptp39kfPv6I4VIF5tbjVmatCNkR4Vr9mRG9y9aWkf_G_hBEVhwtqABJ1mg8f-ktZYQGApU1eWAxGmDXb9BYU4r7juSI9FASBDbuwt83NNMZ2eiwOQ7iR9RSMmfHrco"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 pt-12">
+<!-- Hero Section / Header -->
+<div class="mb-16">
+<h1 class="text-5xl font-extrabold tracking-tight mb-4 text-on-surface">Saved Searches</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl">Manage your active car alerts and market tracking. We'll notify you the moment a matching vehicle hits the showroom.</p>
+</div>
+<!-- Dashboard Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Left: Active Searches (Bento Grid Style) -->
+<div class="lg:col-span-8 space-y-8">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-2xl font-bold">Active Trackers</h2>
+<span class="px-4 py-1 bg-primary-fixed text-on-primary-fixed rounded-full text-sm font-semibold">3 Active</span>
+</div>
+<!-- Saved Search Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg transition-transform hover:scale-[1.01] duration-300 group">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="text-2xl font-bold group-hover:text-primary transition-colors">BMW M3 &lt; $60k</h3>
+<span class="bg-error-container text-on-error-container px-3 py-0.5 rounded-full text-xs font-bold animate-pulse">12 NEW</span>
+</div>
+<p class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">tune</span>
+                                Sedan • 2018+ • Low Mileage • Blue or Gray
+                            </p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Notifications</span>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">mail</span>
+</button>
+</div>
+</div>
+<div class="h-12 w-[1px] bg-surface-container-high hidden md:block"></div>
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Saved Search Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg transition-transform hover:scale-[1.01] duration-300">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="text-2xl font-bold">Porsche 911 (992) Carrera</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-0.5 rounded-full text-xs font-bold">0 NEW</span>
+</div>
+<p class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">tune</span>
+                                Coupe • 2020-2023 • CPO Only • California
+                            </p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Notifications</span>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">mail</span>
+</button>
+</div>
+</div>
+<div class="h-12 w-[1px] bg-surface-container-high hidden md:block"></div>
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Saved Search Card 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg transition-transform hover:scale-[1.01] duration-300">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="text-2xl font-bold">Land Rover Defender 110</h3>
+<span class="bg-error-container text-on-error-container px-3 py-0.5 rounded-full text-xs font-bold">3 NEW</span>
+</div>
+<p class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">tune</span>
+                                P400 SE • Hybrid • White Exterior • Sunroof
+                            </p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Notifications</span>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">mail</span>
+</button>
+</div>
+</div>
+<div class="h-12 w-[1px] bg-surface-container-high hidden md:block"></div>
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Recommendations & Stats -->
+<div class="lg:col-span-4 space-y-10">
+<!-- Recommendation Section -->
+<div class="bg-surface-container-low p-8 rounded-lg">
+<h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+                        Recommended for You
+                    </h2>
+<div class="space-y-6">
+<div class="relative group cursor-pointer overflow-hidden rounded">
+<img alt="Porsche Recommendation" class="w-full h-32 object-cover rounded-DEFAULT transition-transform duration-500 group-hover:scale-110" data-alt="sleek modern sports car silhouette against a minimalist architectural background with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIL5WCTzybVI4pDJH6aAuc1tOtHRLrQdGp-dIjFZMnHw__oib_N5zq2Ls1FKOu_PAg-fdxMsCo4RzDSQcpIopV56aZkp-K01qeTnvxQM34ZWnvsoxxwHMSK6RHfQvGcxynE2LgWwGn5i_5eTm9EjwwLJhEn3i2MJ87ue74GsSc2gXYnfIoZbDN9JM10-_Cxmuvri7j6QLxvCuEeFgAI1WyYUbX57gEO6B91RldWpwO7sggzqb_BsuD1RAM2vdsxeXQhDLsrPmUE0c"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 to-transparent flex flex-col justify-end p-4">
+<p class="text-white font-bold">Audi RS6 Avant</p>
+<p class="text-white/70 text-xs">Based on your M3 search</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-DEFAULT border-l-4 border-primary shadow-sm">
+<div>
+<p class="font-bold text-sm">Tesla Model S Plaid</p>
+<p class="text-xs text-on-surface-variant">Market price drop: -4%</p>
+</div>
+<button class="text-primary material-symbols-outlined">add_circle</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-DEFAULT border-l-4 border-tertiary shadow-sm">
+<div>
+<p class="font-bold text-sm">Mercedes-AMG GT</p>
+<p class="text-xs text-on-surface-variant">Trending in your area</p>
+</div>
+<button class="text-primary material-symbols-outlined">add_circle</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Market Insight Card -->
+<div class="bg-primary text-white p-8 rounded-lg overflow-hidden relative">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl mb-4">analytics</span>
+<h3 class="text-2xl font-bold mb-2">Market is Cooling</h3>
+<p class="text-primary-fixed text-sm mb-6 leading-relaxed">Performance luxury prices have dipped 2.4% this month. It's a prime time to expand your saved searches.</p>
+<button class="bg-white text-primary px-6 py-3 rounded-full font-bold text-sm hover:bg-primary-fixed transition-colors">Expand My Search</button>
+</div>
+<!-- Decorative background element -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0_-8px_30px_rgb(19,27,46,0.04)] rounded-t-[2rem] md:hidden">
+<div class="flex flex-col items-center justify-center text-[#434656] dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">history</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider">History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#434656] dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider">Finance</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#0052FF] text-white rounded-full px-5 py-2 scale-110 shadow-lg shadow-[#0052FF]/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider">Saved</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#434656] dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider">Auctions</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#434656] dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider">Profile</span>
+</div>
+</nav>
+</body></html>

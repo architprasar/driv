@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DrivioCars | Shopping Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#eaedff",
+              "on-tertiary-container": "#ffdfbe",
+              "on-primary-fixed-variant": "#0038b6",
+              "on-secondary-container": "#57657a",
+              "surface-bright": "#faf8ff",
+              "primary-container": "#0052ff",
+              "tertiary-container": "#905a00",
+              "surface-tint": "#004ced",
+              "primary-fixed": "#dde1ff",
+              "on-primary-container": "#dfe3ff",
+              "secondary-fixed-dim": "#b9c7df",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#0d1c2e",
+              "on-background": "#131b2e",
+              "secondary-fixed": "#d5e3fc",
+              "on-surface": "#131b2e",
+              "on-error-container": "#93000a",
+              "tertiary": "#6f4500",
+              "surface-variant": "#dae2fd",
+              "on-tertiary-fixed": "#2a1700",
+              "surface-container-lowest": "#ffffff",
+              "outline": "#737688",
+              "error-container": "#ffdad6",
+              "secondary": "#515f74",
+              "on-surface-variant": "#434656",
+              "inverse-on-surface": "#eef0ff",
+              "tertiary-fixed-dim": "#ffb95f",
+              "outline-variant": "#c3c5d9",
+              "primary": "#003ec7",
+              "inverse-primary": "#b7c4ff",
+              "surface-container-high": "#e2e7ff",
+              "primary-fixed-dim": "#b7c4ff",
+              "surface": "#faf8ff",
+              "on-secondary": "#ffffff",
+              "surface-container-low": "#f2f3ff",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#ffddb8",
+              "on-error": "#ffffff",
+              "surface-dim": "#d2d9f4",
+              "inverse-surface": "#283044",
+              "surface-container-highest": "#dae2fd",
+              "on-tertiary": "#ffffff",
+              "background": "#faf8ff",
+              "secondary-container": "#d5e3fc",
+              "on-primary-fixed": "#001452",
+              "on-tertiary-fixed-variant": "#653e00",
+              "on-secondary-fixed-variant": "#3a485b"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .no-line { border: none !important; }
+      .tonal-shift { transition: background-color 0.3s ease; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(19,27,46,0.04)] no-line tonal-shift">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="p-2 text-blue-600 hover:bg-blue-50 transition-colors active:scale-95 duration-200 rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="text-xl font-black text-blue-700 italic font-['Plus_Jakarta_Sans'] tracking-tight">DrivioCars</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6 text-slate-500 font-semibold text-sm">
+<a class="hover:text-blue-600 transition-colors" href="#">Marketplace</a>
+<a class="hover:text-blue-600 transition-colors" href="#">Services</a>
+<a class="hover:text-blue-600 transition-colors" href="#">Garage</a>
+</nav>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-blue-700 hover:bg-blue-50 transition-colors active:scale-95 duration-200 rounded-full relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-1 right-1 w-4 h-4 bg-primary text-[10px] text-white flex items-center justify-center rounded-full">2</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-8 max-w-7xl mx-auto min-h-screen">
+<!-- Editorial Header -->
+<div class="mb-12">
+<h1 class="font-headline text-5xl font-extrabold tracking-tight text-on-surface mb-2">Shopping Cart</h1>
+<p class="text-on-surface-variant text-lg">You have <span class="text-primary font-bold">2 items</span> ready for checkout.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Items List (Bento-style layout) -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Item 1: Brembo Brake Pads -->
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0_4px_20px_rgba(19,27,46,0.02)] flex flex-col md:flex-row gap-8 group">
+<div class="w-full md:w-48 h-48 rounded-DEFAULT overflow-hidden bg-surface-container-low flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close-up of high-performance red Brembo brake pads on a clean metallic studio background with soft dramatic highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Ci5qpjK0o95XBpBQkJNa3BQ5aYC4CCK6eUtvys6-RkEp16KFGs3RqwWHfcLe5i-GYwL81LUdgGem13Uo3ZRcBOOq3NE14AA3CZSfjwZMpT14mzjZLWZbPQ2RvLFdxWSv4h5dXAgjqMMbhvkGuuLq3cI2OJUZ8YTsDTca9tSWW2IhVAR6-GcoSHMrkcYRHhQZ9Mf8X5pkox3DlkTw3KrKDfrETT1aNXoLJhkwanxyXap4NIugVLw36OEYWCgOZPn1g_5sZ4X1uxc"/>
+</div>
+<div class="flex-grow flex flex-col justify-between py-2">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="inline-block px-3 py-1 bg-tertiary-container text-on-tertiary-fixed text-[10px] font-bold uppercase tracking-widest rounded-full mb-2">Verified Performance</span>
+<h3 class="font-headline text-2xl font-bold text-on-surface">Brembo P61101N Brake Pads</h3>
+<p class="text-on-surface-variant text-sm mt-1">Front Axle Set • Ceramic Technology • Carbon Fiber Infused</p>
+</div>
+<button class="p-2 text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between mt-6">
+<div class="flex items-center bg-surface-container-highest rounded-full p-1">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white transition-colors active:scale-90">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-12 text-center font-bold text-on-surface">1</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white transition-colors active:scale-90">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<span class="font-headline text-2xl font-extrabold text-primary">$189.50</span>
+</div>
+</div>
+</div>
+<!-- Item 2: Bosch Spark Plugs -->
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0_4px_20px_rgba(19,27,46,0.02)] flex flex-col md:flex-row gap-8 group">
+<div class="w-full md:w-48 h-48 rounded-DEFAULT overflow-hidden bg-surface-container-low flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Macro photography of premium Bosch iridium spark plugs aligned neatly on a dark textured carbon fiber surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiX-qoIci7KCTic5G3BCNmqJNY7-FskNgpMkiOGm3Dy7OVhQJDxIa11FZZFhNeC_SaF6C6jkUeqoPsvCHR05QU6U6W4tAku_HHnBVov7_10NxsWByWbblNOSRdCe-fglWSw01TE6-Ol_rD3pg_LO1SZd2FmPqV9KRasfsECsPUj5BDmq9Sii0fGw3W3iCNeR8hleQS6mZvMjB-7HjYc_-1roZfzL6YEOuXpl6tluSt4m14c7aCiH8wnukVCUzeQFmBByuy22Slbvs"/>
+</div>
+<div class="flex-grow flex flex-col justify-between py-2">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="inline-block px-3 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase tracking-widest rounded-full mb-2">Precision Engineered</span>
+<h3 class="font-headline text-2xl font-bold text-on-surface">Bosch Double Iridium (Pack of 4)</h3>
+<p class="text-on-surface-variant text-sm mt-1">High-Efficiency • 4x Longer Life • Firing Guarantee</p>
+</div>
+<button class="p-2 text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between mt-6">
+<div class="flex items-center bg-surface-container-highest rounded-full p-1">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white transition-colors active:scale-90">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-12 text-center font-bold text-on-surface">2</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white transition-colors active:scale-90">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<span class="font-headline text-2xl font-extrabold text-primary">$96.00</span>
+</div>
+</div>
+</div>
+<!-- Recommendation Banner (Organic Asymmetry) -->
+<div class="mt-12 bg-primary-fixed rounded-lg p-8 relative overflow-hidden">
+<div class="relative z-10 max-w-md">
+<h4 class="font-headline text-2xl font-bold text-on-primary-fixed mb-2">Complete the Set</h4>
+<p class="text-on-primary-fixed-variant mb-6 text-sm">Add Castrol EDGE Performance Oil to your cart and get free expedited shipping on your entire order.</p>
+<button class="px-6 py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center gap-2 hover:shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                            Add for $42.00
+                        </button>
+</div>
+<div class="absolute -right-8 -bottom-8 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+</div>
+</div>
+<!-- Summary Sidebar -->
+<div class="lg:col-span-4 sticky top-24">
+<div class="bg-surface-container-low rounded-lg p-8">
+<h2 class="font-headline text-2xl font-extrabold text-on-surface mb-8">Order Summary</h2>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span class="font-semibold text-on-surface">$285.50</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Estimated Shipping</span>
+<span class="font-semibold text-on-surface">$12.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Taxes (calculated)</span>
+<span class="font-semibold text-on-surface">$22.84</span>
+</div>
+<div class="pt-4 mt-4 border-t border-outline-variant/30 flex justify-between items-end">
+<span class="font-bold text-on-surface text-lg">Total</span>
+<div class="text-right">
+<span class="block text-3xl font-black text-primary">$320.34</span>
+</div>
+</div>
+</div>
+<!-- Coupon Code -->
+<div class="mb-8">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-3">Promo Code</label>
+<div class="flex gap-2">
+<input class="flex-grow bg-surface-container-highest border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 text-on-surface" placeholder="DRIVIO20" type="text"/>
+<button class="bg-on-surface text-surface px-6 py-3 rounded-xl font-bold text-sm hover:bg-primary transition-colors">Apply</button>
+</div>
+</div>
+<!-- Checkout Button -->
+<button class="w-full bg-primary text-on-primary py-5 rounded-xl font-extrabold text-lg flex items-center justify-center gap-3 shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform active:scale-95">
+<span class="material-symbols-outlined">lock</span>
+                        Secure Checkout
+                    </button>
+<div class="mt-8 flex items-center justify-center gap-6 grayscale opacity-50">
+<img class="h-4" data-alt="visa logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXaaVu1ldmbgl78-dBqyaqJYbL_H_hMxfaDG4x6Kmm0lYxJtld6JclrTZ1ELW10zSnjQgURUIJo9CNZryf6wcdPqiX6_vvH05tTHbTDSA37S2IDqjGwBA1sk7Onc7f0NIcMBp2uD0DhllW7nmyww23wYGUd1H1fBjtDYnG7j-Hup4XUgkQrsAh0PzyZ0mvEjKh42qonaEGZDY66ORI97l3oK8gtEBRTMP6lZNfMqV0cjysRUxkVxTYBWDByeFEh-I4Hj0QJy-cRVw"/>
+<img class="h-6" data-alt="mastercard logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYiRRLzUzj9MQ8nIga2e-CAJEiqKpp5lqM39irY4rZe4aV4PZWdplQ5r4EPqv4EHKLQDlrYEOiE5gy8VQMHN6__qcAi8CEihSJb_O4JhZ04ENMvX436xLk7QbVvTqU-UIJ7UGj8xHfoRhnTJETzJ7Xwk3M6OUxT8lUGP7IaFqQrko-t1ztnjRSUJUX2GSaCUz9GNdAjKPZxjalITcd5AcC4DJ9LUHldDZ2S0enLJMLFxw7EXw-T8XArhod9M-2XxirKF0OB0nidqQ"/>
+<img class="h-4" data-alt="paypal logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6NVmbpq3zxkQkaHbgVB81EQjTVrB1ijajJQIIp9e649k5bo3jcdo_MO-1-H1E_bqme4uWzvUBtrQKlxAfLsodL4OW8SjwlseGIFiBZVBitdqCVPZ3JoH6NukkJ0poJEodgnjO2FkCG-lO0aShB2_3v1r49vgNDWt4YjA71uEYJCNFSewXk5iDqS91V1WcAQbgXQML1FdU6ZO9HqpcEL9XXwu4tBFlbLYmEmdF0KLRjpshnRxdzT7bydyq9Ijm8aUc05iJRvb60xo"/>
+</div>
+</div>
+<!-- Trust Message -->
+<div class="mt-6 flex gap-4 p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<p class="text-xs font-bold text-on-surface">30-Day Fitment Guarantee</p>
+<p class="text-[10px] text-on-surface-variant mt-0.5">If the parts don't fit your specific vehicle, returns are on us. No questions asked.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Shell (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-end pb-4 px-4 bg-white/80 backdrop-blur-lg rounded-t-[2rem] z-50 shadow-[0_-4px_24px_0_rgba(19,27,46,0.06)] no-line">
+<a class="flex flex-col items-center justify-center text-slate-400 p-2 hover:text-blue-500 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 p-2 hover:text-blue-500 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Categories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 p-2 hover:text-blue-500 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-600 text-white rounded-full p-3 mb-2 transform -translate-y-2 shadow-lg shadow-blue-200 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider hidden">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 p-2 hover:text-blue-500 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

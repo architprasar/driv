@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DrivioCars Vendor Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed": "#d5e3fc",
+              "on-secondary": "#ffffff",
+              "secondary": "#515f74",
+              "on-tertiary-container": "#ffdfbe",
+              "secondary-container": "#d5e3fc",
+              "on-primary-container": "#dfe3ff",
+              "on-primary": "#ffffff",
+              "on-secondary-fixed-variant": "#3a485b",
+              "on-secondary-fixed": "#0d1c2e",
+              "surface-tint": "#004ced",
+              "primary-fixed": "#dde1ff",
+              "on-surface": "#131b2e",
+              "inverse-primary": "#b7c4ff",
+              "surface-container-high": "#e2e7ff",
+              "on-surface-variant": "#434656",
+              "surface-container-highest": "#dae2fd",
+              "surface-container-low": "#f2f3ff",
+              "on-primary-fixed": "#001452",
+              "inverse-on-surface": "#eef0ff",
+              "surface-container": "#eaedff",
+              "tertiary-fixed": "#ffddb8",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "primary-fixed-dim": "#b7c4ff",
+              "primary-container": "#0052ff",
+              "on-secondary-container": "#57657a",
+              "error": "#ba1a1a",
+              "outline": "#737688",
+              "on-tertiary-fixed-variant": "#653e00",
+              "on-primary-fixed-variant": "#0038b6",
+              "tertiary-fixed-dim": "#ffb95f",
+              "surface": "#faf8ff",
+              "inverse-surface": "#283044",
+              "tertiary": "#6f4500",
+              "surface-variant": "#dae2fd",
+              "primary": "#003ec7",
+              "background": "#faf8ff",
+              "outline-variant": "#c3c5d9",
+              "on-error": "#ffffff",
+              "surface-dim": "#d2d9f4",
+              "tertiary-container": "#905a00",
+              "surface-bright": "#faf8ff",
+              "on-tertiary-fixed": "#2a1700",
+              "on-background": "#131b2e",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "secondary-fixed-dim": "#b9c7df"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-sm flex items-center justify-between px-6 h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">menu</span>
+<span class="text-2xl font-black text-blue-700 italic tracking-tight font-plus-jakarta-sans">DrivioCars</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">notifications</span>
+<span class="absolute top-0 right-0 w-2.5 h-2.5 bg-error rounded-full border-2 border-white"></span>
+</div>
+<div class="flex items-center gap-3 pl-4 border-l border-surface-container">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold leading-none">Alex Driver</p>
+<p class="text-xs text-on-surface-variant">Platinum Member</p>
+</div>
+<img alt="Profile" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary-fixed" data-alt="Professional portrait of a male executive in a clean studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2-iDYptQ8OLMIpLJfG2RfJssM5A7Vds1kberu4F--7glWCkT6Pr7N0S7gkidKQ8fzT9SITpJyRaHg_oUKohAJIz2SonPYGNXp9Olv3aPY2PtLyVRx9de2lNQdLFy7n9T52bGwIT5i7aWN6XwmAWAY-sOsn2G__w8h-m5z2TPzq2ZJA-ZZhungz_0H03_OnIFobAQHtXw4Us2sbfVHp-ncyDn09kcukutWfEUX7IDGtxlzATMc118v3mmjpDplP1rM2kuFsjNCb_M"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Hero Welcome & Quick Action -->
+<section class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Vendor Dashboard</h1>
+<p class="text-on-surface-variant max-w-lg">Manage your salvage inventory and monitor real-time auction performance.</p>
+</div>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add_circle</span>
+                List New Damaged Car
+            </button>
+</section>
+<!-- Bento Grid Stats -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<!-- Earnings Card -->
+<div class="md:col-span-2 bg-primary-container p-8 rounded-lg flex flex-col justify-between relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-on-primary-container font-semibold mb-1 opacity-80">Total Earnings</p>
+<h3 class="text-4xl font-black text-white">$142,850.00</h3>
+<div class="mt-4 flex items-center gap-2 text-primary-fixed-dim text-sm">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12.5% from last month</span>
+</div>
+</div>
+<!-- Abstract visual element -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-white/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-700"></div>
+</div>
+<!-- Live Auctions -->
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm flex flex-col justify-center border border-white/50">
+<div class="w-12 h-12 bg-tertiary-container/10 text-tertiary rounded-2xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+</div>
+<p class="text-on-surface-variant font-medium text-sm">Live Auctions</p>
+<h3 class="text-2xl font-bold">24</h3>
+</div>
+<!-- Sold Vehicles -->
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm flex flex-col justify-center border border-white/50">
+<div class="w-12 h-12 bg-secondary-container text-secondary rounded-2xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-on-surface-variant font-medium text-sm">Sold Vehicles</p>
+<h3 class="text-2xl font-bold">186</h3>
+</div>
+</div>
+<!-- Main Content Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+<!-- Performance Chart Section -->
+<div class="lg:col-span-2 space-y-8">
+<div class="bg-white rounded-lg p-8 shadow-sm border border-slate-50">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-xl font-bold">Bidding Activity</h2>
+<select class="bg-surface-container-low border-none rounded-full text-sm px-4 py-2 font-medium focus:ring-primary/20">
+<option>Last 30 Days</option>
+<option>Last 7 Days</option>
+</select>
+</div>
+<!-- Mock Chart Visualization -->
+<div class="h-64 flex items-end gap-3 px-2">
+<div class="flex-1 bg-surface-container-highest rounded-t-lg h-[40%] hover:bg-primary/20 transition-colors cursor-pointer group relative">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">12k</span>
+</div>
+<div class="flex-1 bg-surface-container-highest rounded-t-lg h-[65%] hover:bg-primary/20 transition-colors cursor-pointer group relative"></div>
+<div class="flex-1 bg-primary rounded-t-lg h-[85%] hover:bg-primary-container transition-colors cursor-pointer group relative">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 text-xs font-bold text-primary">28k</span>
+</div>
+<div class="flex-1 bg-surface-container-highest rounded-t-lg h-[45%] hover:bg-primary/20 transition-colors cursor-pointer group relative"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-lg h-[70%] hover:bg-primary/20 transition-colors cursor-pointer group relative"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-lg h-[55%] hover:bg-primary/20 transition-colors cursor-pointer group relative"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-lg h-[90%] hover:bg-primary/20 transition-colors cursor-pointer group relative"></div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] text-on-surface-variant font-bold uppercase tracking-widest px-2">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+<!-- Recent Listings Table/List -->
+<div>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold">Active Listings</h2>
+<button class="text-primary font-bold text-sm hover:underline">View All</button>
+</div>
+<div class="space-y-4">
+<!-- Car Item -->
+<div class="group bg-white p-4 rounded-lg flex items-center gap-6 shadow-sm hover:shadow-md transition-shadow border border-slate-50">
+<div class="w-32 h-20 rounded-md overflow-hidden bg-slate-100 flex-shrink-0">
+<img alt="Car" class="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-500" data-alt="Modern high-end sedan with front-end body damage parked in a bright warehouse with industrial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMa5e7MsC7ctaXdIeA3Vg0djzL5OIy1ikeVORYdY8-QxtMpoR9-vG4I368FflfJJrH7AYTO5RAARSQ9JMDpMCTzdpWQoA6iq6VVM22IakVcI9-fZbSbwvMfY5yiRR9VarjZyki1MpGMvFxhegZqr5OK1qb6Z7IueplzIXdAtdA6Iwrvl9utyYnj6K5ceK2K4STx8tkFXjv0yvwRJOXIRK_aQ7UzmL50031CWbxrAS0p_pf8T0iTOXw5yTP5tk5sAoqjWoiVYFQhGI"/>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-primary mb-1 uppercase tracking-tighter">Lot #82341</p>
+<h4 class="font-bold text-lg leading-tight">2022 BMW M3 Competition</h4>
+<p class="text-sm text-on-surface-variant">Front-end collision damage</p>
+</div>
+<div class="text-right hidden sm:block">
+<p class="text-xs text-on-surface-variant font-medium">Current Bid</p>
+<p class="text-lg font-black text-on-surface">$34,200</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="px-3 py-1 bg-error-container text-on-error-container text-[10px] font-black rounded-full uppercase">Ending Soon</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">more_vert</span>
+</div>
+</div>
+<!-- Car Item -->
+<div class="group bg-white p-4 rounded-lg flex items-center gap-6 shadow-sm hover:shadow-md transition-shadow border border-slate-50">
+<div class="w-32 h-20 rounded-md overflow-hidden bg-slate-100 flex-shrink-0">
+<img alt="Car" class="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-500" data-alt="Luxury sports car with side-impact damage reflecting dramatic warehouse spotlights in a clean environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdSjmVlPiXNQJuaofrYXnkxcwcgvjf5r8sjbqJB4-awSXA4XyK-P23Xi3wm1OzwWxqZu6zKmRtdYTD80FrEXUG0x8FVomGMRmSENp_geac01H8aCyUz_ogI_nDmlDiaaUwGbCjYBC1QLjfjT1XoRpmZjhdGsPy49RmpFWvLo-EdVYX52q0qh7rfe_BIJf09a2R0X1AZIYtPqKsiCLEexJtAUsXAb_jAZ6Ciy6Ea4a7NzFQGUoPH8ZlSVesDthGD2rUZ5y_qoTZS0k"/>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-primary mb-1 uppercase tracking-tighter">Lot #82356</p>
+<h4 class="font-bold text-lg leading-tight">2021 Porsche 911 Carrera</h4>
+<p class="text-sm text-on-surface-variant">Side impact, structural concern</p>
+</div>
+<div class="text-right hidden sm:block">
+<p class="text-xs text-on-surface-variant font-medium">Current Bid</p>
+<p class="text-lg font-black text-on-surface">$58,900</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-black rounded-full uppercase">Active</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">more_vert</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar -->
+<div class="space-y-8">
+<!-- Drafts Section -->
+<div class="bg-surface-container-low p-6 rounded-lg">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">edit_note</span>
+                        Drafts (3)
+                    </h3>
+<div class="space-y-3">
+<div class="p-3 bg-white rounded-md border border-slate-100 flex justify-between items-center group cursor-pointer hover:border-primary/30 transition-colors">
+<div>
+<p class="text-sm font-bold">2023 Tesla Model S</p>
+<p class="text-[10px] text-on-surface-variant">Missing engine photos</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">arrow_forward_ios</span>
+</div>
+<div class="p-3 bg-white rounded-md border border-slate-100 flex justify-between items-center group cursor-pointer hover:border-primary/30 transition-colors">
+<div>
+<p class="text-sm font-bold">2019 Ford F-150 Raptor</p>
+<p class="text-[10px] text-on-surface-variant">Waiting for title scan</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">arrow_forward_ios</span>
+</div>
+</div>
+</div>
+<!-- Recent Activity/Notifications -->
+<div class="bg-white p-6 rounded-lg shadow-sm border border-slate-50">
+<h3 class="font-bold mb-6">Recent Activity</h3>
+<div class="space-y-6 relative">
+<div class="absolute left-4 top-2 bottom-2 w-0.5 bg-surface-container"></div>
+<div class="relative pl-10">
+<div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-white"></div>
+<p class="text-xs text-on-surface-variant font-medium">10 mins ago</p>
+<p class="text-sm font-semibold">New bid of <span class="text-primary">$34,200</span> on BMW M3</p>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-secondary ring-4 ring-white"></div>
+<p class="text-xs text-on-surface-variant font-medium">2 hours ago</p>
+<p class="text-sm font-semibold">Payout of $12,400 initiated</p>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-tertiary-container ring-4 ring-white"></div>
+<p class="text-xs text-on-surface-variant font-medium">Yesterday</p>
+<p class="text-sm font-semibold text-on-surface-variant">Listing "Audi A6" moved to drafts</p>
+</div>
+</div>
+</div>
+<!-- Vendor Support -->
+<div class="bg-gradient-to-br from-secondary-container to-surface-container-high p-6 rounded-lg">
+<h3 class="font-bold text-on-secondary-fixed mb-2">Need Help?</h3>
+<p class="text-sm text-on-secondary-fixed-variant mb-4">Dedicated auction specialist available for Platinum members.</p>
+<button class="w-full bg-white text-on-surface font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined">headset_mic</span>
+                        Contact Support
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-white rounded-t-[2rem] z-50 shadow-[0_-4px_20px_0_rgba(0,0,0,0.05)] flex justify-around items-center h-20 px-4 pb-safe border-t border-slate-100">
+<div class="flex flex-col items-center justify-center text-slate-400 px-3 py-1.5">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="text-[11px] font-plus-jakarta-sans font-semibold">Showroom</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 px-3 py-1.5">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-[11px] font-plus-jakarta-sans font-semibold">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 px-3 py-1.5">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-[11px] font-plus-jakarta-sans font-semibold">Notifications</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-50 text-blue-700 rounded-2xl px-3 py-1.5">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[11px] font-plus-jakarta-sans font-semibold">Vendors</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 px-3 py-1.5">
+<span class="material-symbols-outlined">help_center</span>
+<span class="text-[11px] font-plus-jakarta-sans font-semibold">Support</span>
+</div>
+</nav>
+</body></html>

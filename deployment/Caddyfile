@@ -1,0 +1,37 @@
+{$PUBLIC_HOST} {
+  encode zstd gzip
+  request_body {
+    max_size 12MB
+  }
+  @backend path /api/* /admin/* /ws/*
+  route {
+    handle /media/vendor_docs/* {
+      respond 404
+    }
+    handle /api/marketplace/* {
+      reverse_proxy frontend:3000 {
+        header_up X-Real-IP {remote_host}
+      }
+    }
+    handle @backend {
+      reverse_proxy backend:8000 {
+        header_up X-Real-IP {remote_host}
+      }
+    }
+    handle_path /media/* {
+      root * /srv/media
+      header X-Content-Type-Options nosniff
+      header Content-Security-Policy "default-src 'none'; img-src 'self'; sandbox"
+      file_server
+    }
+    handle_path /static/* {
+      root * /srv/static
+      file_server
+    }
+    handle {
+      reverse_proxy frontend:3000 {
+        header_up X-Real-IP {remote_host}
+      }
+    }
+  }
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf8ff;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed": "#d5e3fc",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#515f74",
+                        "on-tertiary-container": "#ffdfbe",
+                        "secondary-container": "#d5e3fc",
+                        "on-primary-container": "#dfe3ff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "surface-tint": "#004ced",
+                        "primary-fixed": "#dde1ff",
+                        "on-surface": "#131b2e",
+                        "inverse-primary": "#b7c4ff",
+                        "surface-container-high": "#e2e7ff",
+                        "on-surface-variant": "#434656",
+                        "surface-container-highest": "#dae2fd",
+                        "surface-container-low": "#f2f3ff",
+                        "on-primary-fixed": "#001452",
+                        "inverse-on-surface": "#eef0ff",
+                        "surface-container": "#eaedff",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#b7c4ff",
+                        "primary-container": "#0052ff",
+                        "on-secondary-container": "#57657a",
+                        "error": "#ba1a1a",
+                        "outline": "#737688",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-primary-fixed-variant": "#0038b6",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "surface": "#faf8ff",
+                        "inverse-surface": "#283044",
+                        "tertiary": "#6f4500",
+                        "surface-variant": "#dae2fd",
+                        "primary": "#003ec7",
+                        "background": "#faf8ff",
+                        "outline-variant": "#c3c5d9",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d2d9f4",
+                        "tertiary-container": "#905a00",
+                        "surface-bright": "#faf8ff",
+                        "on-tertiary-fixed": "#2a1700",
+                        "on-background": "#131b2e",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#b9c7df"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-sm h-16 flex items-center justify-between px-6">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-blue-700 active:scale-95 duration-200">menu</button>
+<span class="text-2xl font-black text-blue-700 italic tracking-tight font-headline">DrivioCars</span>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 font-medium hover:bg-blue-50 px-3 py-1 rounded-xl transition-colors" href="#">Showroom</a>
+<a class="text-slate-500 font-medium hover:bg-blue-50 px-3 py-1 rounded-xl transition-colors" href="#">Orders</a>
+<a class="text-blue-700 font-bold px-3 py-1 rounded-xl transition-colors" href="#">Notifications</a>
+</nav>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a professional man with a friendly expression in high-key studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5A1ecAGWt1j87FEyuS262TRTMyqQ0rBgpg1LNRGIR7_P99OvKi4T-bzpNT9vUS7z09sfy3HkpPsGd_fq3TF8ES_Nq1MzZeYJ2xkUKin1XotKONgSZvPEQSil1st96gVZ-L-SyyJyjXkay6CeU-lGHUcj3UDFWRuHWKgmoDzeOwZFNUgiDsrXCOK8fG_ho6zrdRb-zdqs64IaHtoLlMQJasajOC4OnHqjh9IICKiH910YUp0i8sg0IvCIvjSvepCZoj1P7VRlrp0A"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-5xl mx-auto">
+<!-- Page Header -->
+<div class="mb-12">
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Notification Center</h1>
+<p class="text-on-surface-variant font-medium">Stay updated on your bids, market trends, and account activity.</p>
+</div>
+<!-- Filter Tabs -->
+<div class="flex gap-2 mb-10 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-6 py-2.5 bg-primary text-on-primary rounded-full text-sm font-semibold shadow-md active:scale-95 duration-200">All</button>
+<button class="px-6 py-2.5 bg-surface-container-highest text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-high transition-colors active:scale-95 duration-200">Bids</button>
+<button class="px-6 py-2.5 bg-surface-container-highest text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-high transition-colors active:scale-95 duration-200">Market</button>
+<button class="px-6 py-2.5 bg-surface-container-highest text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-high transition-colors active:scale-95 duration-200">Account</button>
+</div>
+<!-- Notification Feed -->
+<div class="space-y-12">
+<!-- Category: Bids -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold font-headline flex items-center gap-2">
+<span class="w-2 h-6 bg-primary rounded-full"></span>
+                        Bids
+                    </h2>
+<button class="text-primary text-sm font-bold hover:underline">Mark category as read</button>
+</div>
+<div class="space-y-4">
+<!-- Notification Item 1 -->
+<div class="group relative flex gap-6 p-6 bg-surface-container-lowest rounded-DEFAULT hover:bg-surface-container-low transition-all duration-300">
+<div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">gavel</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface">Outbid Notice: 2023 Porsche 911 GT3</h3>
+<span class="text-xs font-medium text-on-surface-variant bg-surface-container px-2 py-1 rounded-md">2m ago</span>
+</div>
+<p class="text-on-surface-variant mb-4 leading-relaxed">Someone just placed a higher bid of $185,400. You have 14 minutes left to counter-offer and stay in the lead.</p>
+<div class="flex gap-3">
+<button class="px-5 py-2 bg-primary text-on-primary text-sm font-bold rounded-full active:scale-95 duration-150">Increase Bid</button>
+<button class="px-5 py-2 bg-secondary-container text-on-secondary-container text-sm font-bold rounded-full active:scale-95 duration-150">View Auction</button>
+</div>
+</div>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="material-symbols-outlined text-outline">more_vert</button>
+</div>
+</div>
+<!-- Notification Item 2 -->
+<div class="group relative flex gap-6 p-6 bg-surface-container-lowest rounded-DEFAULT hover:bg-surface-container-low transition-all duration-300">
+<div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface">Bid Accepted!</h3>
+<span class="text-xs font-medium text-on-surface-variant bg-surface-container px-2 py-1 rounded-md">1h ago</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed">Congratulations! Your bid for the <span class="font-semibold">Classic 1967 Mustang Shelby</span> has been accepted by the vendor. Finalizing paperwork now.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Category: Market -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold font-headline flex items-center gap-2">
+<span class="w-2 h-6 bg-tertiary rounded-full"></span>
+                        Market
+                    </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Featured Market Card (Bento Style) -->
+<div class="md:col-span-2 relative overflow-hidden rounded-lg bg-surface-container-lowest h-64 group">
+<img alt="Market Trends" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="high-end silver electric sports car parked in a minimalist concrete showroom with cinematic lighting and reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH6lTvAIFLIcf_uNO85br78hQGG-1_IcvVxTCCWhIDeRYRk0R4utCdtrWy1XsLrYWai-eeeE_YoLNnKGqTHCQVeVyizQBfhBXP3N_uADwwMWy9lmQ3dQZ_tyK97pNuu9Kcq0uhqT5cwLNfNDBbOS2gqXlxeI0YPEw52oskEjt26rv_9oMScQf_GTj239DEIy9vhG0EpVSWRTUy5ZdCkvw3X2Ldb6GJehY7GWfHYdQ3st8DgoH92h2_gaCplofBIEzMgqwSUgD3wXE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 text-white">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">trending_down</span>
+<span class="text-xs font-bold uppercase tracking-widest text-tertiary-fixed">Price Drop Alert</span>
+</div>
+<h3 class="text-2xl font-bold font-headline mb-2">Tesla Model S Plaid drops by 8%</h3>
+<p class="text-slate-200 max-w-md">3 cars matching your saved search in Los Angeles just updated their pricing. Market demand is shifting.</p>
+</div>
+</div>
+<!-- Market Item 1 -->
+<div class="p-6 bg-surface-container-lowest rounded-DEFAULT flex items-start gap-4 hover:shadow-sm transition-all border border-transparent hover:border-outline-variant/10">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary">analytics</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface mb-1">New Inventory: BMW M Series</p>
+<p class="text-xs text-on-surface-variant leading-relaxed">12 new listings matches your "High Performance" preference from local vendors.</p>
+<span class="text-[10px] text-outline font-medium mt-2 block">4h ago</span>
+</div>
+</div>
+<!-- Market Item 2 -->
+<div class="p-6 bg-surface-container-lowest rounded-DEFAULT flex items-start gap-4 hover:shadow-sm transition-all border border-transparent hover:border-outline-variant/10">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-error">timer</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface mb-1">Auction Ending Soon</p>
+<p class="text-xs text-on-surface-variant leading-relaxed">The <span class="font-semibold text-error">Audi RS e-tron GT</span> you viewed is ending in 55 minutes. No reserve met.</p>
+<span class="text-[10px] text-outline font-medium mt-2 block">6h ago</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Category: Account -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold font-headline flex items-center gap-2">
+<span class="w-2 h-6 bg-secondary rounded-full"></span>
+                        Account
+                    </h2>
+</div>
+<div class="space-y-4">
+<!-- Service Reminder -->
+<div class="flex items-center gap-6 p-6 bg-surface-container-lowest rounded-DEFAULT border-l-4 border-primary">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-bold text-on-surface">Service Reminder: Annual Inspection</h3>
+<p class="text-sm text-on-surface-variant">Your Range Rover Evoque is due for its 30,000-mile service next week.</p>
+</div>
+<button class="px-6 py-2 bg-primary-container text-on-primary-container text-xs font-bold rounded-full active:scale-95">Book Now</button>
+</div>
+<!-- Security Alert -->
+<div class="flex items-center gap-6 p-6 bg-surface-container-lowest rounded-DEFAULT">
+<div class="flex-shrink-0 w-12 h-12 bg-error-container/30 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-bold text-on-surface">New Login Detected</h3>
+<p class="text-sm text-on-surface-variant">A new login was recorded from a Chrome browser on Windows (Seattle, WA).</p>
+</div>
+<span class="text-xs text-outline whitespace-nowrap">Yesterday</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full rounded-t-[2rem] z-50 bg-white shadow-[0_-4px_20px_0_rgba(0,0,0,0.05)] border-t border-slate-100 h-20 px-4 pb-safe flex justify-around items-center">
+<a class="flex flex-col items-center justify-center text-slate-400 px-3 py-1.5 hover:text-blue-500 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="text-[11px] font-semibold font-headline">Showroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-3 py-1.5 hover:text-blue-500 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-[11px] font-semibold font-headline">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-50 text-blue-700 rounded-2xl px-3 py-1.5 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-[11px] font-semibold font-headline">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-3 py-1.5 hover:text-blue-500 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[11px] font-semibold font-headline">Vendors</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-3 py-1.5 hover:text-blue-500 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span class="text-[11px] font-semibold font-headline">Support</span>
+</a>
+</nav>
+</body></html>

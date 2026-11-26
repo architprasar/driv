@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DrivioCars | Expert Inspection Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0052FF",
+              "on-primary": "#ffffff",
+              "surface": "#faf8ff",
+              "on-surface": "#131b2e",
+              "on-surface-variant": "#434656",
+              "surface-container-low": "#f2f3ff",
+              "surface-container": "#eaedff",
+              "surface-container-high": "#e2e7ff",
+              "surface-container-highest": "#dae2fd",
+              "secondary": "#515f74",
+              "error": "#ba1a1a",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a",
+              "success": "#15803d",
+              "success-container": "#dcfce7",
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+            },
+            borderRadius: {"DEFAULT": "0.75rem", "lg": "1.5rem", "xl": "2.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon { font-variation-settings: 'FILL' 1; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100 h-16 flex items-center justify-between px-6">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-200 text-primary">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="text-xl font-black text-primary italic tracking-tight">DrivioCars</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+<button class="p-2 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</header>
+<main class="pt-20 pb-40 px-4 max-w-3xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-8">
+<div class="mb-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-success-container text-success text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Certified Pre-Owned</span>
+<span class="text-on-surface-variant text-xs font-medium">Report #DRV-8829-X</span>
+</div>
+<h1 class="text-3xl font-extrabold text-on-surface tracking-tight mb-2">Porsche Taycan Turbo S</h1>
+<p class="text-on-surface-variant text-sm">2023 • 12,450 miles • 1-Owner</p>
+</div>
+<!-- Prominent Score Card -->
+<div class="bg-white rounded-lg p-6 shadow-sm border border-slate-100 mb-6 flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">DrivioCars Inspection Score</p>
+<div class="flex items-baseline gap-1">
+<span class="text-5xl font-black text-primary tracking-tighter">9.4</span>
+<span class="text-xl font-bold text-on-surface-variant">/10</span>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-2">Exceptional</span>
+<p class="text-xs text-on-surface-variant max-w-[120px]">Top 3% of inspected vehicles in this class.</p>
+</div>
+</div>
+<!-- Summary Badges -->
+<div class="grid grid-cols-3 gap-2 mb-8">
+<div class="bg-surface-container-low p-3 rounded-DEFAULT text-center border border-primary/10">
+<span class="material-symbols-outlined text-primary mb-1 text-xl" data-icon="bolt">bolt</span>
+<p class="text-[10px] font-bold uppercase leading-tight">Mechanical &amp; Engine</p>
+<p class="text-xs font-bold text-primary mt-1">Excellent</p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-DEFAULT text-center border border-primary/10">
+<span class="material-symbols-outlined text-primary mb-1 text-xl" data-icon="directions_car">directions_car</span>
+<p class="text-[10px] font-bold uppercase leading-tight">Exterior &amp; Body</p>
+<p class="text-xs font-bold text-primary mt-1">Pristine</p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-DEFAULT text-center border border-primary/10">
+<span class="material-symbols-outlined text-primary mb-1 text-xl" data-icon="dashboard">dashboard</span>
+<p class="text-[10px] font-bold uppercase leading-tight">Interior &amp; Features</p>
+<p class="text-xs font-bold text-primary mt-1">Mint</p>
+</div>
+</div>
+</section>
+<!-- Technical Specs & Health -->
+<section class="mb-10">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="analytics">analytics</span>
+                Technical Vital Signs
+            </h3>
+<div class="space-y-3">
+<div class="bg-white p-4 rounded-lg border border-slate-100">
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-semibold">Battery State of Health (SoH)</span>
+<span class="text-sm font-bold text-primary">98.4%</span>
+</div>
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[98.4%]"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-white p-4 rounded-lg border border-slate-100">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mb-1">Brake Pad Life</p>
+<p class="text-lg font-bold text-primary">85% <span class="text-[10px] text-on-surface-variant font-medium">(Remaining)</span></p>
+</div>
+<div class="bg-white p-4 rounded-lg border border-slate-100">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mb-1">Tire Tread Depth</p>
+<p class="text-lg font-bold text-primary">7/32" <span class="text-[10px] text-on-surface-variant font-medium">(Uniform)</span></p>
+</div>
+</div>
+</div>
+</section>
+<!-- Inspection Photo Evidence -->
+<section class="mb-10">
+<div class="flex justify-between items-end mb-4">
+<h3 class="text-lg font-bold">Inspection Highlights</h3>
+<button class="text-primary text-xs font-bold">View all 42 photos</button>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="relative rounded-lg overflow-hidden h-40 group">
+<img alt="Tire Tread Detail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyRpTtASCzoDPpNZPyJ5BFTxQG_eMNPU40M8DZ5cXG3zm7PwW4iGCYae81zoEfW8uBLhUqMFToQzq7VBC5Gm8u2i2kr12ZpMLyEVPus5EggwAifSR4XaYqUg4Y3U9a8eeEOHNFx8Pcp6aJXMQ3sXUT2odhxhyZOxIV0l2UUV7MilBWA7XsesJf0pIi2MlOIxB68IB0CIKoZF2wUQjPGsYhyNr65pL1V1oONNQueEyLVRZF9fv1QDeTp5HoxJ6rtwodA0MHC2bKXjU"/>
+<div class="absolute bottom-0 left-0 right-0 bg-black/40 backdrop-blur-sm p-2">
+<p class="text-[10px] text-white font-bold">Tire Condition Detail</p>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden h-40">
+<img alt="Minor Wear Spot" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8YGP_vDaleDhy16PZ8RWDETBOb2EELMS6CFxWbxxMgkSt_sWj7_g0UIYLK82hB_HwgEX5qSs5sUHasOXrAi4RdTBuHOS7InEq3AfoJwptLsVb6JUMGFV5avYLaSfeY0SNQMZHpZ3QRG4qB4u-fY5xbj8uCGeVN3h_AjdoAOHCc_aHHc29bfAlVwSQACTjqB9Qy-FGTfj5QPdUhYDLQrOWfZafx8xSnQYhzvtrN5Zwqo2sFzq6rReuOC9jC7j-otkkKKLgbMax30g"/>
+<div class="absolute top-2 right-2 bg-error px-2 py-0.5 rounded text-[8px] font-bold text-white uppercase">Minor Wear</div>
+<div class="absolute bottom-0 left-0 right-0 bg-black/40 backdrop-blur-sm p-2">
+<p class="text-[10px] text-white font-bold">Front Bumper Stone Chip</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 150-Point Audit Checklist -->
+<section class="mb-10">
+<h3 class="text-lg font-bold mb-4">Detailed 150-Point Audit</h3>
+<div class="space-y-2">
+<!-- Category 1 -->
+<div class="bg-white rounded-lg border border-slate-100 overflow-hidden">
+<button class="w-full px-4 py-4 flex items-center justify-between text-left focus:outline-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="engine">settings_input_component</span>
+<span class="font-bold text-sm">Powertrain &amp; Electrical</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-[10px] font-bold bg-success-container text-success px-2 py-0.5 rounded-full">42/42 PASSED</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="expand_more">expand_more</span>
+</div>
+</button>
+<div class="px-4 pb-4 border-t border-dashed border-slate-100 pt-3 space-y-2">
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Drive Unit Calibration</span>
+<span class="material-symbols-outlined text-success text-sm fill-icon" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Cooling System Seal</span>
+<span class="material-symbols-outlined text-success text-sm fill-icon" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Category 2 -->
+<div class="bg-white rounded-lg border border-slate-100 overflow-hidden">
+<button class="w-full px-4 py-4 flex items-center justify-between text-left focus:outline-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="straighten">straighten</span>
+<span class="font-bold text-sm">Structural &amp; Body</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-[10px] font-bold bg-success-container text-success px-2 py-0.5 rounded-full">35/35 PASSED</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="expand_more">expand_more</span>
+</div>
+</button>
+</div>
+<!-- Category 3 -->
+<div class="bg-white rounded-lg border border-slate-100 overflow-hidden">
+<button class="w-full px-4 py-4 flex items-center justify-between text-left focus:outline-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="event_seat">event_seat</span>
+<span class="font-bold text-sm">Interior &amp; Electronics</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-[10px] font-bold bg-error-container text-error px-2 py-0.5 rounded-full">Minor Flag</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="expand_more">expand_more</span>
+</div>
+</button>
+</div>
+</div>
+</section>
+<!-- Inspector Credentials -->
+<section class="bg-primary/5 rounded-xl p-6 border border-primary/10">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-14 h-14 rounded-full bg-white border-2 border-primary/20 overflow-hidden p-0.5">
+<img alt="Inspector Marcus" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8JpsW8FsA6y7Q0dYWRVCQvh8L0RMLcrzerqjpC5OHEy30UA0sdDTrjYWRj2BxycjFQGUY7zkobRba1_sX60urRBgGPpCh9nr6Q8zs8zsMTsjIy5JcYgInEkdQvfGg2HXVQ_uv8Qt2SvgCphCyplj2ldpFBwoWeXqPhK8YixUKAFQFmUplY4HKenFRVAirDko5w-Ym3oqOCo-zXkvHbtXvlPeHquvxqzD7oNHYFD4HsVyNSunBMcG32tTlmug2Tku3Co_sfzby5cQ"/>
+</div>
+<div>
+<div class="flex items-center gap-1">
+<h4 class="font-bold text-on-surface">Marcus V.</h4>
+<span class="material-symbols-outlined text-primary text-sm fill-icon" data-icon="verified">verified</span>
+</div>
+<p class="text-xs text-on-surface-variant">Senior Automotive Auditor</p>
+<p class="text-[10px] text-primary font-bold">1,240+ Inspections Completed</p>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed italic mb-4">"This Taycan is in remarkable condition. Aside from a negligible stone chip on the front lip, the vehicle presents as-new. The battery health is exceptional for its age."</p>
+<div class="flex items-center justify-between pt-4 border-t border-primary/10">
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase">Digital Signature</p>
+<p class="font-bold font-serif text-lg opacity-60">Marcus Valerius</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase">Audit Date</p>
+<p class="text-sm font-bold">Oct 24, 2023</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Actions (Mobile) -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-slate-100 flex gap-3 z-50">
+<button class="flex-1 bg-surface-container-high text-on-surface font-bold py-3.5 rounded-full text-sm active:scale-95 duration-200">
+            Inquire
+        </button>
+<button class="flex-[2] bg-primary text-white font-bold py-3.5 rounded-full text-sm shadow-lg shadow-primary/20 active:scale-95 duration-200">
+            Book Test Drive
+        </button>
+</div>
+<!-- Bottom Nav (Hidden on detail screen usually, but kept for context if needed, shifted up) -->
+<nav class="fixed bottom-24 left-4 right-4 bg-on-surface text-white rounded-2xl h-14 px-6 flex items-center justify-between shadow-2xl z-40 md:hidden">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-white/60">Purchase price</span>
+<span class="font-bold leading-tight">$142,500</span>
+</div>
+<div class="h-6 w-px bg-white/20"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary fill-icon text-sm" data-icon="shield">shield</span>
+<span class="text-[10px] font-bold">7-Day Return Policy</span>
+</div>
+</nav>
+</body></html>

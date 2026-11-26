@@ -1,0 +1,37 @@
+name: Marketplace checks
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env: {POSTGRES_DB: drivio, POSTGRES_USER: drivio, POSTGRES_PASSWORD: test-only-password}
+        ports: ["5432:5432"]
+        options: --health-cmd "pg_isready -U drivio" --health-interval 5s --health-retries 20
+    env:
+      DB_ENGINE: django.db.backends.postgresql
+      DB_NAME: drivio
+      DB_USER: drivio
+      DB_PASSWORD: test-only-password
+      DB_HOST: localhost
+      DB_PORT: "5432"
+      EMAIL_BACKEND: django.core.mail.backends.locmem.EmailBackend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: "22", cache: npm}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: npm ci
+      - run: npm run lint
+      - run: npm audit --audit-level=moderate
+      - run: npm run build
+      - run: pip install -r backend/requirements.txt
+      - run: pip install pip-audit && pip-audit
+      - run: python manage.py makemigrations --check --dry-run
+        working-directory: backend
+      - run: python manage.py test --noinput
+        working-directory: backend
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e

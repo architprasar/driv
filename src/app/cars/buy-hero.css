@@ -1,0 +1,91 @@
+/* Reference composition, scoped to the Buy Cars hero. */
+.buy-page .buy-hero-art {
+  inset: 0 0 0 44%;
+  mask-image: linear-gradient(90deg, transparent, #000 8%);
+}
+.buy-page .buy-hero-art img {
+  object-fit: cover;
+  object-position: center;
+}
+.buy-page .buy-hero::after {
+  background: linear-gradient(110deg, #082442, #0c3159 75%, #174574);
+  clip-path: polygon(0 0, 54% 0, 43% 100%, 0 100%);
+}
+.buy-page .buy-hero-search { width: 61%; }
+.buy-hero-promos {
+  position: absolute;
+  inset: 0 0 0 44%;
+  z-index: 2;
+  pointer-events: none;
+}
+.buy-hero-assured {
+  position: absolute;
+  top: 10%;
+  left: 24%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border: 5px solid #45ceb1;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #0caa89, #007b61);
+  box-shadow: inset 0 1px 5px #c6fff780, 0 4px 14px #005c6240;
+  color: #fff;
+  font-size: clamp(12px, 1.1vw, 19px);
+  font-weight: 750;
+  letter-spacing: .4px;
+}
+.buy-hero-assured .material-symbols-outlined {
+  font-size: 18px;
+  font-variation-settings: 'FILL' 1;
+}
+.buy-hero-offer {
+  position: absolute;
+  display: grid;
+  gap: 3px;
+  padding: 13px 16px;
+  background: #fff;
+  color: #0d1745;
+  border: 1px solid #e4e8ee;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px #10213e15;
+}
+.buy-hero-offer>span { font-size: clamp(12px, 1vw, 17px); color: #40557b; }
+.buy-hero-offer strong { font-size: clamp(18px, 1.4vw, 24px); font-weight: 800; line-height: 1.2; white-space: nowrap; letter-spacing: -.6px; }
+.buy-hero-offer strong small { font-size: .7em; font-weight: 600; }
+.buy-hero-from { left: 15%; top: 22%; }
+.buy-hero-emi { right: 10%; top: 44%; }
+.buy-hero-offer-note { position: absolute; bottom: 34px; right: 22px; font-size: 9px; color: #fff; text-shadow: 0 1px 4px #000; }
+@media (min-width: 901px) and (max-width: 1200px) {
+  .buy-page .buy-hero h1 { max-width: 55%; font-size: 36px; }
+  .buy-page .buy-hero-subtitle { max-width: 54%; font-size: 17px; }
+  .buy-hero-assured { left: 22%; padding: 7px 10px; border-width: 4px; }
+  .buy-hero-from { left: 13%; }
+  .buy-hero-offer { padding: 10px; }
+  .buy-hero-emi { right: 3%; }
+}
+@media (max-width: 900px) {
+  .buy-page .buy-hero-art { inset: 185px 0 auto; height: 310px; mask-image: linear-gradient(90deg, transparent, #000 8%); }
+  .buy-page .buy-hero::after { background: linear-gradient(#092747 0 24%, transparent 34% 65%, #092747 74%); clip-path: none; }
+  .buy-page .buy-hero h1, .buy-page .buy-hero-subtitle { max-width: 100%; }
+  .buy-page .buy-hero-search { width: 100%; margin-top: 325px; }
+  .buy-hero-promos { inset: 185px 0 auto; height: 310px; }
+  .buy-hero-assured { left: 22%; top: 8%; }
+  .buy-hero-from { left: 8%; top: 29%; }
+  .buy-hero-emi { right: 8%; top: 44%; }
+  .buy-hero-offer-note { bottom: 8px; right: 15px; }
+}
+@media (max-width: 600px) {
+  .buy-page .buy-hero-art { inset: 210px 0 auto; height: 255px; mask-image: linear-gradient(0deg, transparent, #000 12%, #000 92%, transparent); }
+  .buy-page .buy-hero-art img { object-position: 57% center; }
+  .buy-page .buy-hero-search { margin-top: 285px; }
+  .buy-hero-promos { inset: 210px 0 auto; height: 255px; }
+  .buy-hero-assured { top: 2%; left: 16%; font-size: 10px; padding: 5px 8px; gap: 4px; border-width: 3px; border-radius: 10px; }
+  .buy-hero-assured .material-symbols-outlined { font-size: 13px; }
+  .buy-hero-offer { padding: 7px 9px; border-radius: 7px; gap: 2px; }
+  .buy-hero-offer>span { font-size: 10px; }
+  .buy-hero-offer strong { font-size: 15px; }
+  .buy-hero-from { left: 3%; top: 19%; }
+  .buy-hero-emi { right: 3%; top: 44%; }
+  .buy-hero-offer-note { font-size: 8px; bottom: 6px; }
+}

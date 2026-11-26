@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DrivioCars | Damaged Car Auction Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#003ec7",
+              "inverse-primary": "#b7c4ff",
+              "on-surface-variant": "#434656",
+              "tertiary-fixed": "#ffddb8",
+              "primary-fixed": "#dde1ff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#ffdfbe",
+              "surface-bright": "#faf8ff",
+              "secondary": "#515f74",
+              "on-surface": "#131b2e",
+              "on-primary-container": "#dfe3ff",
+              "tertiary": "#6f4500",
+              "surface-dim": "#d2d9f4",
+              "surface-container": "#eaedff",
+              "primary-container": "#0052ff",
+              "inverse-surface": "#283044",
+              "surface-container-highest": "#dae2fd",
+              "surface-tint": "#004ced",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed": "#0d1c2e",
+              "surface-container-low": "#f2f3ff",
+              "on-error-container": "#93000a",
+              "surface": "#faf8ff",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#0038b6",
+              "secondary-fixed": "#d5e3fc",
+              "tertiary-fixed-dim": "#ffb95f",
+              "on-secondary-container": "#57657a",
+              "on-tertiary-fixed-variant": "#653e00",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "tertiary-container": "#905a00",
+              "error": "#ba1a1a",
+              "on-secondary-fixed-variant": "#3a485b",
+              "on-background": "#131b2e",
+              "surface-variant": "#dae2fd",
+              "primary-fixed-dim": "#b7c4ff",
+              "secondary-container": "#d5e3fc",
+              "on-tertiary-fixed": "#2a1700",
+              "background": "#faf8ff",
+              "on-error": "#ffffff",
+              "outline-variant": "#c3c5d9",
+              "on-primary-fixed": "#001452",
+              "secondary-fixed-dim": "#b9c7df",
+              "surface-container-high": "#e2e7ff",
+              "inverse-on-surface": "#eef0ff",
+              "outline": "#737688"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/20">
+<!-- Live Auction Ticker -->
+<div class="w-full bg-inverse-surface text-inverse-on-surface py-2 overflow-hidden whitespace-nowrap z-[60] relative">
+<div class="flex items-center gap-12 animate-scroll">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="text-xs font-label font-bold uppercase tracking-widest leading-none">Live: 2019 Porsche 911 (Frontal) - Current Bid: $42,500</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="text-xs font-label font-bold uppercase tracking-widest leading-none">Live: 2022 Tesla Model S (Structural) - 4 Mins Left</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="text-xs font-label font-bold uppercase tracking-widest leading-none">Recently Sold: 2020 BMW M4 for $31,200</span>
+</div>
+</div>
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0_32px_64px_-15px_rgba(0,0,0,0.04)]">
+<div class="flex items-center justify-between px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-blue-600 dark:text-blue-400 scale-95 active:scale-90 transition-transform">menu</button>
+<span class="plus-jakarta-sans font-bold tracking-tighter text-2xl font-black italic text-blue-700 dark:text-blue-500 tracking-tighter">DRIVIOCARS</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-blue-700 dark:text-blue-400 border-b-2 border-blue-700 font-bold plus-jakarta-sans hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Market</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium plus-jakarta-sans hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Auctions</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium plus-jakarta-sans hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Logistics</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2.5 bg-primary text-on-primary rounded-xl font-bold text-sm hover:opacity-90 transition-all active:scale-95">List Car</button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+<!-- Hero & Filters -->
+<section class="mb-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+<div class="max-w-2xl">
+<span class="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Salvage &amp; Repairable Inventory</span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-6">Live Damaged Car Auctions.</h1>
+<p class="text-on-surface-variant text-lg max-w-xl">Access high-yield rebuildable assets from direct insurance feeds. Precision bidding for professional refurbishers.</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold shadow-lg shadow-primary/20 flex items-center gap-2 active:scale-95 transition-transform">
+                        Register as Vendor
+                        <span class="material-symbols-outlined">trending_flat</span>
+</button>
+</div>
+</div>
+<!-- Filter Bar: Bento Style -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 bg-surface-container-low rounded-lg">
+<div class="bg-surface-container-lowest p-4 rounded-DEFAULT flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Damage Type</label>
+<select class="border-none bg-transparent p-0 font-bold text-on-surface focus:ring-0 w-full">
+<option>All Damage</option>
+<option>Front-end Impact</option>
+<option>Structural Damage</option>
+<option>Minor Dents/Scratches</option>
+<option>Flood/Water</option>
+</select>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-DEFAULT flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Location</label>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">location_on</span>
+<input class="border-none bg-transparent p-0 font-bold text-on-surface focus:ring-0 w-full placeholder:text-on-surface/30" placeholder="Zip or City" type="text"/>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-DEFAULT flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Sort By</label>
+<select class="border-none bg-transparent p-0 font-bold text-on-surface focus:ring-0 w-full">
+<option>Bid Ends Soon</option>
+<option>Newest Listed</option>
+<option>Lowest Starting Bid</option>
+<option>Highest MSRP</option>
+</select>
+</div>
+<button class="bg-primary-container text-on-primary-container rounded-DEFAULT font-bold flex items-center justify-center gap-2 hover:bg-primary transition-colors hover:text-on-primary">
+<span class="material-symbols-outlined">search</span>
+                    Apply Filters
+                </button>
+</div>
+</section>
+<!-- Auction Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group relative bg-surface-container-lowest rounded-lg overflow-hidden flex flex-col transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close up of a silver modern sports car with significant front bumper and headlight damage, debris on pavement, dramatic cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApkqgHZaB4w2lAyNS7oZqL3hjwUAlT1DoPlQNrVawuuc-rxBKxy0lgQNIFpmE9P6SChD3TLJwY07O5Z_PWT_jcVFRalhz6QWUd9hS5pYPhAVGa23fM-l13kRfZjBNCE34uidaK-SZ7i1kwYuEHi48NCesPy8lRd3RIveNGMmUL8gP1zs76EmBXvS9quH3rn8kczZ30DuKBBWWoada5XHg9D-IIKeyYG_INoUXNt0EsmHZ2S-l4ENG99koZop8J3IxU3ETUw0Iwvxo"/>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-error text-on-error text-[10px] font-black uppercase tracking-tighter px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+                            Major Frontal
+                        </span>
+</div>
+<div class="absolute bottom-4 left-4 glass-effect bg-white/60 px-4 py-2 rounded-lg">
+<span class="text-xs font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                            04:22:15
+                        </span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline text-xl font-extrabold text-on-surface tracking-tight">2021 Porsche Taycan 4S</h3>
+<p class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Los Angeles, CA
+                            </p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">High Bid</p>
+<p class="text-2xl font-black text-primary tracking-tighter leading-none">$38,400</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-low p-3 rounded-DEFAULT">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mb-1">Status</p>
+<p class="text-sm font-bold text-on-surface">Salvage Title</p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-DEFAULT">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mb-1">Bids</p>
+<p class="text-sm font-bold text-on-surface">24 Active</p>
+</div>
+</div>
+<button class="w-full bg-on-surface text-surface py-4 rounded-xl font-bold flex items-center justify-center gap-2 group-hover:bg-primary transition-colors">
+                        Place Proxy Bid
+                        <span class="material-symbols-outlined">gavel</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-surface-container-lowest rounded-lg overflow-hidden flex flex-col transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Side profile of a dark luxury sedan with a crushed passenger door and side mirror damage, evening urban setting with neon reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9Hb6s-Y14rJdz8XjqowhEQ29EMDnQmF5-TlZmS_blFkw1FzRDf9-cvNOGnIaH-Lt44DPkrdh96dL6amtt4a0ilOEwDZBx7cfKEbimUPTvY2LE23TTfKRm8UfMrpgnBPTZPF1v7gSibaC9ACGQwmk1JZGY1j-e_5-Uwgkb6UqQMLc8Br3K3aIYUIjFj_cSIjD-YhrieHAgSr449WHznKLX5Wdr1AvWv3uv-Lckw5pPLKTlnnvbziHHScUNBETOdcXvmld9JpPSgUg"/>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-black uppercase tracking-tighter px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">build</span>
+                            Medium Impact
+                        </span>
+</div>
+<div class="absolute bottom-4 left-4 glass-effect bg-white/60 px-4 py-2 rounded-lg">
+<span class="text-xs font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                            00:12:44
+                        </span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline text-xl font-extrabold text-on-surface tracking-tight">2023 BMW M3 Competition</h3>
+<p class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Austin, TX
+                            </p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">High Bid</p>
+<p class="text-2xl font-black text-primary tracking-tighter leading-none">$51,200</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-low p-3 rounded-DEFAULT">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mb-1">Status</p>
+<p class="text-sm font-bold text-on-surface">Structural</p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-DEFAULT">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mb-1">Bids</p>
+<p class="text-sm font-bold text-on-surface">11 Active</p>
+</div>
+</div>
+<button class="w-full bg-on-surface text-surface py-4 rounded-xl font-bold flex items-center justify-center gap-2 group-hover:bg-primary transition-colors">
+                        Place Proxy Bid
+                        <span class="material-symbols-outlined">gavel</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-surface-container-lowest rounded-lg overflow-hidden flex flex-col transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Rear quarter panel view of a white electric SUV with minor cosmetic scrapes and a cracked tail light, bright morning lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtNOCnV64U5sel6tZynkZBzG2vZUr7YpPN6krq3jhnDbSb3IB6iudiRI-uSE3BZdBMrmqC2PzAYW8969WC5AwVbEI-7tO5T-B5klJ_KaNMuE7-iCSaEJ5TyAV_dRP4QwsBHY5cipXiKBuOHVAS0bFc5dmACnvdAsZ95WOSoBnEfzpXHSLpMYwK1WCPkSHk8Az5izPFGSbOwKZDCIW4-Okf5GF0Z4y96YonLI7FZ85xNjFR3YDAz31diX2PzJCJfCtxLRoFNUetoE0"/>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-black uppercase tracking-tighter px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">info</span>
+                            Minor Cosmetic
+                        </span>
+</div>
+<div class="absolute bottom-4 left-4 glass-effect bg-white/60 px-4 py-2 rounded-lg">
+<span class="text-xs font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                            14:55:01
+                        </span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline text-xl font-extrabold text-on-surface tracking-tight">2022 Tesla Model Y Performance</h3>
+<p class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Miami, FL
+                            </p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">High Bid</p>
+<p class="text-2xl font-black text-primary tracking-tighter leading-none">$29,950</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-low p-3 rounded-DEFAULT">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mb-1">Status</p>
+<p class="text-sm font-bold text-on-surface">Clean Run/Drive</p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-DEFAULT">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mb-1">Bids</p>
+<p class="text-sm font-bold text-on-surface">38 Active</p>
+</div>
+</div>
+<button class="w-full bg-on-surface text-surface py-4 rounded-xl font-bold flex items-center justify-center gap-2 group-hover:bg-primary transition-colors">
+                        Place Proxy Bid
+                        <span class="material-symbols-outlined">gavel</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Call to Action Section -->
+<section class="mt-32 relative overflow-hidden bg-on-surface rounded-lg p-12 md:p-24 text-center">
+<div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary opacity-20 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-primary opacity-10 rounded-full blur-[120px]"></div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-headline text-4xl md:text-6xl font-black text-surface tracking-tighter mb-8 italic">Ready to scale your repair business?</h2>
+<p class="text-surface/70 text-lg mb-12">Join 12,000+ certified vendors getting priority access to national insurance salvage inventory before it hits public yard auctions.</p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<button class="w-full md:w-auto px-12 py-5 bg-primary text-on-primary rounded-full font-bold text-xl hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-primary/40">Register as Vendor</button>
+<button class="w-full md:w-auto px-12 py-5 bg-surface-container-highest/10 text-surface border border-surface/20 rounded-full font-bold text-xl hover:bg-surface/10 transition-all">Request Inspection Guide</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-900 w-full py-12 px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-2">
+<span class="text-xl font-bold text-slate-900 dark:white block mb-6">DRIVIOCARS</span>
+<p class="inter text-sm text-slate-500 dark:text-slate-400 max-w-sm mb-8">The world's leading editorial marketplace for damaged high-end assets. We bridge the gap between insurance liquidation and master refurbishing.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">social_leaderboard</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">share</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">mail</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Resources</h4>
+<ul class="flex flex-col gap-3">
+<li><a class="inter text-sm text-slate-500 hover:underline decoration-blue-500 underline-offset-4" href="#">Privacy Policy</a></li>
+<li><a class="inter text-sm text-slate-500 hover:underline decoration-blue-500 underline-offset-4" href="#">Terms of Service</a></li>
+<li><a class="inter text-sm text-slate-500 hover:underline decoration-blue-500 underline-offset-4" href="#">Shipping &amp; Logistics</a></li>
+<li><a class="inter text-sm text-slate-500 hover:underline decoration-blue-500 underline-offset-4" href="#">Expert Inspection</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Newsletter</h4>
+<p class="inter text-xs text-slate-500 mb-4">Daily auction digests straight to your inbox.</p>
+<div class="flex gap-2">
+<input class="bg-white border-none rounded-lg px-4 text-sm focus:ring-2 focus:ring-primary w-full" placeholder="Email" type="email"/>
+<button class="bg-primary text-white p-2 rounded-lg"><span class="material-symbols-outlined">send</span></button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto border-t border-slate-200 mt-12 pt-8 text-center md:text-left">
+<p class="inter text-sm text-slate-500">© 2024 DrivioCars Editorial Marketplace. The Digital Concierge Group.</p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] rounded-t-[2rem]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="plus-jakarta-sans text-[11px] font-semibold uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-3xl px-5 py-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+<span class="plus-jakarta-sans text-[11px] font-semibold uppercase tracking-widest mt-1">Market</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+<span class="plus-jakarta-sans text-[11px] font-semibold uppercase tracking-widest mt-1">Alerts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu_open</span>
+<span class="plus-jakarta-sans text-[11px] font-semibold uppercase tracking-widest mt-1">Menu</span>
+</div>
+</nav>
+<style>
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            display: flex;
+            width: max-content;
+            animation: scroll 30s linear infinite;
+        }
+    </style>
+</body></html>

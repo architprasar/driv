@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DrivioCars Vendor Live Auction Control Room</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#d2d9f4",
+                        "on-primary-fixed-variant": "#0038b6",
+                        "inverse-surface": "#283044",
+                        "tertiary": "#6f4500",
+                        "surface-container-low": "#f2f3ff",
+                        "on-tertiary-fixed": "#2a1700",
+                        "on-secondary-container": "#57657a",
+                        "surface-container": "#eaedff",
+                        "surface-tint": "#004ced",
+                        "on-surface-variant": "#434656",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "primary": "#003ec7",
+                        "primary-fixed-dim": "#b7c4ff",
+                        "outline": "#737688",
+                        "on-background": "#131b2e",
+                        "secondary-fixed": "#d5e3fc",
+                        "inverse-on-surface": "#eef0ff",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-tertiary-container": "#ffdfbe",
+                        "surface-bright": "#faf8ff",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "tertiary-fixed": "#ffddb8",
+                        "on-primary-container": "#dfe3ff",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface": "#131b2e",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e2e7ff",
+                        "secondary-container": "#d5e3fc",
+                        "inverse-primary": "#b7c4ff",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "surface": "#faf8ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#905a00",
+                        "surface-container-highest": "#dae2fd",
+                        "outline-variant": "#c3c5d9",
+                        "background": "#faf8ff",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#dae2fd",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary": "#515f74",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#0052ff",
+                        "primary-fixed": "#dde1ff",
+                        "on-primary-fixed": "#001452"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .glass-panel {
+            background: rgba(250, 248, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="bg-[#faf8ff] docked full-width top-0 z-50 flex items-center justify-between px-6 h-20 w-full">
+<div class="flex items-center gap-4">
+<button class="hover:bg-[#e2e7ff] transition-colors duration-300 p-2 rounded-full scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[#0052FF]">menu</span>
+</button>
+<h1 class="text-2xl font-black text-[#0052FF] tracking-tighter font-['Plus_Jakarta_Sans']">DrivioCars</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#434656] font-medium hover:bg-[#e2e7ff] transition-colors duration-300 px-3 py-1 rounded-lg" href="#">History</a>
+<a class="text-[#434656] font-medium hover:bg-[#e2e7ff] transition-colors duration-300 px-3 py-1 rounded-lg" href="#">Finance</a>
+<a class="text-[#434656] font-medium hover:bg-[#e2e7ff] transition-colors duration-300 px-3 py-1 rounded-lg" href="#">Saved</a>
+<a class="text-[#0052FF] font-bold hover:bg-[#e2e7ff] transition-colors duration-300 px-3 py-1 rounded-lg" href="#">Auctions</a>
+<a class="text-[#434656] font-medium hover:bg-[#e2e7ff] transition-colors duration-300 px-3 py-1 rounded-lg" href="#">Profile</a>
+</nav>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional male portrait with friendly expression and clean studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNPWvJjMnjz9Gn4nB6hEYrCE5yeqBEegRkuSNroTMPfKhuvgSLA4JkI7vKpSYxBQqsCouDOyiwgh65D5jjnpauQyHtY5wvUHU8eGYiZy7F5YSYkuVMS5FT_NeAFR-jRAgUoiM0Soq1NaFvJmT3p8RcRmizLHnbkC_g-fcIhD9c9mT7iLm64toL6z36DX8ZwEGznCD-RntWd_McrTsU_ADQzeX-Lsm275HZOiltWjtCtycAdzRgTs7-8nMIqbv-u6tCjpWNGmph5O8"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1600px] mx-auto p-6 lg:p-10 pb-32">
+<!-- Hero: Live Auction Status Header -->
+<section class="mb-12 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-error text-on-error text-[10px] font-bold tracking-widest uppercase flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                        Live Control Room
+                    </span>
+<span class="text-on-surface-variant font-medium text-sm">Auction ID: #DRV-8829-LC</span>
+</div>
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tight text-on-surface">2023 Porsche 911 GT3 RS</h2>
+<p class="text-on-surface-variant text-lg">Current Location: Stuttgart Exhibition Center • 4.0L Flat-Six • Shark Blue</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-lg flex flex-col items-center justify-center min-w-[280px] border-none">
+<span class="text-on-surface-variant font-label text-xs uppercase tracking-widest mb-1">Time Remaining</span>
+<div class="text-5xl font-black font-headline text-error tracking-tighter tabular-nums">04:12:09</div>
+<div class="mt-4 flex gap-2">
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-all active:scale-95">Accept Current Bid</button>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-all active:scale-95">Extend +2m</button>
+</div>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Live Feed & High Intensity Stats (8 cols) -->
+<div class="md:col-span-8 space-y-8">
+<!-- Main Car Visual & Stats -->
+<div class="relative rounded-lg overflow-hidden bg-surface-container-low min-h-[500px] flex flex-col justify-end p-8">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="sleek blue Porsche 911 GT3 RS parked in a modern minimalist garage with dramatic spotlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN6FaI1rmwdHD41PfhW7T6G3b1o7bYNNJoyj50dRQI2GyYL-PfA7D_AXuOnPmmTl9eMac1PoItuTz-luBR4H-ooIJdHqtdUGJQSxFbJankJiyaDWaR4Xww_m24gkkbK8GKFlgvyrcRUMXYM_M549fEvcQp-n4oleQjjnazvU66vhOSFkA9Xeoh2ldMWoRlQ35sTk-6R2r8CArlLP3hd8CK67nnc_kr_Ovc29O3KGlYm3MV1188SAgn6D6p24X0BUF3DmxG8STKrto"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-transparent to-transparent"></div>
+<div class="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="glass-panel p-4 rounded-lg">
+<span class="block text-primary-fixed text-xs font-label uppercase tracking-wider mb-1">Current Bid</span>
+<span class="block text-white text-3xl font-black tracking-tight">$248,500</span>
+</div>
+<div class="glass-panel p-4 rounded-lg">
+<span class="block text-primary-fixed text-xs font-label uppercase tracking-wider mb-1">Reserve</span>
+<span class="block text-white text-3xl font-black tracking-tight">$235,000</span>
+<span class="text-[10px] text-tertiary-fixed font-bold uppercase">Met</span>
+</div>
+<div class="glass-panel p-4 rounded-lg">
+<span class="block text-primary-fixed text-xs font-label uppercase tracking-wider mb-1">Views</span>
+<span class="block text-white text-3xl font-black tracking-tight">1,242</span>
+</div>
+<div class="glass-panel p-4 rounded-lg">
+<span class="block text-primary-fixed text-xs font-label uppercase tracking-wider mb-1">Watchers</span>
+<span class="block text-white text-3xl font-black tracking-tight">418</span>
+</div>
+</div>
+</div>
+<!-- Live Bidding History Feed -->
+<div class="bg-surface-container-low rounded-lg p-8">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-2xl font-headline font-bold text-on-surface">Incoming Bids</h3>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-success-500 bg-primary"></span>
+<span class="text-sm font-medium">Real-time update active</span>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Bid Item -->
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border-l-4 border-primary">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-primary">JD</div>
+<div>
+<div class="font-bold text-on-surface">Julian D. <span class="text-xs font-medium text-on-surface-variant ml-2">Zurich, CH</span></div>
+<div class="text-xs text-on-surface-variant">2 seconds ago</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xl font-black text-primary">$248,500</div>
+<div class="text-[10px] font-bold text-on-primary-fixed-variant tracking-widest uppercase">New Leader</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg opacity-80">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-on-surface-variant">MK</div>
+<div>
+<div class="font-bold text-on-surface">Marcus K. <span class="text-xs font-medium text-on-surface-variant ml-2">Berlin, DE</span></div>
+<div class="text-xs text-on-surface-variant">45 seconds ago</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xl font-black text-on-surface-variant">$247,200</div>
+<div class="text-[10px] font-bold text-outline tracking-widest uppercase">Outbid</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg opacity-60">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-on-surface-variant">SF</div>
+<div>
+<div class="font-bold text-on-surface">Sarah F. <span class="text-xs font-medium text-on-surface-variant ml-2">London, UK</span></div>
+<div class="text-xs text-on-surface-variant">1 minute ago</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xl font-black text-on-surface-variant">$245,000</div>
+<div class="text-[10px] font-bold text-outline tracking-widest uppercase">Outbid</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Performance & Top Bidders (4 cols) -->
+<div class="md:col-span-4 space-y-8">
+<!-- Performance Analytics -->
+<div class="bg-surface-container-highest rounded-lg p-8">
+<h3 class="text-xl font-headline font-bold text-on-surface mb-6">Session Performance</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2">
+<span>Engagement Velocity</span>
+<span class="text-primary font-bold">High</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2">
+<span>Bid Frequency</span>
+<span class="text-primary font-bold">2.4 / min</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[60%]"></div>
+</div>
+</div>
+<div class="pt-4 grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-lg text-center">
+<span class="block text-[10px] text-on-surface-variant uppercase font-bold">Active Bidders</span>
+<span class="text-2xl font-black text-on-surface">14</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg text-center">
+<span class="block text-[10px] text-on-surface-variant uppercase font-bold">Incr. Avg</span>
+<span class="text-2xl font-black text-on-surface">$1.2k</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Bidders List -->
+<div class="bg-surface-container-low rounded-lg p-8">
+<h3 class="text-xl font-headline font-bold text-on-surface mb-6">Top Bidders</h3>
+<div class="space-y-5">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">1</div>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-tertiary-container border-2 border-surface rounded-full"></div>
+</div>
+<div class="flex-1">
+<div class="text-sm font-bold">Julian D.</div>
+<div class="text-xs text-on-surface-variant">Verified Collector</div>
+</div>
+<div class="text-sm font-black">$248.5k</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold">2</div>
+<div class="flex-1">
+<div class="text-sm font-bold">Marcus K.</div>
+<div class="text-xs text-on-surface-variant">Top Dealer</div>
+</div>
+<div class="text-sm font-black">$247.2k</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold">3</div>
+<div class="flex-1">
+<div class="text-sm font-bold">Sarah F.</div>
+<div class="text-xs text-on-surface-variant">Private Buyer</div>
+</div>
+<div class="text-sm font-black">$245.0k</div>
+</div>
+<div class="flex items-center gap-4 opacity-50">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold">4</div>
+<div class="flex-1">
+<div class="text-sm font-bold">Chen W.</div>
+<div class="text-xs text-on-surface-variant">Verified Buyer</div>
+</div>
+<div class="text-sm font-black">$242.8k</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-bold text-sm hover:bg-surface-container-highest transition-colors">
+                        View Full Bidder Analytics
+                    </button>
+</div>
+<!-- Ad/Contextual Banner -->
+<div class="rounded-lg bg-on-primary-fixed-variant p-6 text-on-primary-container relative overflow-hidden">
+<div class="relative z-10">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary-fixed-dim">Vendor Tip</span>
+<p class="mt-2 text-sm leading-relaxed">Auction intensity is peaking. Extending the clock by 2 minutes often yields a 3-5% increase in final hammer price.</p>
+</div>
+<div class="absolute top-0 right-0 -mr-4 -mt-4 opacity-10">
+<span class="material-symbols-outlined text-[80px]">lightbulb</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/70 backdrop-blur-xl shadow-[0_-8px_30px_rgb(19,27,46,0.04)] rounded-t-[2rem]">
+<div class="flex flex-col items-center justify-center text-[#434656] opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">history</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#434656] opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Finance</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#434656] opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">notifications_active</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Saved</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#0052FF] text-white rounded-full px-5 py-2 scale-110 shadow-lg shadow-[#0052FF]/20 tap-highlight-transparent">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Auctions</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#434656] opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

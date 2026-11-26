@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DrivioCars | Expert Inspection Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed": "#d5e3fc",
+              "on-secondary": "#ffffff",
+              "secondary": "#515f74",
+              "on-tertiary-container": "#ffdfbe",
+              "secondary-container": "#d5e3fc",
+              "on-primary-container": "#dfe3ff",
+              "on-primary": "#ffffff",
+              "on-secondary-fixed-variant": "#3a485b",
+              "on-secondary-fixed": "#0d1c2e",
+              "surface-tint": "#004ced",
+              "primary-fixed": "#dde1ff",
+              "on-surface": "#131b2e",
+              "inverse-primary": "#b7c4ff",
+              "surface-container-high": "#e2e7ff",
+              "on-surface-variant": "#434656",
+              "surface-container-highest": "#dae2fd",
+              "surface-container-low": "#f2f3ff",
+              "on-primary-fixed": "#001452",
+              "inverse-on-surface": "#eef0ff",
+              "surface-container": "#eaedff",
+              "tertiary-fixed": "#ffddb8",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "primary-fixed-dim": "#b7c4ff",
+              "primary-container": "#0052ff",
+              "on-secondary-container": "#57657a",
+              "error": "#ba1a1a",
+              "outline": "#737688",
+              "on-tertiary-fixed-variant": "#653e00",
+              "on-primary-fixed-variant": "#0038b6",
+              "tertiary-fixed-dim": "#ffb95f",
+              "surface": "#faf8ff",
+              "inverse-surface": "#283044",
+              "tertiary": "#6f4500",
+              "surface-variant": "#dae2fd",
+              "primary": "#003ec7",
+              "background": "#faf8ff",
+              "outline-variant": "#c3c5d9",
+              "on-error": "#ffffff",
+              "surface-dim": "#d2d9f4",
+              "tertiary-container": "#905a00",
+              "surface-bright": "#faf8ff",
+              "on-tertiary-fixed": "#2a1700",
+              "on-background": "#131b2e",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "secondary-fixed-dim": "#b9c7df"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+        /* No-line rule implementation */
+        .no-border { border: none !important; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl shadow-sm dark:shadow-none h-16 flex items-center justify-between px-6">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-200 text-blue-700 dark:text-blue-500">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="text-2xl font-black text-blue-700 dark:text-blue-500 italic font-plus-jakarta-sans tracking-tight">DrivioCars</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-blue-50 dark:hover:bg-blue-900/30 px-3 py-1 rounded transition-colors" href="#">Showroom</a>
+<a class="text-blue-700 dark:text-blue-400 font-bold hover:bg-blue-50 dark:hover:bg-blue-900/30 px-3 py-1 rounded transition-colors" href="#">Orders</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-blue-50 dark:hover:bg-blue-900/30 px-3 py-1 rounded transition-colors" href="#">Support</a>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden active:scale-95 duration-200 cursor-pointer">
+<img alt="User profile" data-alt="close-up portrait of a professional man with a friendly expression in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8JpsW8FsA6y7Q0dYWRVCQvh8L0RMLcrzerqjpC5OHEy30UA0sdDTrjYWRj2BxycjFQGUY7zkobRba1_sX60urRBgGPpCh9nr6Q8zs8zsMTsjIy5JcYgInEkdQvfGg2HXVQ_uv8Qt2SvgCphCyplj2ldpFBwoWeXqPhK8YixUKAFQFmUplY4HKenFRVAirDko5w-Ym3oqOCo-zXkvHbtXvlPeHquvxqzD7oNHYFD4HsVyNSunBMcG32tTlmug2Tku3Co_sfzby5cQ"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-12 lg:px-24 max-w-7xl mx-auto">
+<!-- Hero: Inspection Summary -->
+<section class="mb-16">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="w-full md:w-7/12 relative">
+<div class="absolute -top-6 -left-6 w-32 h-32 bg-primary-fixed rounded-full blur-3xl opacity-50"></div>
+<div class="relative rounded-lg overflow-hidden shadow-2xl">
+<img alt="2023 Luxury Sedan" class="w-full h-[400px] object-cover" data-alt="Side profile of a sleek metallic silver luxury sedan in a minimalist high-end studio with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANICrL0l1RXnr0cWNKl7cgymoXtmT6sZOts7iFUHFnar8Xf9TxpMmGkrwBpkqcH4AF8J0bTw0iyp0nqiIU3ndJsN9Gw-1C91xnvmgROgMxz8_Q4vaKBE4NmCtnjhY8QqdESmZZL5AD03bqQd4UVBQkQYIHuG1plCtzZEe1LOWClpsl0Iz9iB5BZ1Gh_EX-EmSwM9r3knhdg2R1qJDMxatCOXlI4RtoeyDAKbpUk7RDzzJwHoANj-GeyK8Zglrfatd68oy7MxIyWcs"/>
+<div class="absolute bottom-6 left-6 bg-white/70 backdrop-blur-md px-6 py-3 rounded-DEFAULT flex items-center gap-3">
+<span class="text-on-surface-variant font-label text-sm">Condition Score</span>
+<span class="text-primary text-3xl font-extrabold tracking-tighter">9.8</span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-5/12">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-tertiary-container text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Verified</span>
+<span class="text-on-surface-variant text-sm font-medium">Report #DRV-8829-X</span>
+</div>
+<h1 class="text-5xl font-extrabold text-on-surface tracking-tight leading-tight mb-4">Porsche Taycan Turbo S</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">This vehicle has undergone a rigorous 150-point inspection by our master technicians. The structural integrity and electrical systems are in pristine condition.</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-DEFAULT">
+<p class="text-on-surface-variant text-xs uppercase font-bold mb-1">Grade</p>
+<p class="text-primary text-2xl font-black italic">EXCEPTIONAL</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-DEFAULT">
+<p class="text-on-surface-variant text-xs uppercase font-bold mb-1">Inspector</p>
+<p class="text-on-surface text-lg font-bold">Marcus V. <span class="material-symbols-outlined text-sm align-middle" data-icon="verified">verified</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Inspection Categories -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-20">
+<!-- Engine/Powertrain -->
+<div class="md:col-span-8 bg-surface-container-low p-8 rounded-lg relative overflow-hidden group">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-8">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="settings_input_component">settings_input_component</span>
+<h3 class="text-2xl font-bold">Powertrain &amp; Battery</h3>
+</div>
+<span class="bg-primary-container text-white px-4 py-1 rounded-full text-xs font-bold">42/42 PASSED</span>
+</div>
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-12">
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Battery Health: 98.4%
+                        </li>
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Cooling System Integrity
+                        </li>
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Drive Unit Calibration
+                        </li>
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Torque Vectoring Sync
+                        </li>
+</ul>
+</div>
+<!-- Glassmorphism overlay for tech look -->
+<div class="absolute right-[-10%] bottom-[-10%] w-64 h-64 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-500"></div>
+</div>
+<!-- Grade Card -->
+<div class="md:col-span-4 bg-primary p-8 rounded-lg text-white flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-bold mb-2">Overall Summary</h3>
+<p class="text-on-primary-container text-sm leading-relaxed">Top-tier performance with zero reported mechanical issues. Minor aesthetic wear documented in the interior section.</p>
+</div>
+<div class="mt-12">
+<div class="text-6xl font-black italic tracking-tighter mb-2">A+</div>
+<div class="h-1 w-full bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-white w-[98%]"></div>
+</div>
+</div>
+</div>
+<!-- Body & Exterior -->
+<div class="md:col-span-4 bg-surface-container-highest p-8 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="directions_car">directions_car</span>
+<h3 class="text-2xl font-bold mb-6">Body &amp; Exterior</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center bg-white p-4 rounded-DEFAULT">
+<span class="font-medium">Paint Depth</span>
+<span class="text-primary font-bold">Factory Std</span>
+</div>
+<div class="flex justify-between items-center bg-white p-4 rounded-DEFAULT">
+<span class="font-medium">Panel Gaps</span>
+<span class="text-primary font-bold">Uniform</span>
+</div>
+<div class="bg-error-container/30 p-4 rounded-DEFAULT flex items-start gap-3">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+<div>
+<p class="text-on-error-container text-xs font-bold uppercase">Minor Flag</p>
+<p class="text-on-error-container text-sm">2mm chip on front lip</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Interior & Electronics -->
+<div class="md:col-span-8 bg-surface-container-low p-8 rounded-lg">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="flex-1">
+<h3 class="text-2xl font-bold mb-6">Electronics &amp; Interior</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-white rounded-DEFAULT shadow-sm">
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="hvac">hvac</span>
+<p class="text-xs font-bold uppercase text-on-surface-variant">Climate</p>
+<p class="font-bold">Dual-Zone OK</p>
+</div>
+<div class="p-4 bg-white rounded-DEFAULT shadow-sm">
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="edgesensor_high">edgesensor_high</span>
+<p class="text-xs font-bold uppercase text-on-surface-variant">Infotainment</p>
+<p class="font-bold">Ver 4.2 Updated</p>
+</div>
+<div class="p-4 bg-white rounded-DEFAULT shadow-sm">
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="event_seat">event_seat</span>
+<p class="text-xs font-bold uppercase text-on-surface-variant">Leather</p>
+<p class="font-bold">9/10 Quality</p>
+</div>
+<div class="p-4 bg-white rounded-DEFAULT shadow-sm">
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="visibility">visibility</span>
+<p class="text-xs font-bold uppercase text-on-surface-variant">ADAS</p>
+<p class="font-bold">Calibrated</p>
+</div>
+</div>
+</div>
+<div class="md:w-1/3 rounded-lg overflow-hidden">
+<img alt="Interior Detail" class="w-full h-full object-cover" data-alt="extreme close up of a luxury car dashboard showing premium leather stitching and illuminated digital display with soft blue ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyRpTtASCzoDPpNZPyJ5BFTxQG_eMNPU40M8DZ5cXG3zm7PwW4iGCYae81zoEfW8uBLhUqMFToQzq7VBC5Gm8u2i2kr12ZpMLyEVPus5EggwAifSR4XaYqUg4Y3U9a8eeEOHNFx8Pcp6aJXMQ3sXUT2odhxhyZOxIV0l2UUV7MilBWA7XsesJf0pIi2MlOIxB68IB0CIKoZF2wUQjPGsYhyNr65pL1V1oONNQueEyLVRZF9fv1QDeTp5HoxJ6rtwodA0MHC2bKXjU"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed 150-Point Checklist Header -->
+<div class="mb-12 text-center max-w-2xl mx-auto">
+<h2 class="text-4xl font-bold mb-4">The Full 150-Point Audit</h2>
+<p class="text-on-surface-variant">Every inch of the vehicle has been documented. Toggle categories below to view individual point statuses.</p>
+</div>
+<!-- Checklist Accordion Style -->
+<div class="space-y-4 mb-32">
+<!-- Interior Category -->
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden transition-all">
+<div class="p-6 flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="chair">chair</span>
+</div>
+<span class="text-xl font-bold">Interior &amp; Cabin</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-on-surface-variant font-medium">35 Points Verified</span>
+<span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="px-6 pb-6 border-t border-surface-container border-dashed">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-4 pt-6">
+<div class="flex items-center justify-between py-1">
+<span class="text-sm text-on-surface-variant">Seat Rail Lubrication</span>
+<span class="text-xs font-bold text-primary">PASSED</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-sm text-on-surface-variant">Sunroof Seal Integrity</span>
+<span class="text-xs font-bold text-primary">PASSED</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-sm text-on-surface-variant">Door Card Fitment</span>
+<span class="text-xs font-bold text-primary">PASSED</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-sm text-on-surface-variant">Upholstery Wear Audit</span>
+<span class="text-xs font-bold text-secondary">FAIR (MINOR)</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-sm text-on-surface-variant">Infotainment Response</span>
+<span class="text-xs font-bold text-primary">PASSED</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-sm text-on-surface-variant">Cabin Filter Condition</span>
+<span class="text-xs font-bold text-primary">REPLACED</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Wear Documentation -->
+<div class="bg-surface-container-lowest rounded-lg p-6">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-error-container" data-icon="photo_camera">photo_camera</span>
+</div>
+<h3 class="text-xl font-bold">Documented Wear</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex gap-6 items-start">
+<div class="w-24 h-24 rounded-DEFAULT overflow-hidden flex-shrink-0">
+<img alt="Front Bumper Chip" class="w-full h-full object-cover" data-alt="macro close-up of a small 2mm stone chip on a metallic silver car bumper surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8YGP_vDaleDhy16PZ8RWDETBOb2EELMS6CFxWbxxMgkSt_sWj7_g0UIYLK82hB_HwgEX5qSs5sUHasOXrAi4RdTBuHOS7InEq3AfoJwptLsVb6JUMGFV5avYLaSfeY0SNQMZHpZ3QRG4qB4u-fY5xbj8uCGeVN3h_AjdoAOHCc_aHHc29bfAlVwSQACTjqB9Qy-FGTfj5QPdUhYDLQrOWfZafx8xSnQYhzvtrN5Zwqo2sFzq6rReuOC9jC7j-otkkKKLgbMax30g"/>
+</div>
+<div>
+<h4 class="font-bold mb-1">Exterior: Front Lip</h4>
+<p class="text-sm text-on-surface-variant mb-2">Minor stone chip (~2mm) consistent with normal highway usage. No structural compromise.</p>
+<span class="text-xs font-bold text-error uppercase">Ref 01-EXT</span>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="w-24 h-24 rounded-DEFAULT overflow-hidden flex-shrink-0">
+<img alt="Leather Wear" class="w-full h-full object-cover" data-alt="close-up texture of high quality black perforated leather car seat showing very slight natural creases from use" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdAjCLhD7rUn9KRiYK1WbbVRjX-60lxvHmFWWBDjSjYPrDpmlTWOMdyFJ35lfZiIPEkc6uqEwnJgbZraAfsj_ENuIwnzFLX9O-_z3Y7ZjMLVFb1osU2V8vNX6tskrknJ5uc6lLl4JzvSVRgHaLmaAeZeydkknYVyWNwcxBBFLTuqNh24CORc8emQ1MxDWdqSHVROYw1UgqwwrZetlKID4gIVupgarLZ_T7R7qpIGqIO3tMH1Zdmck2o_pTWWk4mkCmDSYaZbkgkms"/>
+</div>
+<div>
+<h4 class="font-bold mb-1">Interior: Driver Bolster</h4>
+<p class="text-sm text-on-surface-variant mb-2">Micro-creasing on leather entry point. Typical for 15k mileage. Treated with conditioner.</p>
+<span class="text-xs font-bold text-error uppercase">Ref 02-INT</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full rounded-t-[2rem] z-50 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_20px_0_rgba(0,0,0,0.05)] h-20 px-4 pb-safe flex justify-around items-center">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:text-blue-500 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="text-[11px] font-plus-jakarta-sans font-semibold">Showroom</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded-2xl px-3 py-1.5 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="text-[11px] font-plus-jakarta-sans font-semibold">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:text-blue-500 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="text-[11px] font-plus-jakarta-sans font-semibold">Notifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:text-blue-500 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[11px] font-plus-jakarta-sans font-semibold">Vendors</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:text-blue-500 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+<span class="text-[11px] font-plus-jakarta-sans font-semibold">Support</span>
+</a>
+</nav>
+<!-- Floating Action Bar for Contextual Action -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-40 md:hidden w-[90%] bg-on-surface/90 backdrop-blur-xl p-4 rounded-xl flex items-center justify-between text-white shadow-2xl">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-white/60">Buy with confidence</span>
+<span class="font-bold">Verified Inspection</span>
+</div>
+<button class="bg-primary text-white px-6 py-2 rounded-full font-bold active:scale-95 duration-200">Book Now</button>
+</div>
+</body></html>

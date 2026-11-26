@@ -1,0 +1,95 @@
+name: drivio
+x-backend: &backend
+  build:
+    context: ..
+    dockerfile: deployment/backend.Dockerfile
+  env_file: ${DRIVIO_ENV_FILE:-.env.production}
+  environment:
+    DJANGO_DEBUG: "False"
+    DB_ENGINE: django.db.backends.postgresql
+    DB_HOST: database
+    DB_PORT: "5432"
+    DB_NAME: drivio
+    DB_USER: drivio
+    DB_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    REDIS_URL: redis://cache:6379/0
+    FRONTEND_URL: https://${PUBLIC_HOST:?Set PUBLIC_HOST}
+    DJANGO_ALLOWED_HOSTS: ${PUBLIC_HOST},backend,localhost
+    CSRF_TRUSTED_ORIGINS: https://${PUBLIC_HOST}
+    CORS_ALLOWED_ORIGINS: https://${PUBLIC_HOST}
+    PAYMENTS_MODE: stripe
+  volumes:
+    - media:/app/media
+    - static:/app/staticfiles
+    - private-documents:/app/private-media
+  restart: unless-stopped
+services:
+  database:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: drivio
+      POSTGRES_USER: drivio
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    volumes: [database:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U drivio -d drivio"]
+      interval: 5s
+      retries: 20
+    restart: unless-stopped
+  cache:
+    image: redis:7-alpine
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      retries: 20
+    restart: unless-stopped
+  migrate:
+    <<: *backend
+    command: [sh, -c, "python manage.py check --deploy --fail-level ERROR && python manage.py migrate --noinput && python manage.py privatize_vendor_documents && python manage.py collectstatic --noinput"]
+    restart: "no"
+    depends_on:
+      database: {condition: service_healthy}
+      cache: {condition: service_healthy}
+  backend:
+    <<: *backend
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen(urllib.request.Request('http://localhost:8000/api/health/ready/', headers={'X-Forwarded-Proto':'https'}), timeout=5)"]
+      interval: 15s
+      retries: 10
+  worker:
+    <<: *backend
+    command: [python, manage.py, marketplace_worker, --interval, "5"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+  frontend:
+    build:
+      context: ..
+      dockerfile: deployment/frontend.Dockerfile
+      args:
+        PUBLIC_HOST: ${PUBLIC_HOST:?Set PUBLIC_HOST}
+    environment:
+      API_SERVER_URL: http://backend:8000/api
+      FRONTEND_URL: https://${PUBLIC_HOST}
+    depends_on:
+      backend: {condition: service_healthy}
+    restart: unless-stopped
+  gateway:
+    image: caddy:2-alpine
+    environment:
+      PUBLIC_HOST: ${PUBLIC_HOST:?Set PUBLIC_HOST}
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - media:/srv/media:ro
+      - static:/srv/static:ro
+      - caddy:/data
+    depends_on: [frontend]
+    restart: unless-stopped
+volumes:
+  database:
+  media:
+  static:
+  private-documents:
+  caddy:

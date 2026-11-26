@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DrivioCars | Sell Your Car</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#dae2fd",
+              "primary": "#003ec7",
+              "on-primary-container": "#dfe3ff",
+              "on-background": "#131b2e",
+              "secondary-fixed": "#d5e3fc",
+              "tertiary-fixed": "#ffddb8",
+              "primary-container": "#0052ff",
+              "surface-dim": "#d2d9f4",
+              "secondary-fixed-dim": "#b9c7df",
+              "secondary": "#515f74",
+              "surface-tint": "#004ced",
+              "secondary-container": "#d5e3fc",
+              "on-secondary": "#ffffff",
+              "on-primary": "#ffffff",
+              "tertiary-fixed-dim": "#ffb95f",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#57657a",
+              "on-surface-variant": "#434656",
+              "on-primary-fixed-variant": "#0038b6",
+              "on-surface": "#131b2e",
+              "tertiary-container": "#905a00",
+              "primary-fixed-dim": "#b7c4ff",
+              "surface-variant": "#dae2fd",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#001452",
+              "surface-container-high": "#e2e7ff",
+              "inverse-primary": "#b7c4ff",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f2f3ff",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#653e00",
+              "on-error": "#ffffff",
+              "background": "#faf8ff",
+              "surface-container": "#eaedff",
+              "on-tertiary-container": "#ffdfbe",
+              "surface-bright": "#faf8ff",
+              "inverse-on-surface": "#eef0ff",
+              "on-secondary-fixed": "#0d1c2e",
+              "on-secondary-fixed-variant": "#3a485b",
+              "surface": "#faf8ff",
+              "primary-fixed": "#dde1ff",
+              "outline-variant": "#c3c5d9",
+              "on-tertiary-fixed": "#2a1700",
+              "tertiary": "#6f4500",
+              "outline": "#737688",
+              "inverse-surface": "#283044"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 62, 199, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm dark:shadow-none h-16 flex justify-between items-center px-6">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-blue-50 transition-colors p-2 rounded-full scale-95 active:scale-90 transition-transform" data-icon="menu">menu</button>
+<span class="text-2xl font-black text-blue-700 dark:text-blue-500 italic font-headline tracking-tight">DrivioCars</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<span class="text-blue-700 dark:text-blue-400 font-bold font-headline">Sell Your Car</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Professional headshot of a premium car dealership representative in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX5rXR3yFJy28fbf5Vc8sVBbiZAWTRc6KkSkZA7i0oRQN2nOwpLprAmrBeGnV0MplBhJfrnVaaHm55OzSemCBc0selNAquIfKk106VSva0eYfpgzF9u3DaSFOv_okSPBQvIC1fxHgwj1_q4YQLd0Nc_RWSxdfwhcEJwM_m7MeVA09H5U8pDpJaYZzjPs_jfVaLvy6JicYiD_rcSL7WaUv0QkUUygIq6v_8h6WFp9L61GVferfZuILKWHpU1fNmnCqt7xxlk0Ntmj0"/>
+</div>
+</div>
+<div class="md:hidden">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Professional headshot of a premium car dealership representative in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDwj4L_da81iWSGG4fBFCXcjcpwPWuRzHSQx0Z5hphISg1t-JHJP1tobUf6Ah_XfAcvs8rTqMt2gvyiqw6MXfMyK8rXHF1AUKnYnsgF8U8VhDu4p4_qRiApE7nH-Ua5A1e7oA3SxTyPvXAUzzB33WxOQR5MojRO6BxNb6jW0UtMfYYnGQsPxQ5HXKV-vIoPIlU8C-QWP84Q4WtQBORLrq8K4993KNRav1zS63TrDsbzQZGyhD8Fp3q6Pp1d8Njst8HOKHeygPulbs"/>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-32 px-6 max-w-4xl mx-auto">
+<!-- Progress Header -->
+<div class="mb-12">
+<div class="flex justify-between items-end mb-4">
+<div>
+<span class="text-primary font-bold font-headline text-sm tracking-wider uppercase">Step 1 of 3</span>
+<h1 class="text-4xl font-headline font-extrabold text-on-surface mt-1">Basic Details</h1>
+</div>
+<div class="hidden md:block text-right">
+<span class="text-on-surface-variant text-sm font-medium">Progress</span>
+<div class="w-32 h-2 bg-surface-container-high rounded-full mt-2 overflow-hidden">
+<div class="bg-primary w-1/3 h-full rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- AI Trust Banner -->
+<div class="bg-surface-container-low p-5 rounded-lg flex items-center gap-4">
+<div class="bg-primary-container p-3 rounded-full">
+<span class="material-symbols-outlined text-white" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<p class="text-on-surface-variant font-medium">Our AI helps you get the best market valuation instantly.</p>
+</div>
+</div>
+<!-- Form Layout (Asymmetric Bento-ish Grid) -->
+<form class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Column 1: Primary Fields -->
+<div class="md:col-span-7 space-y-8">
+<div class="bg-surface-container-lowest p-8 rounded-lg">
+<div class="space-y-6">
+<!-- Brand/Make -->
+<div>
+<label class="block text-sm font-semibold text-on-surface-variant mb-2 ml-1">Brand / Make</label>
+<div class="relative">
+<select class="w-full bg-surface-container-highest border-none rounded-md px-5 py-4 appearance-none text-on-surface font-medium focus:ring-2 focus:ring-primary/20">
+<option disabled="" selected="" value="">Select Brand</option>
+<option>Mercedes-Benz</option>
+<option>BMW</option>
+<option>Audi</option>
+<option>Porsche</option>
+<option>Tesla</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Model -->
+<div>
+<label class="block text-sm font-semibold text-on-surface-variant mb-2 ml-1">Model</label>
+<div class="relative">
+<select class="w-full bg-surface-container-highest border-none rounded-md px-5 py-4 appearance-none text-on-surface font-medium focus:ring-2 focus:ring-primary/20">
+<option disabled="" selected="" value="">Select Model</option>
+<option>S-Class</option>
+<option>E-Class</option>
+<option>GLS</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Variant -->
+<div>
+<label class="block text-sm font-semibold text-on-surface-variant mb-2 ml-1">Variant</label>
+<input class="w-full bg-surface-container-highest border-none rounded-md px-5 py-4 text-on-surface font-medium placeholder:text-outline focus:ring-2 focus:ring-primary/20" placeholder="e.g. S 450 4MATIC" type="text"/>
+</div>
+</div>
+</div>
+<!-- Numerical/Segmented Section -->
+<div class="bg-surface-container-lowest p-8 rounded-lg space-y-6">
+<div class="grid grid-cols-2 gap-6">
+<!-- Year -->
+<div>
+<label class="block text-sm font-semibold text-on-surface-variant mb-2 ml-1">Registration Year</label>
+<input class="w-full bg-surface-container-highest border-none rounded-md px-5 py-4 text-on-surface font-medium focus:ring-2 focus:ring-primary/20" placeholder="2024" type="number"/>
+</div>
+<!-- KM Driven -->
+<div>
+<label class="block text-sm font-semibold text-on-surface-variant mb-2 ml-1">KM Driven</label>
+<input class="w-full bg-surface-container-highest border-none rounded-md px-5 py-4 text-on-surface font-medium focus:ring-2 focus:ring-primary/20" placeholder="5,000" type="number"/>
+</div>
+</div>
+<!-- Transmission Toggle -->
+<div>
+<label class="block text-sm font-semibold text-on-surface-variant mb-3 ml-1">Transmission</label>
+<div class="flex bg-surface-container-highest p-1.5 rounded-md">
+<button class="flex-1 py-3 px-4 bg-primary text-white font-bold rounded-md shadow-lg shadow-blue-200 transition-all" type="button">Automatic</button>
+<button class="flex-1 py-3 px-4 text-on-surface-variant font-semibold hover:bg-white/50 transition-colors" type="button">Manual</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2: Specific Inputs & Visual Context -->
+<div class="md:col-span-5 space-y-8">
+<!-- Fuel Type Segmented Control -->
+<div class="bg-surface-container-lowest p-8 rounded-lg">
+<label class="block text-sm font-semibold text-on-surface-variant mb-4 ml-1">Fuel Type</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-4 px-3 bg-primary-fixed text-on-primary-fixed-variant rounded-md font-bold transition-all border-2 border-primary/20" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="ev_station">ev_station</span>
+                            Electric
+                        </button>
+<button class="flex items-center justify-center gap-2 py-4 px-3 bg-surface-container-highest text-on-surface-variant rounded-md font-semibold hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="local_gas_station">local_gas_station</span>
+                            Petrol
+                        </button>
+<button class="flex items-center justify-center gap-2 py-4 px-3 bg-surface-container-highest text-on-surface-variant rounded-md font-semibold hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="oil_barrel">oil_barrel</span>
+                            Diesel
+                        </button>
+<button class="flex items-center justify-center gap-2 py-4 px-3 bg-surface-container-highest text-on-surface-variant rounded-md font-semibold hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="eco">eco</span>
+                            Hybrid
+                        </button>
+</div>
+</div>
+<!-- Side Visual Card -->
+<div class="relative h-64 md:h-80 rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close-up of a luxury car steering wheel and digital dashboard with ambient blue lighting and premium leather textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2R7buU4Ya8qwuNmdE8facTkPrhBqWge1fsx_TbuHEG7NIGlFd6WZEbAsN-ftBM8om9pmhurEOUhY559aoOT7b3vILWXIYWVu_HQMSL33Kr09ZM8n-aNnu3mmKgaqVb_Mj1OnX1ko0eJqvexpt6Ok0Ge4PpZB2WU7jtCATp8Ras1qaqAHd61mhZKV2cFov5RU5x3vxh2lkfjG9OyDTVi5w7ROmeiKKYUsxL4WMORboSK5HgnYgK5RnnlTX2i_IOoREZmuuZi7P3HU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-8">
+<h3 class="text-white font-headline font-bold text-xl mb-2">Sell with confidence</h3>
+<p class="text-white/80 text-sm">Join 15,000+ happy sellers who got the best market price through DrivioCars this month.</p>
+</div>
+</div>
+<!-- Floating Next Action for Desktop -->
+<div class="hidden md:block pt-4">
+<button class="w-full bg-primary text-on-primary py-5 rounded-xl font-headline font-bold text-lg shadow-xl shadow-blue-200 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3" type="submit">
+                        Next: Condition &amp; Photos
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Mobile Action Button -->
+<div class="md:hidden mt-4">
+<button class="w-full bg-primary text-on-primary py-5 rounded-xl font-headline font-bold text-lg shadow-xl shadow-blue-200 flex items-center justify-center gap-3" type="submit">
+                    Next: Condition &amp; Photos
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+</main>
+<!-- BottomNavBar (Visible on mobile as per requirement) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-surface/80 backdrop-blur-lg rounded-t-3xl border-t border-white/10 shadow-[0_-4px_20px_0_rgba(0,0,0,0.05)]">
+<button class="flex flex-col items-center justify-center bg-blue-600 text-white rounded-2xl px-5 py-2 scale-110 -translate-y-2 transition-all">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-inter text-[11px] font-medium mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 px-4 py-2 hover:text-blue-500 transition-colors">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-inter text-[11px] font-medium mt-1">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 px-4 py-2 hover:text-blue-500 transition-colors">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-inter text-[11px] font-medium mt-1">Bids</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 px-4 py-2 hover:text-blue-500 transition-colors">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-inter text-[11px] font-medium mt-1">Account</span>
+</button>
+</nav>
+</body></html>

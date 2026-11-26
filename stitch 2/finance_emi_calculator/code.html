@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DrivioCars | Finance &amp; EMI Calculator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input[type='range'] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        input[type='range']::-webkit-slider-runnable-track {
+            background: #dae2fd;
+            height: 0.5rem;
+            border-radius: 0.5rem;
+        }
+        input[type='range']::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -8px;
+            background-color: #003ec7;
+            height: 1.5rem;
+            width: 1.5rem;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#d2d9f4",
+                        "on-primary-fixed-variant": "#0038b6",
+                        "inverse-surface": "#283044",
+                        "tertiary": "#6f4500",
+                        "surface-container-low": "#f2f3ff",
+                        "on-tertiary-fixed": "#2a1700",
+                        "on-secondary-container": "#57657a",
+                        "surface-container": "#eaedff",
+                        "surface-tint": "#004ced",
+                        "on-surface-variant": "#434656",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "primary": "#003ec7",
+                        "primary-fixed-dim": "#b7c4ff",
+                        "outline": "#737688",
+                        "on-background": "#131b2e",
+                        "secondary-fixed": "#d5e3fc",
+                        "inverse-on-surface": "#eef0ff",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-tertiary-container": "#ffdfbe",
+                        "surface-bright": "#faf8ff",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "tertiary-fixed": "#ffddb8",
+                        "on-primary-container": "#dfe3ff",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface": "#131b2e",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e2e7ff",
+                        "secondary-container": "#d5e3fc",
+                        "inverse-primary": "#b7c4ff",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "surface": "#faf8ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#905a00",
+                        "surface-container-highest": "#dae2fd",
+                        "outline-variant": "#c3c5d9",
+                        "background": "#faf8ff",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#dae2fd",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary": "#515f74",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#0052ff",
+                        "primary-fixed": "#dde1ff",
+                        "on-primary-fixed": "#001452"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="bg-[#faf8ff] dark:bg-slate-950 docked full-width top-0 z-50 no-border bg-[#f2f3ff] dark:bg-slate-900 flat no shadows flex items-center justify-between px-6 h-20 w-full sticky">
+<div class="flex items-center gap-4">
+<button class="text-[#0052FF] dark:text-[#3377FF] hover:bg-[#e2e7ff] dark:hover:bg-slate-800 transition-colors duration-300 p-2 rounded-full scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight text-2xl font-black text-[#0052FF] dark:text-[#3377FF] tracking-tighter">DrivioCars</span>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#434656] dark:text-slate-400 font-medium hover:text-[#0052FF] transition-colors" href="#">Buy Car</a>
+<a class="text-[#434656] dark:text-slate-400 font-medium hover:text-[#0052FF] transition-colors" href="#">Sell Car</a>
+<a class="text-[#0052FF] dark:text-[#3377FF] font-bold" href="#">Finance</a>
+<a class="text-[#434656] dark:text-slate-400 font-medium hover:text-[#0052FF] transition-colors" href="#">Auctions</a>
+</nav>
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-primary-container overflow-hidden ring-2 ring-white shadow-sm">
+<img class="h-full w-full object-cover" data-alt="professional male headshot with a friendly expression in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP8BMyXlmgh1ktvWjnZ6QjFvjO6AM2tV1Jr4dQZ4_PgA8baM-lZ6QcCkEcxGBxrydyrJkXedwtTxRcCXz71gxo2evT5-wI-QaqoMYkQ2T3T5bQevUPidutW94jI6gTDQRPbVWKKNwbHprHP3Py_DZPjKuwBQaeBuJmRHPUkRx35471Qslw7Oc40AINxda7c-ETwkieTppIjLjxN6DYZxzMVM5zVi_HRghj8hgTBZDJr4bjCNZsuwA5_xc8zhYVrJyJctlwzqErkL0"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+<!-- Hero Section & Intro -->
+<div class="mb-16 max-w-3xl">
+<span class="font-label text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Tailored Financing</span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-surface tracking-tighter leading-[1.1] mb-6">
+                Your Next Ride, <br/>
+<span class="text-primary">Perfectly Financed.</span>
+</h1>
+<p class="text-on-surface-variant text-lg md:text-xl leading-relaxed">
+                Experience the clarity of premium automotive financing. Calculate your monthly commitment with precision and unlock exclusive rates from our elite banking partners.
+            </p>
+</div>
+<!-- Main Interactive Section: Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
+<!-- Left: EMI Calculator Controls (8 Columns) -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-lg p-8 md:p-12 shadow-[0_32px_64px_-15px_rgba(19,27,46,0.04)]">
+<div class="space-y-12">
+<!-- Loan Amount -->
+<div>
+<div class="flex justify-between items-end mb-6">
+<label class="font-headline text-xl font-bold">Loan Amount</label>
+<span class="text-3xl font-black text-primary font-headline tracking-tight">$45,000</span>
+</div>
+<input class="w-full h-2" max="250000" min="10000" step="5000" type="range" value="45000"/>
+<div class="flex justify-between mt-4 text-sm text-on-surface-variant font-medium">
+<span>$10k</span>
+<span>$250k</span>
+</div>
+</div>
+<!-- Tenure -->
+<div>
+<div class="flex justify-between items-end mb-6">
+<label class="font-headline text-xl font-bold">Tenure</label>
+<span class="text-3xl font-black text-primary font-headline tracking-tight">48 <span class="text-base font-medium text-on-surface-variant">Months</span></span>
+</div>
+<div class="grid grid-cols-5 gap-4 mb-6">
+<button class="py-3 rounded-full bg-primary text-white font-bold transition-transform active:scale-95 shadow-lg shadow-primary/20">12m</button>
+<button class="py-3 rounded-full bg-surface-container-high text-on-surface font-semibold hover:bg-primary-fixed transition-colors">24m</button>
+<button class="py-3 rounded-full bg-surface-container-high text-on-surface font-semibold hover:bg-primary-fixed transition-colors">36m</button>
+<button class="py-3 rounded-full bg-surface-container-high text-on-surface font-semibold hover:bg-primary-fixed transition-colors">48m</button>
+<button class="py-3 rounded-full bg-surface-container-high text-on-surface font-semibold hover:bg-primary-fixed transition-colors">60m</button>
+</div>
+<input class="w-full h-2" max="84" min="12" step="12" type="range" value="48"/>
+</div>
+<!-- Interest Rate -->
+<div>
+<div class="flex justify-between items-end mb-6">
+<label class="font-headline text-xl font-bold">Interest Rate</label>
+<span class="text-3xl font-black text-primary font-headline tracking-tight">4.2<span class="text-base font-medium text-on-surface-variant">% p.a.</span></span>
+</div>
+<input class="w-full h-2" max="15" min="1" step="0.1" type="range" value="4.2"/>
+</div>
+</div>
+</div>
+<!-- Right: Results & Breakdown (4 Columns) -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Result Card -->
+<div class="bg-primary-container text-white p-8 rounded-lg relative overflow-hidden flex-1 flex flex-col justify-between">
+<div class="relative z-10">
+<span class="text-on-primary-container/80 font-semibold uppercase tracking-widest text-xs">Estimated Monthly EMI</span>
+<div class="text-5xl font-black font-headline mt-2 mb-4 tracking-tighter">$1,021</div>
+<p class="text-on-primary-container/70 text-sm leading-relaxed">Based on the provided parameters. Final rates may vary after credit verification.</p>
+</div>
+<div class="mt-8 space-y-4 relative z-10">
+<button class="w-full bg-white text-primary font-bold py-4 rounded-full hover:bg-surface-bright transition-colors shadow-xl">Apply Now</button>
+<button class="w-full bg-primary text-white border border-white/20 font-bold py-4 rounded-full hover:bg-primary/80 transition-colors">Check Eligibility</button>
+</div>
+<!-- Decorative Gradient Shape -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+</div>
+<!-- Breakdown Visual -->
+<div class="bg-surface-container-low p-8 rounded-lg">
+<h3 class="font-headline font-bold text-lg mb-6">Payment Breakdown</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="text-on-surface-variant">Principal Amount</span>
+<span class="font-bold">$45,000</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="text-on-surface-variant">Total Interest</span>
+<span class="font-bold">$4,008</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container w-[15%] rounded-full"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 flex justify-between items-center">
+<span class="font-bold">Total Payable</span>
+<span class="font-black text-xl font-headline">$49,008</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Partner Offers Section -->
+<section class="mb-20">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight">Partner Bank Offers</h2>
+<p class="text-on-surface-variant mt-2">Exclusive rates curated for DrivioCars customers.</p>
+</div>
+<button class="text-primary font-bold flex items-center gap-2 group">
+                    View All Partners <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Offer Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg hover:shadow-xl transition-shadow group relative overflow-hidden">
+<div class="flex justify-between items-start mb-8">
+<div class="h-12 w-12 bg-surface-container flex items-center justify-center rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="account_balance">account_balance</span>
+</div>
+<span class="bg-tertiary-container text-on-tertiary-fixed px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Recommended</span>
+</div>
+<h4 class="font-headline font-bold text-xl mb-1">Global Standard Bank</h4>
+<p class="text-on-surface-variant text-sm mb-6">Ultra-low rates for premium vehicles.</p>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="text-3xl font-black text-primary">3.8%</span>
+<span class="text-xs font-medium text-on-surface-variant">Fixed Rate</span>
+</div>
+<ul class="space-y-3 mb-8 text-sm">
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-green-600 text-lg" data-icon="check_circle">check_circle</span>
+                            Zero processing fees
+                        </li>
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-green-600 text-lg" data-icon="check_circle">check_circle</span>
+                            Instant approval
+                        </li>
+</ul>
+<button class="w-full py-3 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">Select Offer</button>
+</div>
+<!-- Offer Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg hover:shadow-xl transition-shadow group">
+<div class="flex justify-between items-start mb-8">
+<div class="h-12 w-12 bg-surface-container flex items-center justify-center rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="payments">payments</span>
+</div>
+</div>
+<h4 class="font-headline font-bold text-xl mb-1">Swift Finance Corp</h4>
+<p class="text-on-surface-variant text-sm mb-6">Flexible tenures up to 84 months.</p>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="text-3xl font-black text-primary">4.1%</span>
+<span class="text-xs font-medium text-on-surface-variant">Floating Rate</span>
+</div>
+<ul class="space-y-3 mb-8 text-sm">
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-green-600 text-lg" data-icon="check_circle">check_circle</span>
+                            Minimal documentation
+                        </li>
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-green-600 text-lg" data-icon="check_circle">check_circle</span>
+                            Pre-payment freedom
+                        </li>
+</ul>
+<button class="w-full py-3 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">Select Offer</button>
+</div>
+<!-- Offer Card 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg hover:shadow-xl transition-shadow group">
+<div class="flex justify-between items-start mb-8">
+<div class="h-12 w-12 bg-surface-container flex items-center justify-center rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shield">shield</span>
+</div>
+</div>
+<h4 class="font-headline font-bold text-xl mb-1">Apex Credit Union</h4>
+<p class="text-on-surface-variant text-sm mb-6">Special benefits for first-time buyers.</p>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="text-3xl font-black text-primary">4.5%</span>
+<span class="text-xs font-medium text-on-surface-variant">Introductory</span>
+</div>
+<ul class="space-y-3 mb-8 text-sm">
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-green-600 text-lg" data-icon="check_circle">check_circle</span>
+                            Complimentary insurance
+                        </li>
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-green-600 text-lg" data-icon="check_circle">check_circle</span>
+                            24h fund transfer
+                        </li>
+</ul>
+<button class="w-full py-3 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">Select Offer</button>
+</div>
+</div>
+</section>
+<!-- Informational Card -->
+<div class="bg-surface-container-low rounded-lg p-8 md:p-12 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
+<div class="md:w-3/5 z-10">
+<h3 class="font-headline text-3xl font-extrabold mb-6 tracking-tight">Everything you need <br/>to know about Financing.</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div>
+<h5 class="font-bold mb-2">Pre-Approval</h5>
+<p class="text-sm text-on-surface-variant">Know your budget before you shop. Get pre-approved in minutes without affecting your credit score.</p>
+</div>
+<div>
+<h5 class="font-bold mb-2">Trade-In Credit</h5>
+<p class="text-sm text-on-surface-variant">Use your current vehicle as a down payment. We offer competitive valuations instantly.</p>
+</div>
+</div>
+<button class="mt-10 bg-on-surface text-surface py-4 px-10 rounded-full font-bold hover:bg-on-surface/90 transition-all flex items-center gap-3">
+                    Download Finance Guide <span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+<div class="md:w-2/5 relative">
+<div class="aspect-video rounded-lg overflow-hidden shadow-2xl rotate-2 group-hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="close-up of a luxury car steering wheel and dashboard with premium leather stitching and ambient interior lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiCDqa4urAmrwfFQoAPjw85xNInjRQ2mzLwSis4cyN9zC56tOrxcYD_-dweGUkkKL5I0aPcQW8-D4z_XL3fTVN6OkOkJCQqyAGB0JzZ1COIf7R-APTtpR7We_HQWyc5UFhoVEpUawdDzYuIeiM36Q9WZE5AkikhVyRLHp1xl7sjcE6Fzi--slvzz4OZjsYsghvlfDfbtuSDvhQ7fUOoifGKD-h0sdDqDiklp5rKMLhPjiOW02qR1g0R4WRAsbJMRvyRm0pMsDUMOs"/>
+</div>
+<!-- Abstract floating element -->
+<div class="absolute -bottom-6 -left-6 w-24 h-24 bg-primary rounded-full opacity-20 blur-2xl"></div>
+</div>
+</div>
+</main>
+<!-- Footer Space -->
+<div class="h-32"></div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl fixed bottom-0 w-full rounded-t-[2rem] no-border space-y-4 shadow-[0_-8px_30px_rgb(19,27,46,0.04)] md:hidden">
+<div class="flex flex-col items-center justify-center text-[#434656] dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity tap-highlight-transparent animate-pulse-subtle">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider">History</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#0052FF] text-white rounded-full px-5 py-2 scale-110 shadow-lg shadow-[#0052FF]/20 tap-highlight-transparent animate-pulse-subtle">
+<span class="material-symbols-outlined" data-icon="calculate" style="font-variation-settings: 'FILL' 1;">calculate</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider">Finance</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#434656] dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity tap-highlight-transparent animate-pulse-subtle">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider">Saved</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#434656] dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity tap-highlight-transparent animate-pulse-subtle">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider">Auctions</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#434656] dark:text-slate-400 opacity-70 hover:opacity-100 transition-opacity tap-highlight-transparent animate-pulse-subtle">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider">Profile</span>
+</div>
+</nav>
+</body></html>

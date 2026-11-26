@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DrivioCars | Premium Car Parts Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#003ec7",
+              "inverse-primary": "#b7c4ff",
+              "on-surface-variant": "#434656",
+              "tertiary-fixed": "#ffddb8",
+              "primary-fixed": "#dde1ff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#ffdfbe",
+              "surface-bright": "#faf8ff",
+              "secondary": "#515f74",
+              "on-surface": "#131b2e",
+              "on-primary-container": "#dfe3ff",
+              "tertiary": "#6f4500",
+              "surface-dim": "#d2d9f4",
+              "surface-container": "#eaedff",
+              "primary-container": "#0052ff",
+              "inverse-surface": "#283044",
+              "surface-container-highest": "#dae2fd",
+              "surface-tint": "#004ced",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed": "#0d1c2e",
+              "surface-container-low": "#f2f3ff",
+              "on-error-container": "#93000a",
+              "surface": "#faf8ff",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#0038b6",
+              "secondary-fixed": "#d5e3fc",
+              "tertiary-fixed-dim": "#ffb95f",
+              "on-secondary-container": "#57657a",
+              "on-tertiary-fixed-variant": "#653e00",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "tertiary-container": "#905a00",
+              "error": "#ba1a1a",
+              "on-secondary-fixed-variant": "#3a485b",
+              "on-background": "#131b2e",
+              "surface-variant": "#dae2fd",
+              "primary-fixed-dim": "#b7c4ff",
+              "secondary-container": "#d5e3fc",
+              "on-tertiary-fixed": "#2a1700",
+              "background": "#faf8ff",
+              "on-error": "#ffffff",
+              "outline-variant": "#c3c5d9",
+              "on-primary-fixed": "#001452",
+              "secondary-fixed-dim": "#b9c7df",
+              "surface-container-high": "#e2e7ff",
+              "inverse-on-surface": "#eef0ff",
+              "outline": "#737688"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_32px_64px_-15px_rgba(0,0,0,0.04)]">
+<div class="flex items-center justify-between px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="text-blue-600 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="text-2xl font-black italic text-blue-700 tracking-tighter headline">DRIVIOCARS</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-blue-700 border-b-2 border-blue-700 font-bold hover:text-blue-600 transition-colors" href="#">Market</a>
+<a class="text-slate-500 font-medium hover:text-blue-600 transition-colors" href="#">Auctions</a>
+<a class="text-slate-500 font-medium hover:text-blue-600 transition-colors" href="#">Concierge</a>
+<a class="text-slate-500 font-medium hover:text-blue-600 transition-colors" href="#">Sell</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-xl font-bold text-sm active:scale-95 transition-transform">
+                    List Car
+                </button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32">
+<!-- Hero Section & Search -->
+<section class="px-6 max-w-7xl mx-auto mb-20">
+<div class="relative rounded-lg overflow-hidden min-h-[500px] flex items-center p-8 md:p-16">
+<img alt="Modern automotive warehouse" class="absolute inset-0 w-full h-full object-cover" data-alt="high-end modern automotive warehouse with sleek industrial design, cinematic lighting, and organized premium car parts on shelves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv-EmZjcewWkgYAHyviNK5vNLWg19mBtFiuJU6vnpEsSNK2SrJ-zubTG3X-_544kRy6FqwjEfeaI8OuD3NLaUCZ7EXgXamDBiaEs9fkmxptZ1CA_2gKu0W-70r7Li3u8mjWDot6ibHnt4Pa-1b2sLzJLDoLh_BWWZpWLMAmGAMaahhgNazykEpndwIcqPhcCNEtsYNRm_4haJIIu4oCe3RiXUejKDfxjQRNARBS6xouVFug91gSPDBJeDIBtEaoVfKeuNABFWU3yc"/>
+<div class="absolute inset-0 bg-gradient-to-r from-on-surface/80 via-on-surface/40 to-transparent"></div>
+<div class="relative z-10 max-w-2xl">
+<span class="inline-block px-4 py-1 rounded-full bg-primary text-on-primary text-xs font-bold tracking-widest uppercase mb-6">Editorial Selection</span>
+<h1 class="text-5xl md:text-7xl font-extrabold text-white headline tracking-tighter leading-none mb-8">Precision <br/>Automotive.</h1>
+<!-- Search Bar Container -->
+<div class="bg-white p-2 rounded-2xl shadow-xl flex flex-col md:flex-row gap-2 max-w-xl">
+<div class="flex-1 flex items-center px-4 gap-3 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-slate-400" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full py-4 text-sm font-medium" placeholder="Search by part name or car model." type="text"/>
+</div>
+<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary-container transition-all">
+                            Explore
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Compatibility Filter & Quick Stats -->
+<section class="px-6 max-w-7xl mx-auto -mt-32 relative z-20 mb-20">
+<div class="bg-white p-8 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.08)] grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="md:col-span-3">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="directions_car">directions_car</span>
+<h2 class="text-xl font-bold headline">Select Your Car</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<select class="bg-surface-container-low border-none rounded-xl p-4 text-sm font-semibold focus:ring-2 ring-primary/20">
+<option>Make</option>
+<option>Porsche</option>
+<option>BMW</option>
+<option>Audi</option>
+</select>
+<select class="bg-surface-container-low border-none rounded-xl p-4 text-sm font-semibold focus:ring-2 ring-primary/20">
+<option>Model</option>
+<option>911 Carrera</option>
+<option>M4 Coupe</option>
+<option>RS6 Avant</option>
+</select>
+<select class="bg-surface-container-low border-none rounded-xl p-4 text-sm font-semibold focus:ring-2 ring-primary/20">
+<option>Year</option>
+<option>2024</option>
+<option>2023</option>
+<option>2022</option>
+</select>
+</div>
+</div>
+<div class="border-l border-slate-100 pl-8 flex flex-col justify-center">
+<p class="text-xs text-on-surface-variant font-bold uppercase tracking-widest mb-2">Inventory Status</p>
+<div class="text-3xl font-black text-primary headline tracking-tighter">1.2M+</div>
+<p class="text-sm text-slate-500 font-medium">Verified OEM Parts</p>
+</div>
+</div>
+</section>
+<!-- Visual Categories - Organic Asymmetry -->
+<section class="px-6 max-w-7xl mx-auto mb-20">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-3xl font-black headline tracking-tight">Browse Categories</h2>
+<p class="text-on-surface-variant mt-1">Sourced from certified dismantlers worldwide.</p>
+</div>
+<a class="text-primary font-bold text-sm flex items-center gap-2 hover:underline" href="#">View Master List <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+<!-- Category 1 -->
+<a class="group relative aspect-square rounded-lg overflow-hidden bg-surface-container-low flex flex-col items-center justify-center p-6 text-center hover:bg-primary transition-all duration-300" href="#">
+<img alt="Engine parts" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" data-alt="close up of a high performance engine block with metallic textures and orange accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6LsckYhqwIYCPMhARhEzDZLOEONoYQSb8-zBbDmRjBKn1L4G0wE0CNbpp86WA2DaXqaEYwpDrlesv4LvxC3Ycl6uqMO9WV7_hI_v17DPWPsuvA8GFs2ChCjb-D8VJxg3vjEy7hNPIN80VbXE7NbCdUiX021kPYYEOIKh26hxxgsx4H4eL3TJJCHXKwBBBNpYLEf-AOuWPQMo8nnNZzqqHguxLzD5N2tGHVSe53ae1VG8AWctLgfLILSHoO2KPddJl6rd2Eaq__oQ"/>
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-4" data-icon="settings_input_component">settings_input_component</span>
+<span class="font-bold headline group-hover:text-white">Engine</span>
+</a>
+<!-- Category 2 -->
+<a class="group relative aspect-square rounded-lg overflow-hidden bg-surface-container-low flex flex-col items-center justify-center p-6 text-center hover:bg-primary transition-all duration-300" href="#">
+<img alt="Car body" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" data-alt="sleek curves of a luxury sports car body in satin silver finish with highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRrnEWUEP-P5URJwvkbmx6lgwHKl5usgp-qqWcWTNSt2wuo0y1UmbwLoPHuFYBXrd9J8wpPPk_Kd41sCnph6ciqojb0KxQYTZpYTU_ROwaq2jQGGUnWxBHSXWbEMbqOaBnrMYpTj_AFmolAe1xf1PsaQusU1kiyd2eCnTht44rDteal3oz1QB-qep9YAQkKVXKaFYWuKv75ju9mdTjAK0k8SRCoiSuJ0jVm-UieKlpVgUD7aYzcwo1BFYAMiyBAXTQ8gm-pg89lDM"/>
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-4" data-icon="car_repair">car_repair</span>
+<span class="font-bold headline group-hover:text-white">Body</span>
+</a>
+<!-- Category 3 -->
+<a class="group relative aspect-square rounded-lg overflow-hidden bg-surface-container-low flex flex-col items-center justify-center p-6 text-center hover:bg-primary transition-all duration-300" href="#">
+<img alt="Interior" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" data-alt="luxury car interior detail with premium leather stitching and carbon fiber trim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaWfrUZfTI1_8Sb0h_AmxuGRRUO9TR6T9rjvAMtPFjgANE4cjevcTgN5zuhQGpBOkB8bryGD8sltvFNV3D8UDJiH-1KY2bFf1nWAx1RliSc3S9WAzM8RXDcPeWvY1fihp5Q7rs4RTfeJlnZWsxiC4cfdLFS0uMO2wKuBy6gMUqfe7domx7ML6HSFfgXi-zY-GTSih1SiR1j003enz-AWc6x1JhqdeubpaGJG1PZS4YHMtYtx_8uU9i6AlUbXQrkQit8ktCiHY7TTc"/>
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-4" data-icon="airline_seat_recline_extra">airline_seat_recline_extra</span>
+<span class="font-bold headline group-hover:text-white">Interior</span>
+</a>
+<!-- Category 4 -->
+<a class="group relative aspect-square rounded-lg overflow-hidden bg-surface-container-low flex flex-col items-center justify-center p-6 text-center hover:bg-primary transition-all duration-300" href="#">
+<img alt="Tyres" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" data-alt="close up of a performance car tyre tread with aggressive pattern and high contrast lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7kN4fouW5WcZcvx9IRNy4FjaSERnclnXIvHYzTeyIIy-KchzvxACQqIZlSiu_4qOUnF7y2tRjGBZATGKOuEWpH0v1aiBKWddqkJnvKGPriYfljRlNK0Cd6RD91rYmbH2ZRocphmkDo4EchbKm4dnIYsq4Hv5QbF27gcU6q9jm1Xz9xNkT9-PCNrdR6-vlPAELU7xvg_OhVd4B0u7y3B0fdVgVS5MFOsbaqnfVip7b3Ebej7rPFQgJnlK_ACaKlzhSMLxQfNC3H54"/>
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-4" data-icon="tire_repair">tire_repair</span>
+<span class="font-bold headline group-hover:text-white">Tyres</span>
+</a>
+<!-- Category 5 -->
+<a class="group relative aspect-square rounded-lg overflow-hidden bg-surface-container-low flex flex-col items-center justify-center p-6 text-center hover:bg-primary transition-all duration-300" href="#">
+<img alt="Braking" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" data-alt="high performance red brake caliper behind a black alloy wheel rim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6X2xZfCcdFzKwhle3CVbc77u6HGtxYUoqTcHLBN5AOLuHcpEbIfS9F9JJ5YFNxztauUD7f-VzCRJaQ1CFh_kMMe7Yg5HaSUgECTgR71HR-fyObqnmllK4PKdvLnfr-q9a8P3YgyctVB-9kHDKiPJn00LRzOnck3k3gD14IOPardji940F2LNt20VnW07-_FJZZiEZ2GqMoZO9e57TQLUWLJ9aVx3WM1d0-K1uG7C0QcWAs8bodowuv3KwG7bNRMJWZfYHu28979g"/>
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-4" data-icon="handyman">handyman</span>
+<span class="font-bold headline group-hover:text-white">Braking</span>
+</a>
+<!-- Category 6 -->
+<a class="group relative aspect-square rounded-lg overflow-hidden bg-surface-container-low flex flex-col items-center justify-center p-6 text-center hover:bg-primary transition-all duration-300" href="#">
+<img alt="Electrical" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" data-alt="complex automotive wiring loom and circuit components with neon blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD19TpUDhEVzbTEJjt28_Rqasv6UqdJD5JMapDemeSCzBqQuPOdwJwcW6drL9j2egKgTrsBOjDK2LpOfSdzDW_sPCjkAbHhjnbsumqWKqV-x6QFvoELPpThkfBF6qpFHhjwjT57gHzwFkdDWQV_AVc_kd2zKOZyCPI1BmhLBBJU1ATG--KEZAGuDVxJWAin210UsQtiE2qH8aBQzSQ6sKtCkr7xzkhmVRN0Ooaeb9U3GlFedGk7QUol9H5ndHRea8QX-NJ_1DRgl_0"/>
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-4" data-icon="electrical_services">electrical_services</span>
+<span class="font-bold headline group-hover:text-white">Electrical</span>
+</a>
+</div>
+</section>
+<!-- Featured Deals - Bento Layout -->
+<section class="px-6 max-w-7xl mx-auto mb-20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Featured Deal -->
+<div class="md:col-span-2 relative h-[400px] rounded-lg overflow-hidden p-10 flex flex-col justify-end bg-slate-900 group">
+<img alt="Used car parts" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" data-alt="an organized collection of high quality used aluminum car parts on a minimalist gray background with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2gZZeqfp8E6LTuzjWxCZYvN-OgGDUQUsIw1G6RFfsmI4pLHza_K7UNlacU6T6LGjrxE8Gup4GmfausM0iY0iPzeCc6pN0B1fjREgKX9LMqAW6XuqfMBu7Bo_bFdkux_y8wae-DinXy1Df_EVIOsIob82Lvrk1nQIX9QEmfc4unU86mD24cbU7UYK3DQjiEycKZUcEQFgDt9MvDqIO7VpIkeDA0vHPY0w8kqxIXBPkdz8lzQurtlDTjQ45HAdNI3TnviLAOnOZP-Y"/>
+<div class="relative z-10">
+<div class="bg-error-container text-on-error-container inline-block px-3 py-1 rounded-full text-xs font-bold mb-4">LIMITED TIME</div>
+<h3 class="text-4xl font-black text-white headline mb-4">Save up to 40% on <br/>genuine used parts.</h3>
+<p class="text-slate-300 max-w-md mb-8">Expertly inspected, cleaned, and verified components for luxury and performance marques.</p>
+<button class="bg-white text-primary px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-colors">Shop Clearance</button>
+</div>
+</div>
+<!-- Vertical Card -->
+<div class="bg-primary-fixed rounded-lg p-10 flex flex-col justify-between">
+<div>
+<h4 class="text-2xl font-black text-on-primary-fixed headline mb-4">Verified Seller Guarantee</h4>
+<p class="text-on-primary-fixed-variant text-sm font-medium">Every vendor on DrivioCars undergoes a 50-point background check for peace of mind.</p>
+</div>
+<div class="flex items-center gap-4 mt-8">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div class="text-xs font-bold uppercase tracking-widest text-on-primary-fixed">100% Secure Transaction</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="px-6 max-w-7xl mx-auto mb-20">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-2xl font-black headline tracking-tight">Trending Components</h2>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Product Card 1 -->
+<div class="bg-white rounded-lg p-4 group cursor-pointer border border-transparent hover:border-primary/10 transition-all">
+<div class="aspect-square rounded-lg bg-surface-container-low mb-4 overflow-hidden relative">
+<img alt="Alloy Wheel" class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="single black matte high-end forged alloy wheel rim against a clean minimalist studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnYQjNNjgB120hwE3GFVml0viKxZVDTV4Jjrj5RLKeXflmAHPgpMqL90a3HYKmuJ8Ay4dPlHx0v8LuMzmrlSl2-KzHNpzjBQsnjb4nbomVU-JWBPEGkRMgTgpc58UL7fqZolIBpZ1rkrZEzbD6KMe1XhDPuMj7rjGjs3hGB943dpKYLpuZCM8YZJslVo6mfEU7BeY4Xsfv1IUn80hpdoe2JsJskz8xsMbTtuBdTkcHkVLg1X1gyY8MPu6ecS0S-7rEc53iZaYcmP8"/>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="flex items-center gap-1 mb-2">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant bg-surface-container-highest px-2 py-0.5 rounded">BMW OEM</span>
+</div>
+<h5 class="font-bold text-slate-900 mb-1">M-Performance 20" Forged Wheel</h5>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs text-slate-400 line-through">$840.00</p>
+<p class="text-lg font-black text-primary headline">$595.00</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white rounded-lg p-4 group cursor-pointer border border-transparent hover:border-primary/10 transition-all">
+<div class="aspect-square rounded-lg bg-surface-container-low mb-4 overflow-hidden relative">
+<img alt="Seat" class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="racing style bucket seat in premium black leather with red contrast stitching and carbon fiber back" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHc1ZOH5kaKZfgOK1gPCW4FMKQ8jBpviqlEgnKuOrv2-GlQpxOCuG0HdvwORUAgWiZjfvo960MwS5sTTZIkf-ah5L5vg2Eb1AdH6kijoPoEYCz8SyabL8KPPnwAL0H3D526EHjLsPjXqZ1dSKjq7gPiz9iivNz-m7FaAS1UeJXGJRtLKCiO-vYmnZdzWqLmZVwTZJ7luXa_PfSM20WEAubGWGUU_7xRz4SlVeeV-gtt8SrlcNrui01U3gcoFusecNtIauN1CtnAGw"/>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="flex items-center gap-1 mb-2">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant bg-surface-container-highest px-2 py-0.5 rounded">Recaro</span>
+</div>
+<h5 class="font-bold text-slate-900 mb-1">Sportster CS Recliner - Leather</h5>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs text-slate-400 line-through">$1,200.00</p>
+<p class="text-lg font-black text-primary headline">$980.00</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white rounded-lg p-4 group cursor-pointer border border-transparent hover:border-primary/10 transition-all">
+<div class="aspect-square rounded-lg bg-surface-container-low mb-4 overflow-hidden relative">
+<img alt="Brakes" class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="vented ceramic brake disc and yellow performance caliper set for a high performance car" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxedT2NMNBqstUKZ3pEosIjlvmPgMXVS4gGFgTXbe7scI-sJBwe8dAqI2d9MvfHGTJhZP-TKhAhAJbfm-qr_v9xTY_J2ZXCEqD2WL-Qx64vFdbMkTk88LhF5M2vTvAndXaTJ4-tPa3jG2EmXVVJjfTDrqXbgR11QYjzBXZkRY0FUmZ4siYzgMtO2PlupqE8m3kD-4Pe5g2ZbvRqn2mPU-I-4eOwAb7IZ-Oi5jwZprKhP6ofVSggOGxb4YTHaPEfhOs52J4cJCQlXA"/>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="flex items-center gap-1 mb-2">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant bg-surface-container-highest px-2 py-0.5 rounded">Brembo</span>
+</div>
+<h5 class="font-bold text-slate-900 mb-1">GT-R Ceramic Brake Kit (Front)</h5>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs text-slate-400 line-through">$4,500.00</p>
+<p class="text-lg font-black text-primary headline">$3,200.00</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white rounded-lg p-4 group cursor-pointer border border-transparent hover:border-primary/10 transition-all">
+<div class="aspect-square rounded-lg bg-surface-container-low mb-4 overflow-hidden relative">
+<img alt="Headlight" class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="modern LED laser headlight assembly for a luxury sedan with intricate optical details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2tvzHBlOPd5pZGoeKLXb5uACJRFmZwWK5piGUUwu3SFuHmT-hz_imGmqsZSYWJPHFLVXd6Pd6QOi4bZ8bqb5688DbHW2h01XozbgpFx8SsOhcMpeHiPFThoxoynculC7rmM8hqSi-aN4H6TtaO60wx_D44unw7BBe9etCTtfCIBSTVK3BDCbEcJFFeCuX7K7UMM_5oBnyRjFjlGdn7vcyYoQMtiSJzX7mGdUXvHqL_mG9OR-ZiVExht0Cb-Dbue0mp3KRrIiG-dM"/>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="flex items-center gap-1 mb-2">
+<span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant bg-surface-container-highest px-2 py-0.5 rounded">Audi OEM</span>
+</div>
+<h5 class="font-bold text-slate-900 mb-1">Matrix LED Headlight Assembly</h5>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs text-slate-400 line-through">$1,800.00</p>
+<p class="text-lg font-black text-primary headline">$1,450.00</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Logos -->
+<section class="px-6 max-w-7xl mx-auto py-12 border-t border-slate-100">
+<p class="text-center text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-10">Best Selling Brands</p>
+<div class="flex flex-wrap justify-center items-center gap-12 grayscale opacity-40 hover:grayscale-0 transition-all">
+<span class="text-xl font-black italic tracking-tighter">PORSCHE</span>
+<span class="text-xl font-bold tracking-tight">BMW</span>
+<span class="text-xl font-extrabold tracking-tighter">MERCEDES</span>
+<span class="text-xl font-medium uppercase tracking-[0.2em]">Audi</span>
+<span class="text-xl font-bold">TOYOTA</span>
+<span class="text-xl font-black italic">FERRARI</span>
+</div>
+</section>
+<!-- Trust Badges -->
+<section class="px-6 max-w-7xl mx-auto mb-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col items-center text-center p-8 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="verified_user">verified_user</span>
+<h6 class="font-bold headline mb-2">Verified Seller Guarantee</h6>
+<p class="text-sm text-slate-500">Only trusted distributors and certified dismantlers.</p>
+</div>
+<div class="flex flex-col items-center text-center p-8 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="assignment_return">assignment_return</span>
+<h6 class="font-bold headline mb-2">Easy Returns</h6>
+<p class="text-sm text-slate-500">30-day hassle-free return policy for your peace of mind.</p>
+</div>
+<div class="flex flex-col items-center text-center p-8 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="local_shipping">local_shipping</span>
+<h6 class="font-bold headline mb-2">Global Logistics</h6>
+<p class="text-sm text-slate-500">Fast, insured shipping to over 150 countries.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-900 w-full py-12 px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<div class="flex flex-col gap-4">
+<span class="text-xl font-bold text-slate-900 dark:text-white headline">DRIVIOCARS</span>
+<p class="text-sm text-slate-500">The premier destination for luxury automotive components and editorial insights.</p>
+</div>
+<div class="flex flex-col gap-3">
+<p class="font-bold text-slate-900 mb-2">Marketplace</p>
+<a class="text-sm text-slate-500 hover:underline decoration-blue-500 underline-offset-4" href="#">Privacy Policy</a>
+<a class="text-sm text-slate-500 hover:underline decoration-blue-500 underline-offset-4" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-3">
+<p class="font-bold text-slate-900 mb-2">Support</p>
+<a class="text-sm text-slate-500 hover:underline decoration-blue-500 underline-offset-4" href="#">Shipping &amp; Logistics</a>
+<a class="text-sm text-slate-500 hover:underline decoration-blue-500 underline-offset-4" href="#">Expert Inspection</a>
+</div>
+<div class="flex flex-col gap-3">
+<p class="font-bold text-slate-900 mb-2">Newsletter</p>
+<div class="flex gap-2">
+<input class="bg-white border-none rounded-xl text-sm w-full p-3 focus:ring-2 ring-primary/20" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white p-3 rounded-xl">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-12 mt-12 border-t border-slate-200 text-center">
+<p class="inter text-sm text-slate-500 dark:text-slate-400">© 2024 DrivioCars Editorial Marketplace. The Digital Concierge Group.</p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white shadow-[0_-10px_40px_rgba(0,0,0,0.05)] rounded-t-[2rem]">
+<a class="flex flex-col items-center justify-center bg-blue-50 text-blue-700 rounded-3xl px-5 py-2 active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="plus-jakarta-sans text-[11px] font-semibold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="plus-jakarta-sans text-[11px] font-semibold uppercase tracking-widest mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="plus-jakarta-sans text-[11px] font-semibold uppercase tracking-widest mt-1">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="menu_open">menu_open</span>
+<span class="plus-jakarta-sans text-[11px] font-semibold uppercase tracking-widest mt-1">Menu</span>
+</a>
+</nav>
+</body></html>

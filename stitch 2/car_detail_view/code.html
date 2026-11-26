@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2022 BMW 3 Series | DrivioCars</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#003ec7",
+              "inverse-primary": "#b7c4ff",
+              "on-surface-variant": "#434656",
+              "tertiary-fixed": "#ffddb8",
+              "primary-fixed": "#dde1ff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#ffdfbe",
+              "surface-bright": "#faf8ff",
+              "secondary": "#515f74",
+              "on-surface": "#131b2e",
+              "on-primary-container": "#dfe3ff",
+              "tertiary": "#6f4500",
+              "surface-dim": "#d2d9f4",
+              "surface-container": "#eaedff",
+              "primary-container": "#0052ff",
+              "inverse-surface": "#283044",
+              "surface-container-highest": "#dae2fd",
+              "surface-tint": "#004ced",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed": "#0d1c2e",
+              "surface-container-low": "#f2f3ff",
+              "on-error-container": "#93000a",
+              "surface": "#faf8ff",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#0038b6",
+              "secondary-fixed": "#d5e3fc",
+              "tertiary-fixed-dim": "#ffb95f",
+              "on-secondary-container": "#57657a",
+              "on-tertiary-fixed-variant": "#653e00",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "tertiary-container": "#905a00",
+              "error": "#ba1a1a",
+              "on-secondary-fixed-variant": "#3a485b",
+              "on-background": "#131b2e",
+              "surface-variant": "#dae2fd",
+              "primary-fixed-dim": "#b7c4ff",
+              "secondary-container": "#d5e3fc",
+              "on-tertiary-fixed": "#2a1700",
+              "background": "#faf8ff",
+              "on-error": "#ffffff",
+              "outline-variant": "#c3c5d9",
+              "on-primary-fixed": "#001452",
+              "secondary-fixed-dim": "#b9c7df",
+              "surface-container-high": "#e2e7ff",
+              "inverse-on-surface": "#eef0ff",
+              "outline": "#737688"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_32px_64px_-15px_rgba(0,0,0,0.04)]">
+<div class="flex items-center justify-between px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface scale-95 active:scale-90 transition-transform">menu</button>
+<span class="text-2xl font-black italic text-blue-700 tracking-tighter">DrivioCars</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-blue-700 border-b-2 border-blue-700 font-bold plus-jakarta-sans transition-colors" href="#">Market</a>
+<a class="text-slate-500 font-medium plus-jakarta-sans hover:text-blue-600 transition-colors" href="#">Sell</a>
+<a class="text-slate-500 font-medium plus-jakarta-sans hover:text-blue-600 transition-colors" href="#">Concierge</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden md:block px-6 py-2 bg-primary text-on-primary rounded-xl font-bold transition-transform active:scale-95">List Car</button>
+<button class="material-symbols-outlined text-slate-500">search</button>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-32">
+<!-- Hero Image Gallery -->
+<section class="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-surface-container-low">
+<div class="flex h-full overflow-x-auto snap-x snap-mandatory no-scrollbar">
+<div class="min-w-full h-full snap-center">
+<img alt="BMW 3 Series" class="w-full h-full object-cover" data-alt="Sleek silver 2022 BMW 3 Series sedan parked on a clean modern architectural driveway with soft morning light and reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzKTlv6CslQK8uEakiAy4jdkABB6ybI3cg4xt752aMHYGHLJBp9I6K3ir3ZEUoDRKvJdffC8Wuvg1tybwt-G7o-wojr6_yS2HmhdbOl5YaSz5TPw4dXLr_o27Qymc7tzqp8mJ526ipSw-jib90PIWtI3yocFhxDS6rsZ6uhICRFBXMhYDw4PSDvongoSSo71JaiNWRqYIIvyKE56J0e1isJyy-dpI-H-Ux_kF020RyFlRg8tijRwgkEskvWrvdDNV5YWFFtfk31ac"/>
+</div>
+<div class="min-w-full h-full snap-center">
+<img alt="BMW 3 Series Interior" class="w-full h-full object-cover" data-alt="Luxury interior of a BMW 3 Series featuring cognac leather seats, digital dashboard, and ambient lighting in a premium setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5UjNCyOk6MmGClwDD8_COrV7CdRwcHMzLwhJN6Qzjj-ZPmaTPn9-fEUwhuFB4UQ2HBl2zbjwxh6Jv-9iO0lrnIOr-nSQarkm84TeEs7yfBSNkh6ihJ_q1IFA3qFN-B2lYjZJupbytx2jd5uiu4oYSTY_K8oiv8akD8y1ZvD9jLUXuQ_hqeHqBU2x5wZWyuLWvp_X4Q9ZVML_u02PLohuZmjFXQTdkMp5iR_AOiRqqYpVpabI5R1eZvM8HbiBjcptbkhv2-1qkM-I"/>
+</div>
+</div>
+<!-- Floating Indicators -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+<div class="w-8 h-1 bg-white rounded-full"></div>
+<div class="w-2 h-1 bg-white/40 rounded-full"></div>
+<div class="w-2 h-1 bg-white/40 rounded-full"></div>
+</div>
+<!-- Trust Badge Overlay -->
+<div class="absolute top-6 right-6">
+<div class="bg-white/70 backdrop-blur-xl px-4 py-2 rounded-full flex items-center gap-2 border border-white/20">
+<span class="material-symbols-outlined text-blue-600 text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-xs font-bold tracking-widest text-blue-700 uppercase">DrivioCars Verified</span>
+</div>
+</div>
+</section>
+<div class="max-w-7xl mx-auto px-6 mt-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Main Content Column -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Key Info Header -->
+<div class="space-y-4">
+<div class="flex flex-wrap items-center gap-3">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold uppercase tracking-widest rounded-full">Excellent Condition</span>
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase tracking-widest rounded-full">1 Owner</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-on-surface">2022 BMW 3 Series</h1>
+<p class="text-on-surface-variant font-medium mt-1">330i xDrive Sedan • Alpine White</p>
+</div>
+<div class="text-right">
+<div class="text-4xl font-black text-primary tracking-tighter">$34,500</div>
+<div class="text-sm text-on-surface-variant font-medium">Est. $512/mo</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap gap-4">
+<button class="flex-1 md:flex-none px-10 py-4 bg-primary text-on-primary rounded-xl font-bold text-lg transition-transform active:scale-95 shadow-lg shadow-primary/20">
+                            Book Test Drive
+                        </button>
+<button class="flex-1 md:flex-none px-10 py-4 bg-secondary-container text-on-secondary-container rounded-xl font-bold text-lg transition-transform active:scale-95">
+                            Chat with Seller
+                        </button>
+<div class="flex gap-2">
+<button class="p-4 bg-surface-container text-on-surface-variant rounded-xl transition-transform active:scale-95">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="p-4 bg-surface-container text-on-surface-variant rounded-xl transition-transform active:scale-95">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+<!-- Key Specs Bento -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-surface-container-low p-6 rounded-lg space-y-2">
+<span class="material-symbols-outlined text-primary">earth_engine</span>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-wider">Engine</p>
+<p class="text-lg font-bold">2.0L Turbo I4</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg space-y-2">
+<span class="material-symbols-outlined text-primary">settings_input_component</span>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-wider">Transmission</p>
+<p class="text-lg font-bold">8-Speed Auto</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg space-y-2">
+<span class="material-symbols-outlined text-primary">speed</span>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-wider">Horsepower</p>
+<p class="text-lg font-bold">255 HP</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg space-y-2">
+<span class="material-symbols-outlined text-primary">distance</span>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-wider">Mileage</p>
+<p class="text-lg font-bold">18,240 mi</p>
+</div>
+</div>
+<!-- Inspection & History -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest p-8 rounded-lg border border-slate-100/50">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-bold">Inspection Report</h3>
+<span class="text-primary font-bold text-sm">Full PDF</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Mechanical &amp; Engine</span>
+<span class="material-symbols-outlined text-green-600" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Interior Electronics</span>
+<span class="material-symbols-outlined text-green-600" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Brakes &amp; Suspension</span>
+<span class="material-symbols-outlined text-green-600" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="pt-4 mt-4 border-t border-slate-50">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">150-Point Check Status</p>
+<p class="text-2xl font-black text-green-600">PASSED</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-lg border border-slate-100/50">
+<h3 class="text-xl font-bold mb-6">Vehicle History</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-600">history</span>
+</div>
+<div>
+<p class="font-bold">No Accidents Reported</p>
+<p class="text-sm text-on-surface-variant">Clean CARFAX history available</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-600">person</span>
+</div>
+<div>
+<p class="font-bold">Single Owner</p>
+<p class="text-sm text-on-surface-variant">Personal use, meticulously maintained</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar / Widgets -->
+<aside class="lg:col-span-4 space-y-8">
+<!-- EMI Calculator -->
+<div class="bg-white p-8 rounded-lg shadow-2xl shadow-slate-200/50">
+<h3 class="text-xl font-bold mb-6">Finance Calculator</h3>
+<div class="space-y-6">
+<div>
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest block mb-2">Down Payment</label>
+<div class="flex items-center justify-between bg-surface-container-high px-4 py-3 rounded-xl">
+<span class="font-bold">$7,000</span>
+<span class="text-sm text-on-surface-variant">20%</span>
+</div>
+</div>
+<div>
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest block mb-2">Loan Term</label>
+<div class="flex gap-2">
+<button class="flex-1 py-2 bg-primary text-white rounded-lg text-sm font-bold">60 Mo</button>
+<button class="flex-1 py-2 bg-surface-container text-on-surface-variant rounded-lg text-sm font-bold">72 Mo</button>
+</div>
+</div>
+<div class="pt-6 border-t border-slate-50">
+<p class="text-center text-sm text-on-surface-variant mb-1">Estimated Monthly</p>
+<p class="text-center text-4xl font-black text-on-surface tracking-tight">$512<span class="text-lg font-bold text-on-surface-variant">/mo</span></p>
+</div>
+<button class="w-full py-4 bg-primary-container text-white rounded-xl font-bold transition-transform active:scale-95">Get Pre-Approved</button>
+</div>
+</div>
+<!-- Seller Profile -->
+<div class="bg-surface-container-low p-8 rounded-lg">
+<h3 class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-6">Listed By</h3>
+<div class="flex items-center gap-4 mb-6">
+<img alt="Seller" class="w-16 h-16 rounded-full object-cover" data-alt="Professional portrait of a friendly luxury car dealer representative in a smart casual outfit with a soft focused showroom background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7HEj-q4_S97A6q4w9gNZKuf8XMo7bZHmg6ueC3rKqVvuWl7Lbh72of4D0uDvSXBIYYAp2q8Ve_3MnDqPSEHZXYU_9nUa_kTAXUBxPp6V5rfetQ3m54ZkJSl1nmM4CmaFHXsaOyTYRuu5bfL7N_W2d18XKz5qxKw4lsa8hW6dJ-W8wg5kcbOIZkdzmwTSoLt-RWVr5riialtTKzQjmHvT1dFDsva3T_FAkaHlNI-ugJw3aXHEtZhzPpi3g3EhTtH469WUp-cwQb_U"/>
+<div>
+<p class="text-lg font-bold">Marcus Chen</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.9</span>
+<span class="text-xs text-on-surface-variant">(124 Deals)</span>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>Beverly Hills, CA</span>
+</div>
+<div class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span>Identity Verified</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-white flex justify-around items-center px-4 pb-6 pt-3 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] border-t border-slate-100 rounded-t-[2rem]">
+<div class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[11px] font-semibold uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-50 text-blue-700 rounded-3xl px-5 py-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="text-[11px] font-semibold uppercase tracking-widest mt-1">Market</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-[11px] font-semibold uppercase tracking-widest mt-1">Alerts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu_open</span>
+<span class="text-[11px] font-semibold uppercase tracking-widest mt-1">Menu</span>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="bg-slate-50 w-full py-12 px-8 mt-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<div class="space-y-4">
+<span class="text-xl font-bold text-slate-900">DrivioCars</span>
+<p class="text-sm text-slate-500 leading-relaxed">Redefining the digital automotive marketplace through editorial precision and concierge-level service.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-on-surface">Experience</h4>
+<ul class="space-y-2 text-sm text-slate-500">
+<li class="hover:underline decoration-blue-500 underline-offset-4 cursor-pointer">Expert Inspection</li>
+<li class="hover:underline decoration-blue-500 underline-offset-4 cursor-pointer">Shipping &amp; Logistics</li>
+<li class="hover:underline decoration-blue-500 underline-offset-4 cursor-pointer">Finance Hub</li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-on-surface">Company</h4>
+<ul class="space-y-2 text-sm text-slate-500">
+<li class="hover:underline decoration-blue-500 underline-offset-4 cursor-pointer">Privacy Policy</li>
+<li class="hover:underline decoration-blue-500 underline-offset-4 cursor-pointer">Terms of Service</li>
+<li class="hover:underline decoration-blue-500 underline-offset-4 cursor-pointer">Press Kit</li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-on-surface">Contact</h4>
+<p class="text-sm text-slate-500">Redefining the digital automotive marketplace through editorial precision and concierge-level service.</p>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-slate-200"></div>
+<div class="w-8 h-8 rounded-full bg-slate-200"></div>
+<div class="w-8 h-8 rounded-full bg-slate-200"></div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-200">
+<p class="text-sm text-slate-400">© 2024 DrivioCars Editorial Marketplace. The Digital Concierge Group.</p>
+</div>
+</footer>
+</body></html>

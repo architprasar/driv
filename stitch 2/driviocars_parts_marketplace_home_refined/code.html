@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#f0f4ff",
+              "on-tertiary-container": "#4a3500",
+              "on-primary-fixed-variant": "#0038b6",
+              "on-secondary-container": "#40485d",
+              "surface-bright": "#fafaff",
+              "primary-container": "#d9e2ff",
+              "tertiary-container": "#ffdea7",
+              "surface-tint": "#0052ff",
+              "primary-fixed": "#dde1ff",
+              "on-primary-container": "#001a4b",
+              "secondary-fixed-dim": "#b9c7df",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#131c2b",
+              "on-background": "#1a1b1f",
+              "secondary-fixed": "#d5e3fc",
+              "on-surface": "#1a1b1f",
+              "on-error-container": "#410002",
+              "tertiary": "#785a00",
+              "surface-variant": "#e1e2ec",
+              "on-tertiary-fixed": "#261a00",
+              "surface-container-lowest": "#ffffff",
+              "outline": "#757780",
+              "error-container": "#ffdad6",
+              "secondary": "#575e71",
+              "on-surface-variant": "#44474f",
+              "inverse-on-surface": "#f2f0f4",
+              "tertiary-fixed-dim": "#efc048",
+              "outline-variant": "#c5c6d0",
+              "primary": "#0052ff",
+              "inverse-primary": "#b7c4ff",
+              "surface-container-high": "#e8eaf6",
+              "primary-fixed-dim": "#b7c4ff",
+              "surface": "#fafaff",
+              "on-secondary": "#ffffff",
+              "surface-container-low": "#f4f3f9",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#ffdf9e",
+              "on-error": "#ffffff",
+              "surface-dim": "#dad9e0",
+              "inverse-surface": "#2f3033",
+              "surface-container-highest": "#e2e2e9",
+              "on-tertiary": "#ffffff",
+              "background": "#fafaff",
+              "secondary-container": "#dae2f9",
+              "on-primary-fixed": "#001453",
+              "on-tertiary-fixed-variant": "#5a4300",
+              "on-secondary-fixed-variant": "#3f4759"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {
+              "DEFAULT": "1.5rem",
+              "lg": "2.5rem",
+              "xl": "3.5rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-balance { text-wrap: balance; }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(0, 82, 255, 0.05), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(0, 82, 255, 0.03), transparent 40%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-background selection:bg-primary/20">
+<!-- TopAppBar -->
+<header class="bg-white/80 backdrop-blur-2xl fixed top-0 w-full z-50 border-b border-surface-container-high">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-6">
+<button class="hover:bg-surface-container rounded-full p-2 transition-colors">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+</button>
+<h1 class="font-headline font-extrabold tracking-tighter text-2xl text-primary italic">DrivioCars</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold text-sm tracking-tight" href="#">Home</a>
+<a class="text-on-surface-variant font-semibold text-sm tracking-tight hover:text-primary transition-colors" href="#">Marketplace</a>
+<a class="text-on-surface-variant font-semibold text-sm tracking-tight hover:text-primary transition-colors" href="#">Garage</a>
+<a class="text-on-surface-variant font-semibold text-sm tracking-tight hover:text-primary transition-colors" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="hover:bg-surface-container rounded-full p-2 transition-colors">
+<span class="material-symbols-outlined text-on-surface">search</span>
+</button>
+<button class="hover:bg-surface-container rounded-full p-2 transition-colors relative">
+<span class="material-symbols-outlined text-on-surface">shopping_bag</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full ring-2 ring-white"></span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-16 pb-20">
+<!-- Hero & Search -->
+<section class="relative px-6 pt-12 pb-16 hero-gradient overflow-hidden">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7">
+<span class="inline-flex items-center px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase mb-6">
+<span class="material-symbols-outlined text-sm mr-1.5" style="font-variation-settings: 'FILL' 1;">verified</span>
+                    Official Parts Marketplace
+                </span>
+<h2 class="font-headline text-5xl md:text-7xl font-extrabold text-on-surface leading-[1.05] tracking-tight mb-8 text-balance">
+                    Unrivaled Performance <br/> <span class="text-primary italic">Precisely Engineered</span>
+</h2>
+<p class="text-on-surface-variant text-lg max-w-xl mb-10 leading-relaxed">
+                    Access our curated inventory of genuine high-performance components, specifically calibrated for automotive excellence.
+                </p>
+<!-- Refined Search Bar -->
+<div class="bg-white p-2 rounded-full shadow-xl shadow-primary/5 flex flex-col md:flex-row gap-2 max-w-2xl border border-surface-container-high">
+<div class="flex-1 flex flex-col px-6 py-2">
+<label class="text-[10px] font-bold uppercase tracking-wider text-primary">Make &amp; Model</label>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-base font-semibold placeholder:text-outline-variant" placeholder="e.g. Porsche 911 GT3" type="text"/>
+</div>
+<div class="w-px bg-surface-container-high hidden md:block my-2"></div>
+<div class="flex-1 flex flex-col px-6 py-2">
+<label class="text-[10px] font-bold uppercase tracking-wider text-primary">Year</label>
+<select class="bg-transparent border-none p-0 focus:ring-0 text-base font-semibold appearance-none">
+<option>2024</option>
+<option>2023</option>
+<option>2022</option>
+</select>
+</div>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-all active:scale-95 shadow-lg shadow-primary/25">
+<span class="material-symbols-outlined text-xl">directions_car</span>
+                        Search Parts
+                    </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="relative rounded-lg overflow-hidden shadow-2xl transform lg:translate-x-8">
+<img class="w-full aspect-[4/5] object-cover" data-alt="High-end carbon fiber automotive component close-up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtxulDiNO6yBZ9lXG7Orfchbdf5UL8SnR4w2xTwsSwt82kQvSse5vLLnJixZhALMbSxCgdePFqksBZAx5_fUSkHvbTXHvojItOrfBoK3K-IjqvKvRb8I3CxD464ppvDz7ZchRO7hMxLgY8a8kuKjyB-aADWYTEAyyLPCOt_7e_Sxm1kUzyOCA8xAOP0Oj-EzzCpCU-IM7tVOnyuMMHTTeSu5h9EcxRBDVL97ahvfh984w0cSEqVzhEEPjAvUmT-4_wl8tfTRwkkb0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div>
+<p class="text-white text-sm font-bold">15,000+ Parts</p>
+<p class="text-white/70 text-xs">Ready for immediate dispatch</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories: Editorial Bento -->
+<section class="px-6 py-24">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-12 gap-4">
+<div>
+<h3 class="font-headline text-3xl font-extrabold text-on-surface tracking-tight">Shop by Department</h3>
+<p class="text-on-surface-variant mt-2">Professional grade components for every vehicle system.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 group" href="#">
+                    Explore All <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-auto md:h-[650px]">
+<!-- Engine -->
+<div class="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-lg bg-surface-container shadow-sm transition-all duration-500 hover:shadow-2xl">
+<img alt="Engine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi7v2kU1EqSSKmAJ0w_4KHc2LyKnk6HPh4GPTBor98rECZRkaASY3-i7ewZRkzVR2ifCKLVbWl8mpQYWG0o3GhOvg6wgFzyO_dia-8YakKVznwcRed4ZxoJbxqo5qpvLNdVr64q07haDqSTB1rhGF0iPDXWZQUuFFum34WPaYmWUaSLE8CFMKQ7DfNNcFb1rzRuVViWJd44eIJltLIP4rbm08vt0PZhQypeqBEvNKjgCoNIXCvSbCe7VIieK6NJrNDHG3lDWLUT8U"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-10 flex flex-col justify-end">
+<span class="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-3">Power Units</span>
+<h4 class="text-white text-4xl font-extrabold italic tracking-tighter mb-4">ENGINE SYSTEMS</h4>
+<p class="text-white/60 text-base max-w-sm mb-6">Internal assemblies and high-performance blocks for maximum output.</p>
+<button class="w-fit bg-white text-on-surface px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Explore Category</button>
+</div>
+</div>
+<!-- Transmission -->
+<div class="group relative overflow-hidden rounded-lg bg-surface-container">
+<img alt="Drivetrain" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8Vr3IIz2C3pADgAtkSOpDSNBAHMYCzbZkG8ZF41jHLRELExoiCxagWjeM7PmjaicL063sT_POvgYulYXflnbvg67OWPU5rQyr5qTqqouzRND9WfiU1UhFF2MQhlNLEJKCOphi10XkpbmNnJ1jRVh4FPxwnSSs_g_Ddpqr3HOyDo0yhBw4bl9g0kDLM-A19_t3ggyRsJsJEtfJoaxZFkjaSYXjrNeVDaU7BJVNTU5olIi9kEdr_5tPZJxC5VKKGeYGGTp247Vjbvw"/>
+<div class="absolute inset-0 bg-black/40 p-8 flex flex-col justify-end">
+<h4 class="text-white text-xl font-bold tracking-tight">Drivetrain &amp; Transmission</h4>
+</div>
+</div>
+<!-- Wheels -->
+<div class="group relative overflow-hidden rounded-lg bg-surface-container">
+<img alt="Wheels" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0Bs1s5XV5IACdMIlnbITeI92-M6SuQ7vbnY61Nbus1GtzIsgdZyNA3t53DPno1OFWH4QXjAluWf6Wma60CXHHbG-O25PMHrFLLr1JyjJfr1Qm9yWr19pFl2VoteSUMd1o5on57JedTdFFGaMcGnjFfArWPwiQMGmJdj-KlCgYGyBPhaLVYyO7oFmA-c8ITrbLhI2ejABLODNIRD4VAQRuyA6asp-2wN9VH9d2GV6NJ5SBuNwMvfPWfIVrfbKR_5qC7XF1ho-jYQU"/>
+<div class="absolute inset-0 bg-black/40 p-8 flex flex-col justify-end">
+<h4 class="text-white text-xl font-bold tracking-tight">Forged Wheels &amp; Tires</h4>
+</div>
+</div>
+<!-- Interior -->
+<div class="md:col-span-2 group relative overflow-hidden rounded-lg bg-surface-container">
+<img alt="Accessories" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvLamrlHE0cLahXzdUG8do34pyAnUbZ1o6hn1lK6C6O6e9305afhGIrtNlumfdk9BJx8jdfbWOZn-m05bjAreDF41znJxLeBtqpjFb4bDuLpiUSjWnViKc6fZZ0qyEDpjVedRjOi6K0-nuvpPYwoDGboscDt1QGYQ3xKos4i52QqncgiEustVhMC8GuGPCzNJWb2KBy0cNIpkxzmproPWvoS4--u7nHjSmvbPYhwKxAMRwTOSXrsise0XBEuESs-CXC4VlrxYarE4"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent p-10 flex flex-col justify-center">
+<span class="text-primary font-bold text-[10px] uppercase tracking-widest mb-2">Cabin Aesthetics</span>
+<h4 class="text-white text-2xl font-extrabold tracking-tight uppercase italic">Bespoke Interior Accessories</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Benchmarks -->
+<section class="bg-surface-container-low px-6 py-16 border-y border-surface-container-high">
+<div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<h5 class="font-bold text-base text-on-surface mb-2">Verified Sellers</h5>
+<p class="text-sm text-on-surface-variant px-4">Rigorous inspection for every listed component</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">shipped</span>
+</div>
+<h5 class="font-bold text-base text-on-surface mb-2">Express Global</h5>
+<p class="text-sm text-on-surface-variant px-4">Priority logistics to get you back on the road</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+</div>
+<h5 class="font-bold text-base text-on-surface mb-2">Technical Desk</h5>
+<p class="text-sm text-on-surface-variant px-4">Expert assistance for perfect compatibility</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">rebase_edit</span>
+</div>
+<h5 class="font-bold text-base text-on-surface mb-2">Secure Escrow</h5>
+<p class="text-sm text-on-surface-variant px-4">Funds released only upon verified delivery</p>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="px-6 py-24">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h3 class="font-headline text-3xl font-extrabold text-on-surface tracking-tight">Performance Showcase</h3>
+<p class="text-on-surface-variant mt-2">New arrivals and trending high-performance upgrades</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-surface-container-highest flex items-center justify-center hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">west</span></button>
+<button class="w-12 h-12 rounded-full border border-surface-container-highest flex items-center justify-center hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">east</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product Card 1 -->
+<div class="group flex flex-col">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container-low mb-6">
+<img alt="Brakes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAurKQ_kAa_GZN-2yjshJ45abqIBydQwQ3dMVd-PiWOkNMEfT9HvVD4kJyf2TRxckvM6ztIe9GbzAYoucsJsS-rSb18qPZswX3f0csE1zmtXNJ0OWF0KjJwVr4tRmJghJA5UziMHvMqcVeI_t29BRxD2nXZArNUDRe74aytDCLIGyWrV24IBCPNVbjpZ_jPq7YD4ImPGmy94hhJC-URQ_YsO9TzhPhHgSz2HYtrd1jYfFE5rWxRPMDh3YLuL7Lafhw7mVNw0V3vesg"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-lg">Premium Grade</span>
+</div>
+</div>
+<p class="text-xs font-bold text-primary uppercase tracking-widest mb-1.5">Brembo Systems</p>
+<h4 class="font-bold text-lg text-on-surface mb-4 leading-snug group-hover:text-primary transition-colors">Carbon Ceramic Kit - V2 Performance</h4>
+<div class="flex justify-between items-center mt-auto">
+<span class="text-xl font-black text-on-surface">$2,499.00</span>
+<button class="w-12 h-12 rounded-full bg-surface-container hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group flex flex-col">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container-low mb-6">
+<img alt="Exhaust" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbl2HT3Aj-2qxijSHKXOAkLIYtg1iClkuLrM1WoyxmcPntgAJUc80koOgkQxXvzjhZabaCwEGHvp-xXq0bPSo4Dh_eIwDEYiUMP7esrBz1aJN9Rd5jrEJstqkjXB6u9FMh-EicGU2INDuZGCtSlXlcYMDh312djQd0DgrIBAkhmeAUTBtEZPOg-ahlnzJbW6ORGcAEbD7XQq4JutXXJ9hgc2UrQIy-A_sgvQycf-swrD9WgqGkqMnhg6kHlktGWOOgStlL1iqsF9s"/>
+</div>
+<p class="text-xs font-bold text-primary uppercase tracking-widest mb-1.5">Akrapovič</p>
+<h4 class="font-bold text-lg text-on-surface mb-4 leading-snug group-hover:text-primary transition-colors">Full Titanium Evolution Exhaust</h4>
+<div class="flex justify-between items-center mt-auto">
+<span class="text-xl font-black text-on-surface">$4,120.00</span>
+<button class="w-12 h-12 rounded-full bg-surface-container hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group flex flex-col">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container-low mb-6">
+<img alt="Lighting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1XjNvFDvDK35zHJ1jHrKAd7E7d_AdMXWH9dSXLu2OPZqfn75s6qJWJdkAD2i_GfMUaX5QC3d6Y-VXV0D3QDuoa0wNsl3R5TPwctc5-f7wv3glUMqLHQ3lC46txrOXcQPbUtER1Bcrrk1-KT0usXWWz4AQoXLf1c2wfZowFF78tCJz6-STIIFFVS4Z10iz25QPJ9OUFJuPF34GSkN0DzC3dTQKvuqwrbyQyy60Jvz8BL199c87MwDK53oY9hc5lhwfW0P3fEbddKA"/>
+<div class="absolute top-4 left-4">
+<span class="bg-error text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-lg">In High Demand</span>
+</div>
+</div>
+<p class="text-xs font-bold text-primary uppercase tracking-widest mb-1.5">OEM Direct</p>
+<h4 class="font-bold text-lg text-on-surface mb-4 leading-snug group-hover:text-primary transition-colors">Matrix LED Lensing Assembly</h4>
+<div class="flex justify-between items-center mt-auto">
+<span class="text-xl font-black text-on-surface">$1,250.00</span>
+<button class="w-12 h-12 rounded-full bg-surface-container hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group flex flex-col">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container-low mb-6">
+<img alt="Intake" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEtaCuNHzyEXG51FMRzq85XRNuUAxqzGouw-9yZ70FNvCDuqPtfpPLBpTncAL680-B4VTob3Wv35wNQBmhOP1g8-YdW7194l4TADLHBUNV3ugGCEa1NKnyha7DPLukWfos2QJGQuKec75tP9gThNAjXKcxmf2khauMuestGXqZokEddSPoPE7ViUHHLBP7-oVZEgljgp6oBSS9Wl9PFVx2vzQ1zM6Q_vgRc211KMd4_Pxmq_NxOU3JeNyntXpisvtj3zFqtNTdT8k"/>
+</div>
+<p class="text-xs font-bold text-primary uppercase tracking-widest mb-1.5">Cold Stream Engineering</p>
+<h4 class="font-bold text-lg text-on-surface mb-4 leading-snug group-hover:text-primary transition-colors">Carbon Fiber Intake Plenum</h4>
+<div class="flex justify-between items-center mt-auto">
+<span class="text-xl font-black text-on-surface">$395.00</span>
+<button class="w-12 h-12 rounded-full bg-surface-container hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile NavBar -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-on-background/95 backdrop-blur-xl rounded-full px-6 py-4 flex justify-between items-center shadow-2xl z-50">
+<a class="text-primary" href="#"><span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">home</span></a>
+<a class="text-white/60" href="#"><span class="material-symbols-outlined text-2xl">category</span></a>
+<a class="text-white/60" href="#"><span class="material-symbols-outlined text-2xl">search</span></a>
+<a class="text-white/60" href="#"><span class="material-symbols-outlined text-2xl">shopping_cart</span></a>
+<a class="text-white/60" href="#"><span class="material-symbols-outlined text-2xl">person</span></a>
+</nav>
+<!-- Desktop Navigation Side Drawer (Hidden) -->
+<aside class="fixed inset-y-0 left-0 w-80 bg-white border-r border-surface-container-high z-[60] -translate-x-full transition-transform duration-500 ease-in-out" id="drawer">
+<!-- Drawer Content -->
+</aside>
+</body></html>
