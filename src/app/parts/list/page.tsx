@@ -100,9 +100,21 @@ export default async function PartsListingPage(props: {
         )}
         {totalCount > 20 && (
           <nav aria-label="Parts pages" className="pt-pager">
-            {pageNumber > 1 ? <Link href={pageHref(pageNumber - 1)}>← Previous</Link> : <span />}
+            {pageNumber > 1 ? (
+              <Link href={pageHref(pageNumber - 1)} aria-label="Previous page">
+                <span aria-hidden="true">←</span> Previous
+              </Link>
+            ) : (
+              <span />
+            )}
             <span>Page {pageNumber} of {Math.ceil(totalCount / 20)}</span>
-            {partsData.next ? <Link href={pageHref(pageNumber + 1)}>Next →</Link> : <span />}
+            {partsData.next ? (
+              <Link href={pageHref(pageNumber + 1)} aria-label="Next page">
+                Next <span aria-hidden="true">→</span>
+              </Link>
+            ) : (
+              <span />
+            )}
           </nav>
         )}
       </main>

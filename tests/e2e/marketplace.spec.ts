@@ -47,9 +47,17 @@ async function pay(page: Page) {
   await page
     .getByRole("button", { name: "Continue to test payment", exact: true })
     .click();
+  // Wait for the server's confirmation itself: after a declined attempt the
+  // payment heading can already be gone, so its absence alone is a race.
+  const confirmation = page.waitForResponse(
+    (response) =>
+      response.url().includes("/payments/confirm") &&
+      response.request().method() === "POST",
+  );
   await page
     .getByRole("button", { name: "Simulate successful payment", exact: true })
     .click();
+  expect((await confirmation).ok()).toBe(true);
   await expect(
     page.getByRole("heading", { name: "Complete your payment", exact: true }),
   ).toHaveCount(0);
