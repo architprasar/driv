@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# OUTDATED: this script starts daphne (no longer installed), sets no secret key,
+# uses SQLite, runs no lifecycle worker and skips the launch check.
+# Use the Docker Compose deployment instead: deployment/DEPLOY.md
+if [[ "${DRIVIO_ALLOW_LEGACY_DEPLOY:-}" != "1" ]]; then
+  echo "[deploy][error] deploy-vm.sh is outdated and unsafe. Follow deployment/DEPLOY.md instead." >&2
+  exit 1
+fi
+
 log() { echo "[deploy] $*"; }
 fail() { echo "[deploy][error] $*" >&2; exit 1; }
 require_cmd() { command -v "$1" >/dev/null 2>&1 || fail "Required command not found: $1"; }

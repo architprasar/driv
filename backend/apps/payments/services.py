@@ -26,7 +26,9 @@ def stripe_client():
 
 
 def test_enabled():
-    return settings.DEBUG and settings.PAYMENTS_MODE == "test"
+    """Simulated checkout: local development, or an explicitly labelled public demo."""
+    demo = getattr(settings, "DEMO_MODE", False)
+    return (settings.DEBUG or demo) and settings.PAYMENTS_MODE == "test"
 
 
 def active_mode():

@@ -3,12 +3,15 @@
 from decimal import Decimal, InvalidOperation
 from urllib.parse import urlparse
 from django.conf import settings
-from django.core.checks import Error, register
+from django.core.checks import Error, Warning, register
 
 
 @register(deploy=True)
 def marketplace_launch_checks(app_configs, **kwargs):
     errors = []
+    # A labelled public demo keeps every security/infrastructure check but only
+    # allows simulated checkout, and may run without email or operator identity.
+    demo = getattr(settings, "DEMO_MODE", False)
 
     def require(condition, code, message):
         if not condition:
@@ -22,13 +25,20 @@ def marketplace_launch_checks(app_configs, **kwargs):
         "E002",
         "Set a strong, private DJANGO_SECRET_KEY.",
     )
-    require(
-        settings.PAYMENTS_MODE == "stripe"
-        and settings.STRIPE_SECRET_KEY.startswith(("sk_live_", "rk_live_"))
-        and settings.STRIPE_WEBHOOK_SECRET.startswith("whsec_"),
-        "E003",
-        "Configure provider checkout and signed webhooks; local test checkout cannot be launched publicly.",
-    )
+    if demo:
+        require(
+            settings.PAYMENTS_MODE == "test",
+            "E003",
+            "DEMO_MODE only supports simulated checkout. Set PAYMENTS_MODE=test, or turn DEMO_MODE off to take real payments.",
+        )
+    else:
+        require(
+            settings.PAYMENTS_MODE == "stripe"
+            and settings.STRIPE_SECRET_KEY.startswith(("sk_live_", "rk_live_"))
+            and settings.STRIPE_WEBHOOK_SECRET.startswith("whsec_"),
+            "E003",
+            "Configure provider checkout and signed webhooks; local test checkout cannot be launched publicly.",
+        )
     require(
         urlparse(settings.FRONTEND_URL).scheme == "https"
         and urlparse(settings.FRONTEND_URL).hostname
@@ -48,7 +58,8 @@ def marketplace_launch_checks(app_configs, **kwargs):
         "Configure shared Redis cache for multi-process throttling and worker health.",
     )
     require(
-        "console" not in settings.EMAIL_BACKEND
+        demo
+        or "console" not in settings.EMAIL_BACKEND
         and "locmem" not in settings.EMAIL_BACKEND
         and "dummy" not in settings.EMAIL_BACKEND
         and "filebased" not in settings.EMAIL_BACKEND,
@@ -74,7 +85,8 @@ def marketplace_launch_checks(app_configs, **kwargs):
         "Configure a tax rate between zero and one and a non-negative delivery fee.",
     )
     require(
-        bool(settings.LEGAL_BUSINESS_NAME.strip())
+        demo
+        or bool(settings.LEGAL_BUSINESS_NAME.strip())
         and bool(settings.LEGAL_BUSINESS_ADDRESS.strip())
         and "replace-with" not in settings.LEGAL_BUSINESS_NAME,
         "E011",
@@ -96,7 +108,7 @@ def marketplace_launch_checks(app_configs, **kwargs):
         "Private identity documents must be stored outside publicly served media.",
     )
     require(
-        settings.REQUIRE_VERIFIED_EMAIL_FOR_BIDDING,
+        demo or settings.REQUIRE_VERIFIED_EMAIL_FOR_BIDDING,
         "E014",
         "Require verified customer email addresses for public auction bidding.",
     )
@@ -105,4 +117,11 @@ def marketplace_launch_checks(app_configs, **kwargs):
         "E015",
         "Include the public frontend host in DJANGO_ALLOWED_HOSTS for gateway and media URLs.",
     )
+    if demo:
+        errors.append(
+            Warning(
+                "DEMO_MODE is on: checkout is simulated and no money is collected. Do not use this deployment for real orders.",
+                id="marketplace.W001",
+            )
+        )
     return errors

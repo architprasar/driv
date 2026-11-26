@@ -1,4 +1,6 @@
+import os
 import random
+import secrets
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from apps.cars.models import CarBrand, CarModel, Car, CarImage
@@ -67,15 +69,22 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.stdout.write("Seeding database...")
 
-        # Create Seller User
-        seller, _ = User.objects.get_or_create(
+        # Demo seller. Never a fixed password: this repository is public.
+        seller, created = User.objects.get_or_create(
             email="seller@drivio.com",
-            username="drivioseller",
-            role="seller"
+            defaults={"username": "drivioseller", "role": "seller"},
         )
-        if not seller.has_usable_password():
-            seller.set_password("seller123")
-            seller.save()
+        if created:
+            supplied = os.environ.get("SEED_SELLER_PASSWORD", "")
+            seller.set_password(supplied or secrets.token_urlsafe(12))
+            seller.save(update_fields=["password"])
+            if supplied:
+                self.stdout.write("Demo seller seller@drivio.com uses SEED_SELLER_PASSWORD.")
+            else:
+                self.stdout.write(
+                    "Demo seller seller@drivio.com has a random password. "
+                    "Use 'Forgot password' or 'manage.py changepassword seller@drivio.com' to sign in as it."
+                )
 
         image_pool = [c["image"] for c in MOCK_CARS]
         total_target = 30

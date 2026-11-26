@@ -20,7 +20,8 @@ class Command(BaseCommand):
             self.stdout.write(self.style.ERROR("No seller found. Run seed_data first."))
             return
 
-        cars = list(Car.objects.filter(auction__isnull=True))
+        # `Car.auction` is a Python property; query the reverse relation instead.
+        cars = list(Car.objects.filter(auction_history__isnull=True, status="active"))
         if not cars:
             self.stdout.write(self.style.WARNING("No available cars to auction."))
             return
@@ -47,7 +48,9 @@ class Command(BaseCommand):
                 damage_type=damage_type,
                 damage_severity=severity,
                 estimated_repair_cost=5000 + (1000 * i),
-                status=status
+                status=status,
+                # Let the lifecycle worker open and close seeded lots on schedule.
+                lifecycle_managed=True,
             )
 
         self.stdout.write(self.style.SUCCESS("Successfully seeded auctions!"))

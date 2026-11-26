@@ -1,5 +1,10 @@
 import type { NextConfig } from "next";
 
+// A public demo must not be indexed as a real marketplace.
+const demoMode = ["true", "1", "yes"].includes(
+  (process.env.NEXT_PUBLIC_DEMO_MODE || "").toLowerCase(),
+);
+
 const nextConfig: NextConfig = {
   output: "standalone",
   async headers() {
@@ -14,6 +19,9 @@ const nextConfig: NextConfig = {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
           },
+          ...(demoMode
+            ? [{ key: "X-Robots-Tag", value: "noindex, nofollow" }]
+            : []),
         ],
       },
       {

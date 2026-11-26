@@ -7,12 +7,19 @@ from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get(
-    "DJANGO_SECRET_KEY",
-    "django-insecure-driviocars-dev-key-change-in-production-2024",
-)
-
 DEBUG = os.environ.get("DJANGO_DEBUG", "True").lower() in ("true", "1", "yes")
+
+# Public demo: production security settings with simulated checkout only.
+# See deployment/DEPLOY.md. Never combine with real payment providers.
+DEMO_MODE = os.environ.get("DEMO_MODE", "False").lower() in ("true", "1", "yes")
+
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "")
+if not SECRET_KEY:
+    if not DEBUG:
+        from django.core.exceptions import ImproperlyConfigured
+
+        raise ImproperlyConfigured("Set DJANGO_SECRET_KEY when DJANGO_DEBUG is off.")
+    SECRET_KEY = "django-insecure-driviocars-dev-key-change-in-production-2024"
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 
@@ -243,7 +250,7 @@ MARKETPLACE_EXPRESS_FEE = os.environ.get("MARKETPLACE_EXPRESS_FEE", "25.00")
 CART_RESERVATION_MINUTES = int(os.environ.get("CART_RESERVATION_MINUTES", "35"))
 AUCTION_PAYMENT_HOURS = int(os.environ.get("AUCTION_PAYMENT_HOURS", "24"))
 RETURN_WINDOW_DAYS = int(os.environ.get("RETURN_WINDOW_DAYS", "7"))
-PAYMENTS_MODE = os.environ.get("PAYMENTS_MODE", "test" if DEBUG else "stripe")
+PAYMENTS_MODE = os.environ.get("PAYMENTS_MODE", "test" if DEBUG or DEMO_MODE else "stripe")
 CELERY_BEAT_SCHEDULE = {"marketplace-lifecycle": {"task": "apps.core.tasks.tick_marketplace", "schedule": 10.0}}
 
 STRIPE_CONNECT_COUNTRY = os.environ.get("STRIPE_CONNECT_COUNTRY", "IN")
@@ -274,4 +281,4 @@ LEGAL_BUSINESS_ADDRESS = os.environ.get("LEGAL_BUSINESS_ADDRESS", "")
 EMAIL_FILE_PATH = os.environ.get("EMAIL_FILE_PATH", BASE_DIR / "mail")
 REQUIRE_WORKER_HEALTH = os.environ.get("REQUIRE_WORKER_HEALTH", "False" if DEBUG else "True").lower() in ("true", "1", "yes")
 
-REQUIRE_VERIFIED_EMAIL_FOR_BIDDING = os.environ.get("REQUIRE_VERIFIED_EMAIL_FOR_BIDDING", "False" if DEBUG else "True").lower() in ("true", "1", "yes")
+REQUIRE_VERIFIED_EMAIL_FOR_BIDDING = os.environ.get("REQUIRE_VERIFIED_EMAIL_FOR_BIDDING", "False" if DEBUG or DEMO_MODE else "True").lower() in ("true", "1", "yes")
